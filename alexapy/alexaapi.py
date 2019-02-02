@@ -11,7 +11,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 class AlexaAPI():
-    """Class for accessing a specific Alexa device using API.
+    """Class for accessing a specific Alexa device using rest API.
 
     Args:
     device (AlexaClient): Instance of an AlexaClient to access
