@@ -1,42 +1,70 @@
-import requests
+"""
+Python Package for controlling Alexa devices (echo dot, etc) programmatically.
+
+For more details about this api, please refer to the documentation at
+https://gitlab.com/keatontaylor/alexapy
+VERSION 1.0.0
+"""
 import logging
 
 _LOGGER = logging.getLogger(__name__)
 
-class AlexaAPI():
-    """Class for accessing Alexa."""
 
-    def __init__(self, device, session, url):
+class AlexaAPI():
+    """Class for accessing a specific Alexa device using API.
+
+    Args:
+    device (AlexaClient): Instance of an AlexaClient to access
+    login (AlexaLogin): Successfully logged in AlexaLogin
+    """
+
+    def __init__(self, device, login):
         """Initialize Alexa device."""
         self._device = device
-        self.session = session
-        self._url = 'https://alexa.' + url
+        self._session = login._session
+        self._url = 'https://alexa.' + login._url
 
-        csrf = self.session.cookies.get_dict()['csrf']
-        self.session.headers['csrf'] = csrf
+        csrf = self._session.cookies.get_dict()['csrf']
+        self._session.headers['csrf'] = csrf
 
+    def _catchAllExceptions(func):
+        import functools
+
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            try:
+                return func(*args, **kwargs)
+            except Exception as ex:
+                template = ("An exception of type {0} occurred."
+                            " Arguments:\n{1!r}")
+                message = template.format(type(ex).__name__, ex.args)
+                _LOGGER.error(("An error occured accessing AlexaAPI: "
+                               "{}").format(message))
+                return None
+        return wrapper
+
+    @_catchAllExceptions
     def _post_request(self, uri, data):
-        try:
-            self.session.post(self._url + uri, json=data)
-        except Exception as ex:
-            template = ("An exception of type {0} occurred."
-                        " Arguments:\n{1!r}")
-            message = template.format(type(ex).__name__, ex.args)
-            _LOGGER.error("An error occured accessing the API: {}".format(
-                message))
+        self._session.post(self._url + uri, json=data)
 
+    @_catchAllExceptions
     def _get_request(self, uri, data=None):
-        try:
-            return self.session.get(self._url + uri, json=data)
-        except Exception as ex:
-            template = ("An exception of type {0} occurred."
-                        " Arguments:\n{1!r}")
-            message = template.format(type(ex).__name__, ex.args)
-            _LOGGER.error("An error occured accessing the API: {}".format(
-                message))
+        return self._session.get(self._url + uri, json=data)
+
+    @_catchAllExceptions
+    def get_last_device_serial(self):
+        """Identify the last device's serial number."""
+        response = self._get_request('/api/activities?'
+                                     'startTime=&size=1&offset=1')
+        last_activity = response.json()['activities'][0]
+        # Ignore discarded activity records
+        if (last_activity['activityStatus'][0]
+                != 'DISCARDED_NON_DEVICE_DIRECTED_INTENT'):
+            return last_activity['sourceDeviceIds'][0]['serialNumber']
+        else:
             return None
 
-    def play_music(self, provider_id, search_phrase):
+    def play_music(self, provider_id, search_phrase, customer_id=None):
         """Play Music based on search."""
         data = {
             "behaviorId": "PREVIEW",
@@ -48,16 +76,19 @@ class AlexaAPI():
             {\"deviceType\":\"" + self._device._device_type + "\", \
             \"deviceSerialNumber\":\"" + self._device.unique_id +
             "\",\"locale\":\"en-US\", \
-            \"customerId\":\"" + self._device._device_owner_customer_id +
+            \"customerId\":\"" + (customer_id
+                                  if customer_id is not None
+                                  else self._device_owner_customer_id) +
             "\", \"searchPhrase\": \"" + search_phrase + "\", \
              \"sanitizedSearchPhrase\": \"" + search_phrase + "\", \
              \"musicProviderId\": \"" + provider_id + "\"}}}",
             "status": "ENABLED"
         }
+
         self._post_request('/api/behaviors/preview',
                            data=data)
 
-    def send_tts(self, message):
+    def send_tts(self, message, customer_id=None):
         """Send message for TTS at speaker."""
         data = {
             "behaviorId": "PREVIEW",
@@ -69,7 +100,9 @@ class AlexaAPI():
             {\"deviceType\":\"" + self._device._device_type + "\", \
             \"deviceSerialNumber\":\"" + self._device.unique_id +
             "\",\"locale\":\"en-US\", \
-            \"customerId\":\"" + self._device._device_owner_customer_id +
+            \"customerId\":\"" + (customer_id
+                                  if customer_id is not None
+                                  else self._device_owner_customer_id) +
             "\", \"textToSpeak\": \"" + message + "\"}}}",
             "status": "ENABLED"
         }
@@ -103,29 +136,25 @@ class AlexaAPI():
         self.set_media({"type": "VolumeLevelCommand",
                         "volumeLevel": volume*100})
 
+    @_catchAllExceptions
     def get_state(self):
-        """Get state."""
+        """Get playing state."""
         response = self._get_request('/api/np/player?deviceSerialNumber=' +
-                                     self._device.unique_id + '&deviceType=' +
+                                     self._device.unique_id +
+                                     '&deviceType=' +
                                      self._device._device_type +
                                      '&screenWidth=2560')
-        return response
+        return response.json()
 
     @staticmethod
-    def get_bluetooth(url, session):
+    @_catchAllExceptions
+    def get_bluetooth(login):
         """Get paired bluetooth devices."""
-        try:
-
-            response = session.get('https://alexa.' + url +
-                                   '/api/bluetooth?cached=false')
-            return response
-        except Exception as ex:
-            template = ("An exception of type {0} occurred."
-                        " Arguments:\n{1!r}")
-            message = template.format(type(ex).__name__, ex.args)
-            _LOGGER.error("An error occured accessing the API: {}".format(
-                message))
-            return None
+        session = login._session
+        url = login._url
+        response = session.get('https://alexa.' + url +
+                               '/api/bluetooth?cached=false')
+        return response.json()
 
     def set_bluetooth(self, mac):
         """Pair with bluetooth device with mac address."""
@@ -141,16 +170,21 @@ class AlexaAPI():
                            self._device.unique_id, data=None)
 
     @staticmethod
-    def get_devices(url, session):
+    @_catchAllExceptions
+    def get_devices(login):
         """Identify all Alexa devices."""
-        try:
-            response = session.get('https://alexa.' + url +
-                                   '/api/devices-v2/device')
-            return response.json()['devices']
-        except Exception as ex:
-            template = ("An exception of type {0} occurred."
-                        " Arguments:\n{1!r}")
-            message = template.format(type(ex).__name__, ex.args)
-            _LOGGER.error("An error occured accessing the API: {}".format(
-                message))
-            return None
+        session = login._session
+        url = login._url
+        response = session.get('https://alexa.' + url +
+                               '/api/devices-v2/device')
+        return response.json()['devices']
+
+    @staticmethod
+    @_catchAllExceptions
+    def get_authentication(login):
+        """Get authentication json."""
+        session = login._session
+        url = login._url
+        response = session.get('https://alexa.' + url +
+                               '/api/bootstrap')
+        return response.json()['authentication']
