@@ -178,10 +178,11 @@ class AlexaAPI():
 
     @staticmethod
     @_catchAllExceptions
-    def get_last_device_serial(self):
+    def get_last_device_serial(login):
         """Identify the last device's serial number."""
-        response = self._get_request('/api/activities?'
-                                     'startTime=&size=1&offset=1').json()
+        session = login._session
+        response = session._get_request('/api/activities?'
+                                        'startTime=&size=1&offset=1').json()
         if ('activityStatus' in response and
                 response is not None):
             last_activity = response['activities'][0]
