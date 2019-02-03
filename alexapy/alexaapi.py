@@ -51,19 +51,6 @@ class AlexaAPI():
     def _get_request(self, uri, data=None):
         return self._session.get(self._url + uri, json=data)
 
-    @_catchAllExceptions
-    def get_last_device_serial(self):
-        """Identify the last device's serial number."""
-        response = self._get_request('/api/activities?'
-                                     'startTime=&size=1&offset=1')
-        last_activity = response.json()['activities'][0]
-        # Ignore discarded activity records
-        if (last_activity['activityStatus'][0]
-                != 'DISCARDED_NON_DEVICE_DIRECTED_INTENT'):
-            return last_activity['sourceDeviceIds'][0]['serialNumber']
-        else:
-            return None
-
     def play_music(self, provider_id, search_phrase, customer_id=None):
         """Play Music based on search."""
         data = {
@@ -188,3 +175,20 @@ class AlexaAPI():
         response = session.get('https://alexa.' + url +
                                '/api/bootstrap')
         return response.json()['authentication']
+
+    @staticmethod
+    @_catchAllExceptions
+    def get_last_device_serial(self):
+        """Identify the last device's serial number."""
+        response = self._get_request('/api/activities?'
+                                     'startTime=&size=1&offset=1').json()
+        if ('activityStatus' in response and
+                response is not None):
+            last_activity = response['activities'][0]
+            # Ignore discarded activity records
+            if (last_activity['activityStatus'][0]
+                    != 'DISCARDED_NON_DEVICE_DIRECTED_INTENT'):
+                return (last_activity['sourceDeviceIds']
+                                     [0]
+                                     ['serialNumber'])
+        return None
