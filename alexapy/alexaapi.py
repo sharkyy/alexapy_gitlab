@@ -181,7 +181,8 @@ class AlexaAPI():
     def get_last_device_serial(login):
         """Identify the last device's serial number."""
         session = login._session
-        response = session.get('/api/activities?'
+        url = login._url
+        response = session.get('https://alexa.' + url + '/api/activities?'
                                'startTime=&size=1&offset=1').json()
         if ('activityStatus' in response and
                 response is not None):
