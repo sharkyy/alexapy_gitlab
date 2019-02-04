@@ -51,63 +51,48 @@ class AlexaAPI():
     def _get_request(self, uri, data=None):
         return self._session.get(self._url + uri, json=data)
 
-    @_catchAllExceptions
-    def get_last_device_serial(self):
-        """Identify the last device's serial number."""
-        response = self._get_request('/api/activities?'
-                                     'startTime=&size=1&offset=1')
-        last_activity = response.json()['activities'][0]
-        # Ignore discarded activity records
-        if (last_activity['activityStatus'][0]
-                != 'DISCARDED_NON_DEVICE_DIRECTED_INTENT'):
-            return last_activity['sourceDeviceIds'][0]['serialNumber']
-        else:
-            return None
+    def send_sequence(self, sequence, customer_id=None, **kwargs):
+        """Send message for Sequence echo."""
+        def _operationpayload(**kwargs):
+            response = ""
+            for key, value in kwargs.items():
+                response += '\"{}\":\"{}\", '.format(key, value)
+            return response[0:-2]
+
+        data = {
+            "behaviorId": "PREVIEW",
+            "sequenceJson": "{\"@type\": \
+            \"com.amazon.alexa.behaviors.model.Sequence\", \
+            \"startNode\":{\"@type\": \
+            \"com.amazon.alexa.behaviors.model.OpaquePayloadOperationNode\", \
+            \"type\":\"" + sequence + "\",\"operationPayload\": \
+            {\"deviceType\":\"" + self._device._device_type + "\", \
+            \"deviceSerialNumber\":\"" + self._device.unique_id +
+            "\",\"locale\":\"en-US\", \
+            \"customerId\":\"" + (customer_id
+                                  if customer_id is not None
+                                  else self._device._device_owner_customer_id)
+            + "\","
+            + _operationpayload(**kwargs) +
+            "}}}",
+            "status": "ENABLED"
+        }
+        self._post_request('/api/behaviors/preview',
+                           data=data)
 
     def play_music(self, provider_id, search_phrase, customer_id=None):
         """Play Music based on search."""
-        data = {
-            "behaviorId": "PREVIEW",
-            "sequenceJson": "{\"@type\": \
-            \"com.amazon.alexa.behaviors.model.Sequence\", \
-            \"startNode\":{\"@type\": \
-            \"com.amazon.alexa.behaviors.model.OpaquePayloadOperationNode\", \
-            \"type\":\"Alexa.Music.PlaySearchPhrase\",\"operationPayload\": \
-            {\"deviceType\":\"" + self._device._device_type + "\", \
-            \"deviceSerialNumber\":\"" + self._device.unique_id +
-            "\",\"locale\":\"en-US\", \
-            \"customerId\":\"" + (customer_id
-                                  if customer_id is not None
-                                  else self._device_owner_customer_id) +
-            "\", \"searchPhrase\": \"" + search_phrase + "\", \
-             \"sanitizedSearchPhrase\": \"" + search_phrase + "\", \
-             \"musicProviderId\": \"" + provider_id + "\"}}}",
-            "status": "ENABLED"
-        }
-
-        self._post_request('/api/behaviors/preview',
-                           data=data)
+        self.send_sequence("Alexa.Music.PlaySearchPhrase",
+                           customer_id,
+                           searchPhrase=search_phrase,
+                           sanitizedSearchPhrase=search_phrase,
+                           musicProviderId=provider_id)
 
     def send_tts(self, message, customer_id=None):
         """Send message for TTS at speaker."""
-        data = {
-            "behaviorId": "PREVIEW",
-            "sequenceJson": "{\"@type\": \
-            \"com.amazon.alexa.behaviors.model.Sequence\", \
-            \"startNode\":{\"@type\": \
-            \"com.amazon.alexa.behaviors.model.OpaquePayloadOperationNode\", \
-            \"type\":\"Alexa.Speak\",\"operationPayload\": \
-            {\"deviceType\":\"" + self._device._device_type + "\", \
-            \"deviceSerialNumber\":\"" + self._device.unique_id +
-            "\",\"locale\":\"en-US\", \
-            \"customerId\":\"" + (customer_id
-                                  if customer_id is not None
-                                  else self._device_owner_customer_id) +
-            "\", \"textToSpeak\": \"" + message + "\"}}}",
-            "status": "ENABLED"
-        }
-        self._post_request('/api/behaviors/preview',
-                           data=data)
+        self.send_sequence("Alexa.Speak",
+                           customer_id,
+                           textToSpeak=message)
 
     def set_media(self, data):
         """Select the media player."""
