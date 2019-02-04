@@ -52,9 +52,38 @@ class AlexaAPI():
         return self._session.get(self._url + uri, json=data)
 
     def send_sequence(self, sequence, customer_id=None, **kwargs):
-        """Send message for Sequence echo."""
+        """Send sequence command.
+
+        This allows some programtic control of Echo device and is the basis
+        of play_music and send_tts.
+
+        Args:
+        sequence (string): The Alexa sequence.  Support list below:
+        customer_id (string): CustomerId to use for authorization. When none
+                              specified this defaults to the device owner. Used
+                              with households where others may have their own
+                              music
+        **kwargs : Each named variable must match a recognized Amazon variable
+                   within the operationPayload. Please see examples in
+                   play_music and send_tts.
+
+        Supported sequnces:
+        Alexa.Weather.Play
+        Alexa.Traffic.Play
+        Alexa.FlashBriefing.Play
+        Alexa.GoodMorning.Play
+        Alexa.GoodNight.Play
+        Alexa.SingASong.Play
+        Alexa.TellStory.Play
+        Alexa.FunFact.Play
+        Alexa.Joke.Play
+        Alexa.Music.PlaySearchPhrase
+        Alexa.Calendar.PlayTomorrow
+        Alexa.Calendar.PlayToday
+        Alexa.Calendar.PlayNext
+        """
         def _operationpayload(**kwargs):
-            response = ""
+            response = ","
             for key, value in kwargs.items():
                 response += '\"{}\":\"{}\", '.format(key, value)
             return response[0:-2]
@@ -72,7 +101,7 @@ class AlexaAPI():
             \"customerId\":\"" + (customer_id
                                   if customer_id is not None
                                   else self._device._device_owner_customer_id)
-            + "\","
+            + "\""
             + _operationpayload(**kwargs) +
             "}}}",
             "status": "ENABLED"
