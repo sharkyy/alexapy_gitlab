@@ -188,3 +188,34 @@ class AlexaAPI():
         response = session.get('https://alexa.' + url +
                                '/api/bootstrap')
         return response.json()['authentication']
+
+    @staticmethod
+    @_catchAllExceptions
+    def get_activities(login, items=10):
+        """Get activities json."""
+        session = login._session
+        url = login._url
+        response = session.get('https://alexa.' + url + '/api/activities?'
+                               'startTime=&size=' + str(items) + '&offset=1')
+        return response.json()['activities']
+
+    @staticmethod
+    def get_last_device_serial(login, items=10):
+        """Identify the last device's serial number.
+
+        This will pull the last items activity records and find the latest
+        entry where Echo successfully responded.
+        """
+        response = AlexaAPI.get_activities(login, items)
+        if (response is not None):
+            for last_activity in response:
+                # Ignore discarded activity records
+                if (last_activity['activityStatus']
+                        != 'DISCARDED_NON_DEVICE_DIRECTED_INTENT'):
+                    return {
+                            'serialNumber': (last_activity['sourceDeviceIds']
+                                                          [0]
+                                                          ['serialNumber']),
+                            'timestamp': last_activity['creationTimestamp']
+                            }
+        return None
