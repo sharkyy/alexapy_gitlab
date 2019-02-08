@@ -6,6 +6,8 @@ https://gitlab.com/keatontaylor/alexapy
 VERSION 1.0.0
 """
 import logging
+import json
+
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -21,6 +23,7 @@ class AlexaAPI():
     def __init__(self, device, login):
         """Initialize Alexa device."""
         self._device = device
+        self._login = login
         self._session = login._session
         self._url = 'https://alexa.' + login._url
 
@@ -45,29 +48,29 @@ class AlexaAPI():
 
     @_catchAllExceptions
     def _post_request(self, uri, data):
-        self._session.post(self._url + uri, json=data)
+        return self._session.post(self._url + uri, json=data)
 
     @_catchAllExceptions
     def _get_request(self, uri, data=None):
         return self._session.get(self._url + uri, json=data)
 
-    def send_sequence(self, sequence, customer_id=None, **kwargs):
+    def send_sequence(self, sequence, **kwargs):
         """Send sequence command.
 
-        This allows some programtic control of Echo device and is the basis
-        of play_music and send_tts.
+        This allows some programatic control of Echo device using the behaviors
+        API and is the basis of play_music and send_tts.
 
         Args:
-        sequence (string): The Alexa sequence.  Support list below:
-        customer_id (string): CustomerId to use for authorization. When none
-                              specified this defaults to the device owner. Used
-                              with households where others may have their own
-                              music
+        sequence (string): The Alexa sequence.  Supported list below.
+        customerId (string): CustomerId to use for authorization. When none
+                             specified this defaults to the device owner. Used
+                             with households where others may have their own
+                             music.
         **kwargs : Each named variable must match a recognized Amazon variable
                    within the operationPayload. Please see examples in
                    play_music and send_tts.
 
-        Supported sequnces:
+        Supported sequences:
         Alexa.Weather.Play
         Alexa.Traffic.Play
         Alexa.FlashBriefing.Play
@@ -82,45 +85,83 @@ class AlexaAPI():
         Alexa.Calendar.PlayToday
         Alexa.Calendar.PlayNext
         """
-        def _operationpayload(**kwargs):
-            response = ","
-            for key, value in kwargs.items():
-                response += '\"{}\":\"{}\", '.format(key, value)
-            return response[0:-2]
-
+        operationPayload = {
+                "deviceType": self._device._device_type,
+                "deviceSerialNumber": self._device.unique_id,
+                "locale": "en-US",
+                "customerId": self._device._device_owner_customer_id
+               }
+        if kwargs is not None:
+            operationPayload.update(kwargs)
+        sequenceJson = {
+            "@type": "com.amazon.alexa.behaviors.model.Sequence",
+            "startNode": {
+                 "@type":
+                 "com.amazon.alexa.behaviors.model.OpaquePayloadOperationNode",
+                 "type": sequence,
+                 "operationPayload": operationPayload
+                }
+        }
         data = {
             "behaviorId": "PREVIEW",
-            "sequenceJson": "{\"@type\": \
-            \"com.amazon.alexa.behaviors.model.Sequence\", \
-            \"startNode\":{\"@type\": \
-            \"com.amazon.alexa.behaviors.model.OpaquePayloadOperationNode\", \
-            \"type\":\"" + sequence + "\",\"operationPayload\": \
-            {\"deviceType\":\"" + self._device._device_type + "\", \
-            \"deviceSerialNumber\":\"" + self._device.unique_id +
-            "\",\"locale\":\"en-US\", \
-            \"customerId\":\"" + (customer_id
-                                  if customer_id is not None
-                                  else self._device._device_owner_customer_id)
-            + "\""
-            + _operationpayload(**kwargs) +
-            "}}}",
+            "sequenceJson": json.dumps(sequenceJson),
             "status": "ENABLED"
         }
+        _LOGGER.debug("Running sequence: %s data: %s" % (sequence,
+                                                         json.dumps(data)))
         self._post_request('/api/behaviors/preview',
                            data=data)
 
-    def play_music(self, provider_id, search_phrase, customer_id=None):
+    def run_routine(self, utterance):
+        """Run Alexa automation routine.
+
+        This allows running of defined Alexa automation routines.
+
+        Args:
+        utterance (string): The Alexa utterance to run the routine.
+        """
+        automations = AlexaAPI.get_automations(self._login)
+        automationId = None
+        sequence = None
+        for automation in automations:
+            a_utterance = automation['triggers'][0]['payload']['utterance']
+            if (a_utterance is not None and
+                    a_utterance.lower() == utterance.lower()):
+                automationId = automation['automationId']
+                sequence = automation['sequence']
+        if (automationId is None or sequence is None):
+            _LOGGER.debug("No routine found for %s" % (utterance))
+            return
+        newNodes = []
+        for node in sequence['startNode']['nodesToExecute']:
+            node['operationPayload']['deviceType'] = self._device._device_type
+            (node['operationPayload']
+                 ['deviceSerialNumber']) = self._device.unique_id
+            newNodes.append(node)
+        sequence['startNode']['nodesToExecute'] = newNodes
+
+        data = {
+            "behaviorId": automationId,
+            "sequenceJson": json.dumps(sequence),
+            "status": "ENABLED"
+        }
+        _LOGGER.debug("Running routine: %s with data: %s" % (utterance,
+                                                             json.dumps(data)))
+        self._post_request('/api/behaviors/preview',
+                           data=data)
+
+    def play_music(self, provider_id, search_phrase, customerId=None):
         """Play Music based on search."""
         self.send_sequence("Alexa.Music.PlaySearchPhrase",
-                           customer_id,
+                           customerId=customerId,
                            searchPhrase=search_phrase,
                            sanitizedSearchPhrase=search_phrase,
                            musicProviderId=provider_id)
 
-    def send_tts(self, message, customer_id=None):
+    def send_tts(self, message, customerId=None):
         """Send message for TTS at speaker."""
         self.send_sequence("Alexa.Speak",
-                           customer_id,
+                           customerId=customerId,
                            textToSpeak=message)
 
     def set_media(self, data):
@@ -212,6 +253,16 @@ class AlexaAPI():
         response = session.get('https://alexa.' + url + '/api/activities?'
                                'startTime=&size=' + str(items) + '&offset=1')
         return response.json()['activities']
+
+    @staticmethod
+    @_catchAllExceptions
+    def get_automations(login):
+        """Identify all Alexa automations."""
+        session = login._session
+        url = login._url
+        response = session.get('https://alexa.' + url +
+                               '/api/behaviors/automations')
+        return response.json()
 
     @staticmethod
     def get_last_device_serial(login, items=10):
