@@ -20,6 +20,8 @@ class AlexaAPI():
     login (AlexaLogin): Successfully logged in AlexaLogin
     """
 
+    devices = {}  # dictionary for lookup of deviceId/deviceType
+
     def __init__(self, device, login):
         """Initialize Alexa device."""
         self._device = device
@@ -58,7 +60,7 @@ class AlexaAPI():
         """Send sequence command.
 
         This allows some programatic control of Echo device using the behaviors
-        API and is the basis of play_music and send_tts.
+        API and is the basis of play_music, send_announcement, and send_tts.
 
         Args:
         sequence (string): The Alexa sequence.  Supported list below.
@@ -68,7 +70,7 @@ class AlexaAPI():
                              music.
         **kwargs : Each named variable must match a recognized Amazon variable
                    within the operationPayload. Please see examples in
-                   play_music and send_tts.
+                   play_music, send_announcement, and send_tts.
 
         Supported sequences:
         Alexa.Weather.Play
@@ -80,6 +82,7 @@ class AlexaAPI():
         Alexa.TellStory.Play
         Alexa.FunFact.Play
         Alexa.Joke.Play
+        Alexa.CleanUp.Play
         Alexa.Music.PlaySearchPhrase
         Alexa.Calendar.PlayTomorrow
         Alexa.Calendar.PlayToday
@@ -159,10 +162,62 @@ class AlexaAPI():
                            musicProviderId=provider_id)
 
     def send_tts(self, message, customerId=None):
-        """Send message for TTS at speaker."""
+        """Send message for TTS at speaker.
+
+        This is the old method which used Alexa Simon Says which did not work
+        for WHA. This will not beep prior to sending. send_announcement
+        should be used instead.
+
+        Args:
+        message (string): The message to speak
+        customerId (string): CustomerId to use for authorization. When none
+                             specified this defaults to the device owner. Used
+                             with households where others may have their own
+                             music.
+        """
         self.send_sequence("Alexa.Speak",
                            customerId=customerId,
                            textToSpeak=message)
+
+    def send_announcement(self, message, method="all", customerId=None):
+        """Send announcment to Alexa devices.
+
+        This uses the AlexaAnnouncement and allows visual display on the Show.
+        It will beep prior to speaking.
+
+        Args:
+        message (string): The message to speak or display.
+        method (string): speak, show, or all
+        customerId (string): CustomerId to use for authorization. When none
+                             specified this defaults to the device owner. Used
+                             with households where others may have their own
+                             music.
+        """
+        display = ({"title": "", "body": ""} if method.lower() == "speak" else
+                   {"title": "Alexa Announcement", "body": message})
+        speak = ({"type": "text", "value": ""} if method.lower() == "show" else
+                 {"type": "text", "value": message})
+        content = [{"locale": "en-US",
+                    "display": display,
+                    "speak": speak}]
+        devices = []
+        if (self._device._device_family == "WHA"):
+            # Build group of devices based off _cluster_members
+            for dev in AlexaAPI.devices:
+                if dev['serialNumber'] in self._device._cluster_members:
+                    devices.append({"deviceSerialNumber": dev['serialNumber'],
+                                    "deviceTypeId": dev['deviceType']})
+        else:
+            devices.append({"deviceSerialNumber": self._device.unique_id,
+                            "deviceTypeId": self._device._device_type})
+
+        target = {"customerId": customerId,
+                  "devices": devices}
+        self.send_sequence("AlexaAnnouncement",
+                           customerId=customerId,
+                           expireAfter="PT5S",
+                           content=content,
+                           target=target)
 
     def set_media(self, data):
         """Select the media player."""
@@ -233,6 +288,7 @@ class AlexaAPI():
         url = login._url
         response = session.get('https://alexa.' + url +
                                '/api/devices-v2/device')
+        AlexaAPI.devices = response.json()['devices']
         return response.json()['devices']
 
     @staticmethod
