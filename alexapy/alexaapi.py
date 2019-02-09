@@ -190,6 +190,7 @@ class AlexaAPI():
         """Set volume."""
         self.set_media({"type": "VolumeLevelCommand",
                         "volumeLevel": volume*100})
+        self.send_sequence("Alexa.DeviceControls.Volume", value=volume*100)
 
     @_catchAllExceptions
     def get_state(self):
