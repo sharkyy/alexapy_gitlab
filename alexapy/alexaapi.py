@@ -176,6 +176,66 @@ class AlexaAPI():
                            customerId=customer_id,
                            textToSpeak=message)
 
+    def send_announcement(self, message, method="all", customerId=None):
+        """Send announcment to Alexa devices.
+
+        This uses the AlexaAnnouncement and allows visual display on the Show.
+        It will beep prior to speaking.
+
+        Args:
+        message (string): The message to speak or display.
+        method (string): speak, show, or all
+        customerId (string): CustomerId to use for authorization. When none
+                             specified this defaults to the device owner. Used
+                             with households where others may have their own
+                             music.
+        """
+        display = ({"title": "", "body": ""} if method.lower() == "speak" else
+                   {"title": "Alexa Announcement", "body": message})
+        speak = ({"type": "text", "value": ""} if method.lower() == "show" else
+                 {"type": "text", "value": message})
+        content = [{"locale": "en-US",
+                    "display": display,
+                    "speak": speak}]
+        devices = []
+        if (self._device._device_family == "WHA"):
+            # Build group of devices based off _cluster_members
+            for dev in AlexaAPI.devices:
+                if dev['serialNumber'] in self._device._cluster_members:
+                    devices.append({"deviceSerialNumber": dev['serialNumber'],
+                                    "deviceTypeId": dev['deviceType']})
+        else:
+            devices.append({"deviceSerialNumber": self._device.unique_id,
+                            "deviceTypeId": self._device._device_type})
+
+        target = {"customerId": customerId,
+                  "devices": devices}
+        self.send_sequence("AlexaAnnouncement",
+                           customerId=customerId,
+                           expireAfter="PT5S",
+                           content=content,
+                           target=target)
+
+    def send_mobilepush(self, message, title="AlexaAPI Message",
+                        target=None):
+        """Send announcment to Alexa devices.
+
+        Push a message to mobile devices with the Alexa App. This probably
+        should be a static method.
+
+        Args:
+        message (string): The message to push to the mobile device.
+        title (string): Title for push notification
+        target (string): CustomerId to use for sending. When none
+                         specified this defaults to the device owner.
+        """
+        self.send_sequence("Alexa.Notifications.SendMobilePush",
+                           customerId=(target if target is not None else
+                                       self._device._device_owner_customer_id),
+                           notificationMessage=message,
+                           alexaUrl="#v2/behaviors",
+                           title=title)
+
     def set_media(self, data):
         """Select the media player."""
         self._post_request('/api/np/command?deviceSerialNumber=' +
