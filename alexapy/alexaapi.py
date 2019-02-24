@@ -133,13 +133,19 @@ class AlexaAPI():
             _LOGGER.debug("No routine found for %s" % (utterance))
             return
         newNodes = []
-        for node in sequence['startNode']['nodesToExecute']:
-            node['operationPayload']['deviceType'] = self._device._device_type
-            (node['operationPayload']
-                 ['deviceSerialNumber']) = self._device.unique_id
-            newNodes.append(node)
-        sequence['startNode']['nodesToExecute'] = newNodes
-
+        if 'nodesToExecute' in sequence['startNode']:
+            for node in sequence['startNode']['nodesToExecute']:
+                (node['operationPayload']
+                     ['deviceType']) = self._device._device_type
+                (node['operationPayload']
+                     ['deviceSerialNumber']) = self._device.unique_id
+                newNodes.append(node)
+            sequence['startNode']['nodesToExecute'] = newNodes
+        else:
+            (sequence['startNode']['operationPayload']
+                     ['deviceType']) = self._device._device_type
+            (sequence['startNode']['operationPayload']
+                     ['deviceSerialNumber']) = self._device.unique_id
         data = {
             "behaviorId": automationId,
             "sequenceJson": json.dumps(sequence),
