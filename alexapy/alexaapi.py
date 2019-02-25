@@ -5,9 +5,8 @@ For more details about this api, please refer to the documentation at
 https://gitlab.com/keatontaylor/alexapy
 VERSION 1.0.0
 """
-import logging
 import json
-
+import logging
 
 _LOGGER = logging.getLogger(__name__)
 

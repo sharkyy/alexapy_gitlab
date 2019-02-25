@@ -6,8 +6,9 @@ https://gitlab.com/keatontaylor/alexapy
 VERSION 1.0.0
 """
 
-import requests
 import logging
+
+import requests
 
 _LOGGER = logging.getLogger(__name__)
 
