@@ -41,8 +41,8 @@ class AlexaAPI():
         """Initialize Alexa device."""
         self._device = device
         self._login = login
-        self._session = login.get_session()
-        self._url = 'https://alexa.' + login.url
+        self._session = login.get_session
+        self._url = 'https://alexa.' + login.get_url
 
         csrf = self._session.cookies.get_dict()['csrf']
         self._session.headers['csrf'] = csrf
@@ -218,8 +218,8 @@ class AlexaAPI():
     @_catch_all_exceptions
     def get_bluetooth(login):
         """Get paired bluetooth devices."""
-        session = login.get_session()
-        url = login.url
+        session = login.get_session
+        url = login.get_url
         response = session.get('https://alexa.' + url +
                                '/api/bluetooth?cached=false')
         return response.json()
@@ -241,8 +241,8 @@ class AlexaAPI():
     @_catch_all_exceptions
     def get_devices(login):
         """Identify all Alexa devices."""
-        session = login.get_session()
-        url = login.url
+        session = login.get_session
+        url = login.get_url
         response = session.get('https://alexa.' + url +
                                '/api/devices-v2/device')
         return response.json()['devices']
@@ -251,8 +251,8 @@ class AlexaAPI():
     @_catch_all_exceptions
     def get_authentication(login):
         """Get authentication json."""
-        session = login.get_session()
-        url = login.url
+        session = login.get_session
+        url = login.get_url
         response = session.get('https://alexa.' + url +
                                '/api/bootstrap')
         return response.json()['authentication']
@@ -261,8 +261,8 @@ class AlexaAPI():
     @_catch_all_exceptions
     def get_activities(login, items=10):
         """Get activities json."""
-        session = login.get_session()
-        url = login.url
+        session = login.get_session
+        url = login.get_url
         response = session.get('https://alexa.' + url + '/api/activities?'
                                'startTime=&size=' + str(items) + '&offset=1')
         return response.json()['activities']
@@ -271,8 +271,8 @@ class AlexaAPI():
     @_catch_all_exceptions
     def get_automations(login):
         """Identify all Alexa automations."""
-        session = login.get_session()
-        url = login.url
+        session = login.get_session
+        url = login.get_url
         response = session.get('https://alexa.' + url +
                                '/api/behaviors/automations')
         return response.json()
