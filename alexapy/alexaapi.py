@@ -41,7 +41,7 @@ class AlexaAPI():
         """Initialize Alexa device."""
         self._device = device
         self._login = login
-        self._session = login.session
+        self._session = login.get_session()
         self._url = 'https://alexa.' + login.url
 
         csrf = self._session.cookies.get_dict()['csrf']
@@ -218,7 +218,7 @@ class AlexaAPI():
     @_catch_all_exceptions
     def get_bluetooth(login):
         """Get paired bluetooth devices."""
-        session = login.session
+        session = login.get_session()
         url = login.url
         response = session.get('https://alexa.' + url +
                                '/api/bluetooth?cached=false')
@@ -241,7 +241,7 @@ class AlexaAPI():
     @_catch_all_exceptions
     def get_devices(login):
         """Identify all Alexa devices."""
-        session = login.session
+        session = login.get_session()
         url = login.url
         response = session.get('https://alexa.' + url +
                                '/api/devices-v2/device')
@@ -251,7 +251,7 @@ class AlexaAPI():
     @_catch_all_exceptions
     def get_authentication(login):
         """Get authentication json."""
-        session = login.session
+        session = login.get_session()
         url = login.url
         response = session.get('https://alexa.' + url +
                                '/api/bootstrap')
@@ -261,7 +261,7 @@ class AlexaAPI():
     @_catch_all_exceptions
     def get_activities(login, items=10):
         """Get activities json."""
-        session = login.session
+        session = login.get_session()
         url = login.url
         response = session.get('https://alexa.' + url + '/api/activities?'
                                'startTime=&size=' + str(items) + '&offset=1')
@@ -271,7 +271,7 @@ class AlexaAPI():
     @_catch_all_exceptions
     def get_automations(login):
         """Identify all Alexa automations."""
-        session = login.session
+        session = login.get_session()
         url = login.url
         response = session.get('https://alexa.' + url +
                                '/api/behaviors/automations')
