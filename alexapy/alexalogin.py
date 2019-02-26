@@ -46,17 +46,17 @@ class AlexaLogin():
         self.login_with_cookie()
 
     @property
-    def get_email(self):
+    def email(self):
         """Return email for this Login."""
         return self._email
 
     @property
-    def get_session(self):
+    def session(self):
         """Return session for this Login."""
         return self._session
 
     @property
-    def get_url(self):
+    def url(self):
         """Return session for this Login."""
         return self._url
 
