@@ -195,6 +195,7 @@ class AlexaAPI():
 
     def send_announcement(self, message,
                           method="all",
+                          title="Announcement",
                           customer_id=None,
                           targets=None):
         # pylint: disable=too-many-arguments
@@ -206,6 +207,7 @@ class AlexaAPI():
         Args:
         message (string): The message to speak or display.
         method (string): speak, show, or all
+        title (string): title to display on Echo show
         customerId (string): CustomerId to use for authorization. When none
                              specified this defaults to the device owner. Used
                              with households where others may have their own
@@ -216,7 +218,7 @@ class AlexaAPI():
                                 will be self.
         """
         display = ({"title": "", "body": ""} if method.lower() == "speak" else
-                   {"title": "Alexa Announcement", "body": message})
+                   {"title": title, "body": message})
         speak = ({"type": "text", "value": ""} if method.lower() == "show" else
                  {"type": "text", "value": message})
         content = [{"locale": "en-US",
