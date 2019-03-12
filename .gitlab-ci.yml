@@ -8,13 +8,13 @@ stages:
 
 before_script:
    - pip install twine
-   - make init
-
-lint:
-  stage: test
-  script:
-    - make lint
-    - make typing
+#    - make init
+#
+# lint:
+#   stage: test
+#   script:
+#     - make lint
+#     - make typing
 
 deploy_production:
   stage: deploy
