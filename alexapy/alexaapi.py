@@ -250,7 +250,7 @@ class AlexaAPI():
                            target=target)
 
     def send_mobilepush(self, message, title="AlexaAPI Message",
-                        target=None):
+                        customer_id=None):
         """Send announcment to Alexa devices.
 
         Push a message to mobile devices with the Alexa App. This probably
@@ -259,11 +259,12 @@ class AlexaAPI():
         Args:
         message (string): The message to push to the mobile device.
         title (string): Title for push notification
-        target (string): CustomerId to use for sending. When none
-                         specified this defaults to the device owner.
+        customer_id (string): CustomerId to use for sending. When none
+                              specified this defaults to the device owner.
         """
         self.send_sequence("Alexa.Notifications.SendMobilePush",
-                           customerId=(target if target is not None else
+                           customerId=(customer_id if customer_id is not None
+                                       else
                                        self._device._device_owner_customer_id),
                            notificationMessage=message,
                            alexaUrl="#v2/behaviors",
