@@ -49,12 +49,9 @@ class WebsocketEchoClient(Thread):
 
     def run(self):
         """Start WebSocket Listener."""
-        while True:
-            self.websocket.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE},
-                                       ping_interval=180,
-                                       ping_timeout=20)
-            _LOGGER.debug("WebSocket Error. Retry connection in 10 seconds.")
-            time.sleep(10)
+        self.websocket.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE},
+                                   ping_interval=180,
+                                   ping_timeout=20)
 
     def on_message(self, message):
         # pylint: disable=too-many-statements
