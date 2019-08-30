@@ -483,7 +483,7 @@ class AlexaLogin():
                                            site)
                 assert search_results is not None
                 site = search_results.groups()[0] + "/verify"
-                _LOGGER.debug("Found post url to verify; convertingto %s",
+                _LOGGER.debug("Found post url to verify; converting to %s",
                               site)
             elif formsite:
                 site = formsite
