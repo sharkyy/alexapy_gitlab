@@ -196,7 +196,6 @@ class AlexaLogin():
                                "please try to relogin but if this persists "
                                "this is unrecoverable, please report"),
                               ex)
-                self.reset_login()
                 return False
             self._cookies = cookies
         assert self._session is not None
