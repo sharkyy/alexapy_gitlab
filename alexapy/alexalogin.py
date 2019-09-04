@@ -202,6 +202,7 @@ class AlexaLogin():
         get_resp = await self._session.get('https://alexa.' + self._url +
                                            '/api/bootstrap',
                                            cookies=self._cookies,
+                                           headers=self._headers,
                                            ssl=self._ssl
                                            )
         from simplejson import JSONDecodeError as SimpleJSONDecodeError
