@@ -62,7 +62,7 @@ class AlexaLogin():
                                                                 email))
         self._lastreq: Optional[aiohttp.ClientResponse] = None
         self._debug: bool = debug
-        self._links: Optional[Dict[Text, Tuple[Text, Text]]] = {}
+        self._links: Optional[Dict[Text, Tuple[Text, URL]]] = {}
         self._options: Optional[Dict[Text, Text]] = {}
 
     @property
@@ -196,13 +196,13 @@ class AlexaLogin():
                                "please try to relogin but if this persists "
                                "this is unrecoverable, please report"),
                               ex)
-                self.reset_login()
                 return False
             self._cookies = cookies
         assert self._session is not None
         get_resp = await self._session.get('https://alexa.' + self._url +
                                            '/api/bootstrap',
                                            cookies=self._cookies,
+                                           headers=self._headers,
                                            ssl=self._ssl
                                            )
         from simplejson import JSONDecodeError as SimpleJSONDecodeError
@@ -222,7 +222,6 @@ class AlexaLogin():
             _LOGGER.debug("Logged in as %s", email)
             return True
         _LOGGER.debug("Not logged in due to email mismatch")
-        self.reset_login()
         return False
 
     def _create_session(self) -> None:
@@ -241,17 +240,25 @@ class AlexaLogin():
                 'Accept-Language': '*'
             }
 
-    def _prepare_cookies_from_session(self, site: URL) -> None:
-        """Update self._cookies from aiohttp session."""
-        assert self._session is not None
+    def _prepare_cookies_from_resp(self, resp: aiohttp.ClientResponse) -> None:
+        """Update self._cookies from aiohttp response."""
         from http.cookies import BaseCookie
-        cookies: BaseCookie = \
-            self._session.cookie_jar.filter_cookies(URL(site))
+        site: URL = resp.url
+        cookies: BaseCookie = resp.cookies
         assert self._cookies is not None
         for _, cookie in cookies.items():
-            # _LOGGER.debug('Key: "%s", Value: "%s"' %
-            #               (cookie.key, cookie.value))
-            self._cookies[cookie.key] = cookie.value
+            oldvalue = self._cookies[cookie.key] \
+                if cookie.key in self._cookies else ""
+            # if (oldvalue != cookie.coded_value and
+            #         cookie.coded_value != '-'):
+            if self._debug:
+                _LOGGER.debug(
+                    '%s: key: %s value: %s -> %s',
+                    site.host,
+                    cookie.key,
+                    oldvalue,
+                    cookie.coded_value)
+            self._cookies[cookie.key] = cookie.coded_value
 
     async def login(self,
                     cookies: Optional[Dict[Text, Text]] = None,
@@ -260,7 +267,7 @@ class AlexaLogin():
         # pylint: disable=too-many-statements
         """Login to Amazon."""
         data = data or {}
-        if (cookies is not None and await self.test_loggedin(cookies)):
+        if (cookies and await self.test_loggedin(cookies)):
             _LOGGER.debug("Using cookies to log in")
             self.status = {}
             self.status['login_successful'] = True
@@ -269,7 +276,7 @@ class AlexaLogin():
         _LOGGER.debug("No valid cookies for log in; using credentials")
         #  site = 'https://www.' + self._url + '/gp/sign-in.html'
         #  use alexa site instead
-        site: Text = 'https://alexa.' + self._url
+        site: URL = URL('https://alexa.' + self._url)
         self._create_session()
         assert self._session is not None
         #  This will process links which is used for debug only to force going
@@ -293,7 +300,7 @@ class AlexaLogin():
                                   data[datum])
         if not digit and self._lastreq is not None:
             assert self._lastreq is not None
-            site = str(self._lastreq.url)
+            site = self._lastreq.url
             _LOGGER.debug("Loaded last request to %s ", site)
             resp = self._lastreq
         else:
@@ -310,14 +317,13 @@ class AlexaLogin():
             else:
                 _LOGGER.debug("Get to %s was not redirected", site)
                 self._headers['Referer'] = str(site)
-        html: Text = await resp.text()
         if self._debug:
             import aiofiles
             async with aiofiles.open(self._debugget, mode='wb') as localfile:
                 await localfile.write(await resp.read())
 
-        self._prepare_cookies_from_session(URL(site))
-        site = await self._process_page(html, site)
+        self._prepare_cookies_from_resp(resp)
+        site = await self._process_page(resp)
         missing_params = self._populate_data(site, data)
         if self._debug:
             from json import dumps
@@ -340,10 +346,10 @@ class AlexaLogin():
                 async with aiofiles.open(self._debugpost,
                                          mode='wb') as localfile:
                     await localfile.write(await post_resp.read())
-            self._prepare_cookies_from_session(URL(site))
-            site = await self._process_page(await post_resp.text(), site)
+            self._prepare_cookies_from_resp(post_resp)
+            site = await self._process_page(post_resp)
 
-    async def _process_page(self, html: str, site: Text) -> Text:
+    async def _process_page(self, resp: aiohttp.ClientResponse) -> URL:
         # pylint: disable=too-many-branches,too-many-locals,
         # pylint: disable=too-many-statements
         """Process html to set login.status and find form post url."""
@@ -371,7 +377,8 @@ class AlexaLogin():
                 _LOGGER.debug("Links: %s",
                               links)
             self._links = links
-
+        html: Text = await resp.text()
+        site: URL = resp.url
         _LOGGER.debug("Processing %s", site)
         soup: BeautifulSoup = BeautifulSoup(html, 'html.parser')
 
@@ -471,7 +478,7 @@ class AlexaLogin():
                 _LOGGER.debug("Login confirmed; saving cookie to %s",
                               self._cookiefile)
                 status['login_successful'] = True
-                self._prepare_cookies_from_session(URL(site))
+                self._prepare_cookies_from_resp(resp)
                 _LOGGER.debug("Saving cookie: %s", self._cookies)
                 with open(self._cookiefile, 'wb') as myfile:
                     import pickle
@@ -491,31 +498,30 @@ class AlexaLogin():
             else:
                 _LOGGER.debug("Login failed; check credentials")
                 status['login_failed'] = True
-                assert self._data is not None
-                if '' in self._data.values():
+                if self._data and '' in self._data.values():
                     missing = [k for (k, v) in self._data.items() if v == '']
                     _LOGGER.debug("If credentials correct, please report"
                                   " these missing values: %s", missing)
         self.status = status
         # determine post url
         if form_tag:
-            formsite: Text = form_tag.get('action')
+            formsite: URL = URL(form_tag.get('action'))
             if formsite and formsite == 'verify':
                 import re
                 search_results = re.search(r'(.+)/(.*)',
-                                           site)
+                                           str(site))
                 assert search_results is not None
-                site = search_results.groups()[0] + "/verify"
+                site = URL(search_results.groups()[0] + "/verify")
                 _LOGGER.debug("Found post url to verify; converting to %s",
                               site)
-            elif formsite:
+            elif formsite and formsite.is_absolute():
                 site = formsite
                 _LOGGER.debug("Found post url to %s",
                               site)
         return site
 
     def _populate_data(self,
-                       site: Text,
+                       site: URL,
                        data: Dict[str, Optional[str]]) -> bool:
         """Populate self._data with info from data."""
         # pull data from configurator
