@@ -267,7 +267,7 @@ class AlexaLogin():
         # pylint: disable=too-many-statements
         """Login to Amazon."""
         data = data or {}
-        if (cookies is not None and await self.test_loggedin(cookies)):
+        if (cookies and await self.test_loggedin(cookies)):
             _LOGGER.debug("Using cookies to log in")
             self.status = {}
             self.status['login_successful'] = True
