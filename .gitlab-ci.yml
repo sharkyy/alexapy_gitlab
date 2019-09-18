@@ -11,6 +11,7 @@ before_script:
    - pip install twine
    - apk update
    - apk add make
+   - apk add --no-cache --update python3-dev gcc build-base
    - make init
 
 lint:
