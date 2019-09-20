@@ -279,8 +279,13 @@ class AlexaLogin():
             }
 
             #  initiate session
+            connector = aiohttp.TCPConnector(
+                enable_cleanup_closed=True,
+                ssl=self._ssl
+                )
             cookie_jar = FixedCookieJar()
-            self._session = aiohttp.ClientSession(cookie_jar=cookie_jar,
+            self._session = aiohttp.ClientSession(connector=connector,
+                                                  cookie_jar=cookie_jar,
                                                   headers=self._headers)
 
     def _prepare_cookies_from_session(self, site: Text) -> None:
