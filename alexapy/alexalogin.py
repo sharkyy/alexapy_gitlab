@@ -279,8 +279,10 @@ class AlexaLogin():
             }
 
             #  initiate session
+            import socket
             connector = aiohttp.TCPConnector(
                 enable_cleanup_closed=True,
+                family=socket.AF_INET,
                 ssl=self._ssl
                 )
             cookie_jar = FixedCookieJar()
