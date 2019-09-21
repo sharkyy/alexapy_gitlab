@@ -283,6 +283,7 @@ class AlexaLogin():
             connector = aiohttp.TCPConnector(
                 enable_cleanup_closed=True,
                 family=socket.AF_INET,
+                resolver=aiohttp.AsyncResolver(),
                 ssl=self._ssl
                 )
             cookie_jar = FixedCookieJar()
