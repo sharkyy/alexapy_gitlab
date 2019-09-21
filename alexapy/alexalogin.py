@@ -288,6 +288,7 @@ class AlexaLogin():
                 enable_cleanup_closed=True,
                 family=socket.AF_INET,
                 resolver=aiohttp.AsyncResolver(),
+                limit_per_host=5,
                 ssl=self._ssl
                 )
             cookie_jar = FixedCookieJar()
