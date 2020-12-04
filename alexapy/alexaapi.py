@@ -426,6 +426,45 @@ class AlexaAPI:
         await self.run_behavior(node_data, queue_delay=queue_delay)
 
     @_catch_all_exceptions
+    async def run_custom(
+        self,
+        text: Text,
+        customer_id: Optional[Text] = None,
+        queue_delay: float = 0,
+    ) -> None:
+        """Run Alexa skill.
+
+        This allows running exactly what you can say to alexa.
+
+        Args:
+            text (string): The full text you want alexa to execute.
+            customer_id (string): CustomerId to use for authorization. When none
+                             specified this defaults to the logged in user. Used
+                             with households where others may have their own
+                             music.
+            queue_delay (float, optional): The number of seconds to wait
+                                        for commands to queue together.
+                                        Defaults to 1.5.
+                                        Must be positive.
+
+        """
+        operation_payload = {
+            "locale": (self._device._locale if self._device._locale else "en-US"),
+            "customerId": self._login.customer_id
+            if customer_id is None
+            else customer_id,
+            "deviceSerialNumber": self._device.unique_id,
+            "text": text,
+        }
+        node_data = {
+            "@type": "com.amazon.alexa.behaviors.model.OpaquePayloadOperationNode",
+            "type": "Alexa.TextCommand",
+            "skillId": "amzn1.ask.1p.tellalexa",
+            "operationPayload": operation_payload,
+        }
+        await self.run_behavior(node_data, queue_delay=queue_delay)
+
+    @_catch_all_exceptions
     async def run_routine(
         self,
         utterance: Text,
