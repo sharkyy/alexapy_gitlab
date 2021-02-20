@@ -70,7 +70,7 @@ bump_and_publish:
     - semantic-release publish
     - poetry config http-basic.pypi $PYPI_USERNAME $PYPI_PASSWORD
     - poetry publish --build
-    - git push origin HEAD:dev
+  #  - git push origin HEAD:dev
   artifacts:
     paths:
       - dist
