@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.28.0 (2024-07-18)
+
+### Feature
+
+* Add method to get device wifi details ([`1651b6c`](https://gitlab.com/keatontaylor/alexapy/-/commit/1651b6c50956f1b3dbab598c21b94633deb4ef3d))
+
 ## v1.27.10 (2023-11-29)
 
 ### Fix
