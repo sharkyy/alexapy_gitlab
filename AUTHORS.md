@@ -14,3 +14,4 @@
 - Chris Nussbaum [GitHub](https://github.com/nuttytree)
 - Brady Mulhollem [GitHub](https://github.com/blm126)
 - Frederic Chastagnol [GitHub](https://github.com/Fredo70) [GitLab](https://gitlab.com/Fredo70)
+- Nathan Spencer [GitHub](https://github.com/natekspencer) [GitLab](https://gitlab.com/natekspencer)

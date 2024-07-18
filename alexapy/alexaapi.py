@@ -1147,6 +1147,18 @@ class AlexaAPI:
         return await response.json(content_type=None) if response else None
 
     @_catch_all_exceptions
+    async def get_wifi_details(self) -> Optional[dict[str, Any]]:
+        """Get wifi details."""
+        response = await self._get_request(
+            "/api/device-wifi-details",
+            query={
+                "deviceSerialNumber": self._device.device_serial_number,
+                "deviceType": self._device._device_type
+            },
+        )
+        return await response.json(content_type=None) if response else None
+
+    @_catch_all_exceptions
     async def set_dnd_state(self, state: bool) -> None:
         """Set Do Not Disturb state.
 
