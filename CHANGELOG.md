@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v1.28.1 (2024-07-25)
+
+### Fix
+
+* Removes the new "partitioned" key from the saved cookie ([`e594a3b`](https://gitlab.com/keatontaylor/alexapy/-/commit/e594a3b194eec7d6451ad0c7135d8c32704f5f73))
+* Key_error with maintainer ([`217de38`](https://gitlab.com/keatontaylor/alexapy/-/commit/217de38f86e20f0080d36e7d41a1467de26f3533))
+
 ## v1.28.0 (2024-07-18)
 
 ### Feature
