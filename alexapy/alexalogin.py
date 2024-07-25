@@ -359,8 +359,10 @@ class AlexaLogin:
                     for key, value in cookies.items():
                         if self._debug:
                             _LOGGER.debug('Key: "%s", Value: "%s"', key, value)
-                        # escape extra quote marks from Requests cookie
-                        return_cookies[str(key)] = value.strip('"')
+                        # skip "partitioned" key so python 3.12 http/cookies.py doesn't throw error
+                        if key != "partitioned":
+                            # escape extra quote marks from Requests cookie
+                            return_cookies[str(key)] = value.strip('"')
                     numcookies = len(return_cookies)
                 elif isinstance(cookies, defaultdict):
                     _LOGGER.debug("Trying to load aiohttpCookieJar to session")

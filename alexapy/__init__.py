@@ -38,8 +38,8 @@ try:
     __license__ = metadata["license"]
     __version__ = metadata["version"]
     __author__ = metadata["author"]
-    __maintainer__ = metadata["maintainer"]
-    __contact__ = metadata["maintainer"]
+    __maintainer__ = metadata.get("maintainer")
+    __contact__ = metadata.get("maintainer")
 except PackageNotFoundError:  # pragma: no cover
     logger.error("Could not load package metadata for %s. Is it installed?", pkg)
 
