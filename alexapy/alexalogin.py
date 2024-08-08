@@ -1251,10 +1251,11 @@ class AlexaLogin:
                     # Strings are returned within quotations, strip them
                     else item["Value"][1:-1]
                 )
-                for name, value in item.items():
-                    if name in ["Name", "Value"]:
-                        continue
-                    raw_cookie[cookie_name][name] = f"{value}; Domain={domain}"
+                raw_cookie[cookie_name]["domain"] = domain
+                raw_cookie[cookie_name]["path"] = item["Path"]
+                raw_cookie[cookie_name]["secure"] = item["Secure"]
+                raw_cookie[cookie_name]["expires"] = item["Expires"]
+                raw_cookie[cookie_name]["httpOnly"] = item["HttpOnly"]
                 # _LOGGER.debug("updating jar with cookie %s", raw_cookie)
                 self._session.cookie_jar.update_cookies(raw_cookie, URL(domain))
             _LOGGER.debug(
@@ -1333,8 +1334,8 @@ class AlexaLogin:
             if self._debug:
                 _LOGGER.debug("Unable to check for domain; proceeding:\n%s", response)
             return True
-        domain = response.get("marketPlaceDomainName")
-        if self.url not in domain:
+        domain = URL(response.get("marketPlaceDomainName")).host.replace("www.", "", 1)
+        if self.url != domain:
             _LOGGER.warning(
                 "Domain %s does not match reported account domain %s; functionality is not likely to work, please fix",
                 self.url,
