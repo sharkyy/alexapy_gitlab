@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.28.2 (2024-08-08)
+
+### Fix
+
+* Fix cookie and domain validation for non .com domains ([`1325271`](https://gitlab.com/keatontaylor/alexapy/-/commit/1325271e890b63518a5307b4e84c3cdf226fe2b1))
+
 ## v1.28.1 (2024-07-25)
 
 ### Fix
