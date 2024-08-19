@@ -729,6 +729,26 @@ class AlexaLogin:
         if self._debug:
             _LOGGER.debug("Session Cookies:\n%s", self._print_session_cookies())
 
+    async def delete_cookiefile(self) -> None:
+        """Delete cookiefile."""
+        self._cookiefile = [
+            self._outputpath(f".storage/{self._hass_domain}.{self.email}.pickle"),
+            self._outputpath(f"{self._hass_domain}.{self.email}.pickle"),
+            self._outputpath(f".storage/{self._hass_domain}.{self.email}.txt"),
+        ]
+        for cookiefile in self._cookiefile:
+            if cookiefile == self._cookiefile[0]:
+                try:
+                    await delete_cookie(cookiefile)
+                except (OSError, EOFError, TypeError, AttributeError) as ex:
+                    _LOGGER.debug(
+                        "Error deleting cookiefile %s: %s",
+                        self._cookiefile[0],
+                        EXCEPTION_TEMPLATE.format(type(ex).__name__, ex.args),
+                    )
+        if self._debug:
+            _LOGGER.debug("Deleted:\n%s", self._cookiefile)
+
     async def get_tokens(self) -> bool:
         """Get access and refresh tokens after registering device using cookies.
 
