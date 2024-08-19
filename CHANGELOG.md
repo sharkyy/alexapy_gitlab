@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.29.0 (2024-08-19)
+
+### Feature
+
+* Add `async def delete_cookiefile()` ([`3801bd0`](https://gitlab.com/keatontaylor/alexapy/-/commit/3801bd09e050feead0a7916bd161771a18d1c170))
+
 ## v1.28.2 (2024-08-08)
 
 ### Fix
