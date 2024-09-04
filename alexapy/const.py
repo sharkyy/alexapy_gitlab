@@ -33,7 +33,7 @@ HTTP2_EU = "alexa.eu.gateway.devices.a2z.com"
 HTTP2_FE = "alexa.fe.gateway.devices.a2z.com"
 HTTP2_AUTHORITY = {
     ".com": HTTP2_NA,
-    ".com.ca": HTTP2_NA,
+    ".ca": HTTP2_NA,
     ".com.mx": HTTP2_NA,
     ".com.br": HTTP2_NA,
     ".co.jp": HTTP2_FE,

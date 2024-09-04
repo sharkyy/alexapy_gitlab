@@ -487,8 +487,10 @@ class AlexaLogin:
         await self.register_capabilities()
         await self.exchange_token_for_cookies()
         await self.get_csrf()
+        path = self._prefix + "amazon.com" + "/api/bootstrap"
+        self._log_cookies_for_url(path)
         get_resp = await self._session.get(
-            self._prefix + "amazon.com" + "/api/bootstrap",
+            path,
             cookies=cookies,
             ssl=self._ssl,
         )
@@ -508,9 +510,9 @@ class AlexaLogin:
         # Convert from amazon.com domain to native domain
         if self.url.lower() != "amazon.com":
             self._headers["authority"] = f"www.{self._url}"
-            get_resp = await self._session.get(
-                self._prefix + self._url + "/api/bootstrap",
-            )
+            path = self._prefix + self._url + "/api/bootstrap"
+            self._log_cookies_for_url(path)
+            get_resp = await self._session.get(path)
             await self._process_resp(get_resp)
             try:
                 json = await get_resp.json()
@@ -1263,28 +1265,39 @@ class AlexaLogin:
             for item in cookies:
                 raw_cookie = SimpleCookie()
                 cookie_name = item["Name"]
-                raw_cookie[item["Name"]] = (
-                    item["Value"]
+                cookie_value = item["Value"]
+                raw_cookie[cookie_name] = (
+                    cookie_value
                     if not (
-                        item["Value"].startswith('"') and item["Value"].endswith('"')
+                        cookie_value.startswith('"') and cookie_value.endswith('"')
                     )
                     # Strings are returned within quotations, strip them
-                    else item["Value"][1:-1]
+                    else cookie_value[1:-1]
                 )
                 raw_cookie[cookie_name]["domain"] = domain
                 raw_cookie[cookie_name]["path"] = item["Path"]
                 raw_cookie[cookie_name]["secure"] = item["Secure"]
                 raw_cookie[cookie_name]["expires"] = item["Expires"]
                 raw_cookie[cookie_name]["httpOnly"] = item["HttpOnly"]
-                # _LOGGER.debug("updating jar with cookie %s", raw_cookie)
+                _LOGGER.debug("updating jar with cookie %s", raw_cookie)
                 self._session.cookie_jar.update_cookies(raw_cookie, URL(domain))
-            _LOGGER.debug(
-                "%s cookies successfully exchanged for refresh token for domain %s",
+            _LOGGER.info(
+                "Exchanged refresh token for %s %s cookies: %s",
                 len(cookies),
                 domain,
+                [c["Name"] for c in cookies]
             )
             success = True
         return success
+
+    def _log_cookies_for_url(self, path):
+        """Log a debug message with the names of the session cookies for a given URL."""
+        cookies = self._session.cookie_jar.filter_cookies(path)
+        _LOGGER.debug(
+            "Session cookies for '%s': %s",
+            path,
+            [name for name, _ in cookies.items()]
+        )
 
     async def get_csrf(self) -> bool:
         """Generate csrf if missing.
@@ -1309,7 +1322,9 @@ class AlexaLogin:
             failed = False
             response = None
             try:
-                response = await self._session.get(f"{self._prefix}{self.url}{url}")
+                path = f"{self._prefix}{self.url}{url}"
+                self._log_cookies_for_url(path)
+                response = await self._session.get(path)
             except aiohttp.ClientConnectionError:
                 failed = True
             if failed or response and response.status != 200:
