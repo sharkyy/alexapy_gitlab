@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.29.1 (2024-09-04)
+
+### Fix
+
+* Http2connect for amazon.ca ([`04d59f5`](https://gitlab.com/keatontaylor/alexapy/-/commit/04d59f5dd6af1adc2e7dabb3205c71b05f4f19fb))
+
 ## v1.29.0 (2024-08-19)
 
 ### Feature
