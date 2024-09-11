@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.29.2 (2024-09-11)
+
+### Fix
+
+* Fix partitioned cookies via cookies.Morsel patch ([`c100ec7`](https://gitlab.com/keatontaylor/alexapy/-/commit/c100ec7af61726532276132dc31d4cca35912725))
+
 ## v1.29.1 (2024-09-04)
 
 ### Fix
