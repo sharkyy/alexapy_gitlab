@@ -15,15 +15,13 @@ import base64
 from binascii import Error
 import datetime
 import hashlib
-from http import cookies
-from http.cookies import SimpleCookie
+from http.cookies import Morsel, SimpleCookie
 from json import JSONDecodeError, dumps
 import logging
 import os
 import pickle
 import re
 import secrets
-import sys
 from typing import Any, Callable, Optional, Union
 from urllib.parse import urlencode, urlparse
 from uuid import uuid4
@@ -48,15 +46,14 @@ from .helpers import (
 )
 
 _LOGGER = logging.getLogger(__name__)
-_LOGGER.debug("sys.version_info: %s", sys.version_info[:2])
-if sys.version_info[:2] < (3, 13):
-    # See: https://github.com/python/cpython/issues/112713
-    # 24-09-09 This patch may need to revisited as Python/Home Assistant evolve
-    cookies.Morsel._reserved["partitioned"] = "Partitioned"  # type: ignore[attr-defined]
-    cookies.Morsel._flags.add("partitioned")  # type: ignore[attr-defined]
-    _LOGGER.debug("cookies.Morsel was patched")
-else:
-    _LOGGER.debug("cookies.Morsel was not patched")
+
+"""Ensure cookies.Morsel contains "partitioned"
+   See: https://github.com/python/cpython/issues/112713
+"""
+partitioned = { "partitioned" : "Partitioned" }
+Morsel._reserved.update(partitioned)
+Morsel._flags.add("partitioned")
+_LOGGER.debug("http.cookies patch: Morsel._reserved: %s; Morsel._flags: %s", partitioned, Morsel._flags)
 
 
 class AlexaLogin:
