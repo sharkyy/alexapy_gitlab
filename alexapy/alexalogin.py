@@ -205,7 +205,7 @@ class AlexaLogin:
     def start_url(self) -> URL:
         """Return start url for this Login."""
         if self.oauth_login:
-            site: URL = URL("https://www.amazon.com/ap/signin")
+            site: URL = URL("https://www.amazon.com/ap/register")
             query = {
                 "openid.return_to": "https://www.amazon.com/ap/maplanding",
                 "openid.assoc_handle": "amzn_dp_project_dee_ios",
