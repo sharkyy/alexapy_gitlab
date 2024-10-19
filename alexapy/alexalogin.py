@@ -375,8 +375,9 @@ class AlexaLogin:
                 elif isinstance(cookies, defaultdict):
                     _LOGGER.debug("Trying to load aiohttpCookieJar to session")
                     cookie_jar: aiohttp.CookieJar = self._session.cookie_jar
+                    loop = asyncio.get_event_loop()
                     try:
-                        cookie_jar.load(cookiefile)
+                        cookie_jar = await loop.run_in_executor(None, cookie_jar.load, cookiefile)
                         return_cookies = self._get_cookies_from_session()
                         numcookies = len(return_cookies)
                     except (
@@ -725,8 +726,9 @@ class AlexaLogin:
                 assert isinstance(cookie_jar, aiohttp.CookieJar)
                 if self._debug:
                     _LOGGER.debug("Saving cookie to %s", cookiefile)
+                loop = asyncio.get_event_loop()
                 try:
-                    cookie_jar.save(self._cookiefile[0])
+                    await loop.run_in_executor(None, cookie_jar.save, self._cookiefile[0])
                 except (OSError, EOFError, TypeError, AttributeError) as ex:
                     _LOGGER.debug(
                         "Error saving pickled cookie to %s: %s",
