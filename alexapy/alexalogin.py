@@ -1502,8 +1502,12 @@ class AlexaLogin:
 
         if errorbox:
             error_message = errorbox.find("h4").string
+            if error_message is None:
+                error_message = "unknown"
             for list_item in errorbox.findAll("li"):
-                error_message += list_item.find("span").string
+                span_text = list_item.find("span").string
+                if span_text:
+                    error_message += span_text
             _LOGGER.debug("Error message: %s", error_message)
             status["error_message"] = error_message
 
