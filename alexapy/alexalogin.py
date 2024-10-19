@@ -13,6 +13,7 @@ https://gitlab.com/keatontaylor/alexapy
 import asyncio
 import base64
 from binascii import Error
+import certifi
 import datetime
 import hashlib
 from http.cookies import Morsel, SimpleCookie
@@ -22,6 +23,7 @@ import os
 import pickle
 import re
 import secrets
+import ssl
 from typing import Any, Callable, Optional, Union
 from urllib.parse import urlencode, urlparse
 from uuid import uuid4
@@ -55,6 +57,15 @@ Morsel._reserved.update(partitioned)
 Morsel._flags.add("partitioned")
 _LOGGER.debug("http.cookies patch: Morsel._reserved: %s; Morsel._flags: %s", partitioned, Morsel._flags)
 
+def create_alexa_context() -> ssl.SSLContext:
+    """Create an SSL context for Alexa."""
+    context = ssl.create_default_context(
+        purpose=ssl.Purpose.SERVER_AUTH, cafile=certifi.where()
+    )
+    return context
+
+_SSL_CONTEXT = create_alexa_context()
+
 
 class AlexaLogin:
     # pylint: disable=too-many-instance-attributes
@@ -85,20 +96,15 @@ class AlexaLogin:
     ) -> None:
         # pylint: disable=too-many-arguments,import-outside-toplevel
         """Set up initial connection and log in."""
-        import ssl
-
-        import certifi
-
         oauth = oauth or {}
+
         self._hass_domain: str = "alexa_media"
         self._prefix: str = "https://alexa."
         self._url: str = url
         self._email: str = email
         self._password: str = password
         self._session: Optional[aiohttp.ClientSession] = None
-        self._ssl = ssl.create_default_context(
-            purpose=ssl.Purpose.SERVER_AUTH, cafile=certifi.where()
-        )
+        self._ssl = _SSL_CONTEXT
         self._headers: dict[str, str] = {}
         self._data: Optional[dict[str, str]] = None
         self.status: Optional[dict[str, Union[str, bool]]] = {}
@@ -199,7 +205,7 @@ class AlexaLogin:
     def start_url(self) -> URL:
         """Return start url for this Login."""
         if self.oauth_login:
-            site: URL = URL("https://www.amazon.com/ap/signin")
+            site: URL = URL("https://www.amazon.com/ap/register")
             query = {
                 "openid.return_to": "https://www.amazon.com/ap/maplanding",
                 "openid.assoc_handle": "amzn_dp_project_dee_ios",
@@ -375,8 +381,9 @@ class AlexaLogin:
                 elif isinstance(cookies, defaultdict):
                     _LOGGER.debug("Trying to load aiohttpCookieJar to session")
                     cookie_jar: aiohttp.CookieJar = self._session.cookie_jar
+                    loop = asyncio.get_event_loop()
                     try:
-                        cookie_jar.load(cookiefile)
+                        cookie_jar = await loop.run_in_executor(None, cookie_jar.load, cookiefile)
                         return_cookies = self._get_cookies_from_session()
                         numcookies = len(return_cookies)
                     except (
@@ -725,8 +732,9 @@ class AlexaLogin:
                 assert isinstance(cookie_jar, aiohttp.CookieJar)
                 if self._debug:
                     _LOGGER.debug("Saving cookie to %s", cookiefile)
+                loop = asyncio.get_event_loop()
                 try:
-                    cookie_jar.save(self._cookiefile[0])
+                    await loop.run_in_executor(None, cookie_jar.save, self._cookiefile[0])
                 except (OSError, EOFError, TypeError, AttributeError) as ex:
                     _LOGGER.debug(
                         "Error saving pickled cookie to %s: %s",
@@ -1502,8 +1510,12 @@ class AlexaLogin:
 
         if errorbox:
             error_message = errorbox.find("h4").string
+            if error_message is None:
+                error_message = "unknown"
             for list_item in errorbox.findAll("li"):
-                error_message += list_item.find("span").string
+                span_text = list_item.find("span").string
+                if span_text:
+                    error_message += span_text
             _LOGGER.debug("Error message: %s", error_message)
             status["error_message"] = error_message
 
