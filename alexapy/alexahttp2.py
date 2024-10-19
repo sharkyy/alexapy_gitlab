@@ -10,10 +10,12 @@ For more details about this api, please refer to the documentation at
 https://gitlab.com/keatontaylor/alexapy
 """
 import asyncio
+import certifi
 from collections.abc import Coroutine
 import datetime
 import json
 import logging
+import ssl
 from typing import Any, Callable, Optional
 
 import httpx
@@ -23,6 +25,14 @@ from alexapy.errors import AlexapyLoginError
 
 from .alexalogin import AlexaLogin  # noqa pylint
 
+def _create_ssl_context():
+    """Create SSL context."""
+    context = ssl.create_default_context(
+        purpose=ssl.Purpose.SERVER_AUTH, cafile=certifi.where()
+    )
+    return context
+
+_SSL_CONTEXT = _create_ssl_context()
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -62,7 +72,7 @@ class HTTP2EchoClient:
         self._http2url: str = (
             f"https://{self._options['authority']}{self._options['path']}"
         )
-        self.client = httpx.AsyncClient(http2=True)
+        self.client = httpx.AsyncClient(http2=True, verify=_SSL_CONTEXT)
         self.boundary: str = ""
         self._login = login
         self._loop: asyncio.AbstractEventLoop = (
