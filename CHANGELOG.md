@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v1.29.3 (2024-10-19)
+
+### Fix
+
+* Fix login loop issue ([`1825583`](https://gitlab.com/keatontaylor/alexapy/-/commit/18255832673fd7e7639c114766e7aa4e74ffe42f))
+* Import ssl.create_default_context at top level ([`390a734`](https://gitlab.com/keatontaylor/alexapy/-/commit/390a73464f87b7f5173333aa833cc02d6a27aedc))
+* Import ssl.create_default_context ([`407ae41`](https://gitlab.com/keatontaylor/alexapy/-/commit/407ae41544bf94c25c790bd8f3472623dd1e4546))
+* Run aiohttp.cookiejar load/save functions in executor loop ([`de2aed5`](https://gitlab.com/keatontaylor/alexapy/-/commit/de2aed5b7f834a19aa268e6b444ef8c7273da972))
+* TypeError: can only concatenate str (not "NoneType") to str #2515 ([`1490fff`](https://gitlab.com/keatontaylor/alexapy/-/commit/1490fff9547056c776e348a5124d13fdcc593da0))
+
 ## v1.29.2 (2024-09-11)
 
 ### Fix
