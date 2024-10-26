@@ -214,7 +214,7 @@ class AlexaLogin:
                 "openid.oa2.response_type": "code",
                 "openid.ns": "http://specs.openid.net/auth/2.0",
                 "openid.pape.max_auth_age": "0",
-                "openid.oa2.scope": "device_auth_access",
+                "openid.oa2.scope": "device_auth_access offline_access",
                 "openid.oa2.code_challenge_method": "S256",
                 "openid.oa2.code_challenge": self.code_challenge,
                 "language": LOCALE_KEY.get(self.url.replace("amazon", ""))
