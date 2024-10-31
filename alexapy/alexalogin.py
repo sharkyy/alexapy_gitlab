@@ -557,7 +557,7 @@ class AlexaLogin:
             self.stats["login_timestamp"] = datetime.datetime.now()
             self.stats["api_calls"] = 0
             await self.check_domain()
-            await self.save_cookiefile()
+            await self.finalize_login()
             return True
         _LOGGER.debug(
             "Not logged in due to email mismatch to stored %s", hide_email(email)
@@ -624,7 +624,6 @@ class AlexaLogin:
         if cookies:
             _LOGGER.debug("Using cookies to log in")
             if await self.test_loggedin(cookies):
-                await self.finalize_login()
                 return
             await self.reset()
         _LOGGER.debug("Using credentials to log in")
@@ -1645,7 +1644,6 @@ class AlexaLogin:
             query = site_url.query
             self.access_token = query.get("openid.oa2.access_token")
             if await self.test_loggedin():
-                await self.finalize_login()
                 return
             _LOGGER.debug("Login failed; check credentials")
             status["login_failed"] = "login_failed"
