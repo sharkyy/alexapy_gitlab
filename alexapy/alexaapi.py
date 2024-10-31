@@ -153,7 +153,7 @@ class AlexaAPI:
                     and await self._login.exchange_token_for_cookies()
                     and await self._login.get_csrf()
                 ):
-                    await self._login.save_cookiefile()
+                    await self._login.finalize_login()
                 else:
                     _LOGGER.debug(
                         "%s: Unable to refresh oauth",
@@ -278,7 +278,7 @@ class AlexaAPI:
                     and await login.exchange_token_for_cookies()
                     and await login.get_csrf()
                 ):
-                    await login.save_cookiefile()
+                    await login.finalize_login()
                 else:
                     _LOGGER.debug(
                         "%s: Unable to refresh oauth",
@@ -335,6 +335,26 @@ class AlexaAPI:
             response.reason,
             response.content_type,
         )
+
+        if response.status == 401:
+            if await login.test_loggedin():
+                response = await getattr(session, method)(
+                    url,
+                    json=data,
+                    # cookies=login._cookies,
+                    headers=login._headers,
+                    ssl=login._ssl,
+                )
+                _LOGGER.debug(
+                    "Error 401, retried once request: %s: static %s: %s returned %s:%s:%s",
+                    hide_email(login.email),
+                    response.request_info.method,
+                    response.request_info.url,
+                    response.status,
+                    response.reason,
+                    response.content_type,
+                )
+
         return await AlexaAPI._process_response(response, login)
 
     @_catch_all_exceptions
