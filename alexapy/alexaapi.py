@@ -12,6 +12,7 @@ import json
 from json.decoder import JSONDecodeError
 import logging
 import math
+import random
 import time
 from typing import Any, Optional
 
@@ -29,6 +30,18 @@ from .errors import (
 from .helpers import _catch_all_exceptions, hide_email
 
 _LOGGER = logging.getLogger(__name__)
+
+def _min_expo_wait(min_wait: float):
+    """Exponential backoff with a specified minimum wait time."""
+    def f(*args, **kwargs):
+        gen = backoff.expo(*args, **kwargs)
+        while True:
+            v = next(gen, None)
+            # _LOGGER.debug("_min_expo_wait: next(gen) was %s", v)
+            v = min_wait if v is None else max(min_wait, v)
+            # _LOGGER.debug("_min_expo_wait: returning %s",v)
+            yield v
+    return f
 
 
 class AlexaAPI:
@@ -116,6 +129,7 @@ class AlexaAPI:
             None | ClientResponse: Response from server
         """
         login.stats["api_calls"] += 1
+        _LOGGER.debug("api_calls: %s", login.stats["api_calls"])
         if response.status == 401:
             login.status["login_successful"] = False
             raise AlexapyLoginError(response.reason)
@@ -126,11 +140,14 @@ class AlexaAPI:
             return None
         return response
 
+
     @backoff.on_exception(
-        backoff.expo,
+        _min_expo_wait(random.uniform(0.5,1.5)),
         (AlexapyTooManyRequestsError, AlexapyConnectionError, ClientConnectionError),
-        max_time=60,
-        max_tries=5,
+        max_time=90,
+        max_tries=10,
+        jitter=None,
+        # factor = 2,
         logger=__name__,
     )
     async def _request(
@@ -153,7 +170,7 @@ class AlexaAPI:
                     and await self._login.exchange_token_for_cookies()
                     and await self._login.get_csrf()
                 ):
-                    await self._login.save_cookiefile()
+                    await self._login.finalize_login()
                 else:
                     _LOGGER.debug(
                         "%s: Unable to refresh oauth",
@@ -251,10 +268,12 @@ class AlexaAPI:
 
     @staticmethod
     @backoff.on_exception(
-        backoff.expo,
+         _min_expo_wait(random.uniform(0.8, 1.8)),
         (AlexapyTooManyRequestsError, AlexapyConnectionError, ClientConnectionError),
-        max_time=60,
-        max_tries=5,
+        max_time=120,
+        max_tries=10,
+        jitter = None,
+        # factor = 2,
         logger=__name__,
     )
     async def _static_request(
@@ -278,7 +297,7 @@ class AlexaAPI:
                     and await login.exchange_token_for_cookies()
                     and await login.get_csrf()
                 ):
-                    await login.save_cookiefile()
+                    await login.finalize_login()
                 else:
                     _LOGGER.debug(
                         "%s: Unable to refresh oauth",
@@ -335,6 +354,26 @@ class AlexaAPI:
             response.reason,
             response.content_type,
         )
+
+        if response.status == 401:
+            if await login.test_loggedin():
+                response = await getattr(session, method)(
+                    url,
+                    json=data,
+                    # cookies=login._cookies,
+                    headers=login._headers,
+                    ssl=login._ssl,
+                )
+                _LOGGER.debug(
+                    "Error 401, retried once request: %s: static %s: %s returned %s:%s:%s",
+                    hide_email(login.email),
+                    response.request_info.method,
+                    response.request_info.url,
+                    response.status,
+                    response.reason,
+                    response.content_type,
+                )
+
         return await AlexaAPI._process_response(response, login)
 
     @_catch_all_exceptions
