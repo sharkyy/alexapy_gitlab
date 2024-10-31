@@ -2,6 +2,15 @@
 
 <!--next-version-placeholder-->
 
+## v1.29.4 (2024-10-31)
+
+### Fix
+
+* Fix errorbox.list_item.find("span") parsing ([`bc655c7`](https://gitlab.com/keatontaylor/alexapy/-/commit/bc655c715d512731b35f1fcfe98b47f17633c282))
+* Add minimum wait for exponential backoff ([`abf7b6f`](https://gitlab.com/keatontaylor/alexapy/-/commit/abf7b6f515dd1bb227d4ebf31f97f47ca5ffe236))
+* Swap save_cookiefile calls with finalize_login ([`4a7b9b5`](https://gitlab.com/keatontaylor/alexapy/-/commit/4a7b9b52bc46ea0904ea4d90cde0123d28791b91))
+* Use offline_access scope ([`81561ec`](https://gitlab.com/keatontaylor/alexapy/-/commit/81561ec23564cb4281d0aa3b8f5ad91d85e23713))
+
 ## v1.29.3 (2024-10-19)
 
 ### Fix
