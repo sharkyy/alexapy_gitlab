@@ -8,6 +8,7 @@ Built on https://github.com/alandtse/auth_capture_proxy
 For more details about this api, please refer to the documentation at
 https://gitlab.com/keatontaylor/alexapy
 """
+
 from functools import partial
 import logging
 from typing import Optional, Union
@@ -122,11 +123,11 @@ class AlexaProxy(authcaptureproxy.AuthCaptureProxy):
                             "Filled %s",
                             str(html_tag).replace(
                                 value,
-                                hide_password(value)
-                                if item == "password"
-                                else hide_email(value)
-                                if item == "email"
-                                else value,
+                                (
+                                    hide_password(value)
+                                    if item == "password"
+                                    else hide_email(value) if item == "email" else value
+                                ),
                             ),
                         )
         return str(soup)

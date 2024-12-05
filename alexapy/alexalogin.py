@@ -52,10 +52,15 @@ _LOGGER = logging.getLogger(__name__)
 """Ensure cookies.Morsel contains "partitioned"
    See: https://github.com/python/cpython/issues/112713
 """
-partitioned = { "partitioned" : "Partitioned" }
+partitioned = {"partitioned": "Partitioned"}
 Morsel._reserved.update(partitioned)
 Morsel._flags.add("partitioned")
-_LOGGER.debug("http.cookies patch: Morsel._reserved: %s; Morsel._flags: %s", partitioned, Morsel._flags)
+_LOGGER.debug(
+    "http.cookies patch: Morsel._reserved: %s; Morsel._flags: %s",
+    partitioned,
+    Morsel._flags,
+)
+
 
 def create_alexa_context() -> ssl.SSLContext:
     """Create an SSL context for Alexa."""
@@ -63,6 +68,7 @@ def create_alexa_context() -> ssl.SSLContext:
         purpose=ssl.Purpose.SERVER_AUTH, cafile=certifi.where()
     )
     return context
+
 
 _SSL_CONTEXT = create_alexa_context()
 
@@ -82,7 +88,7 @@ class AlexaLogin:
 
     """
 
-    def __init__(
+    def __init__(  # pylint: disable=too-many-positional-arguments
         self,
         url: str,
         email: str,
@@ -94,7 +100,6 @@ class AlexaLogin:
         uuid: Optional[str] = None,
         oauth_login: bool = True,
     ) -> None:
-        # pylint: disable=too-many-arguments,import-outside-toplevel
         """Set up initial connection and log in."""
         oauth = oauth or {}
 
@@ -223,9 +228,11 @@ class AlexaLogin:
                 "openid.oa2.scope": "device_auth_access offline_access",
                 "openid.oa2.code_challenge_method": "S256",
                 "openid.oa2.code_challenge": self.code_challenge,
-                "language": LOCALE_KEY.get(self.url.replace("amazon", ""))
-                if LOCALE_KEY.get(self.url.replace("amazon", ""))
-                else "en_US",
+                "language": (
+                    LOCALE_KEY.get(self.url.replace("amazon", ""))
+                    if LOCALE_KEY.get(self.url.replace("amazon", ""))
+                    else "en_US"
+                ),
             }
             site = site.update_query(query)
             _LOGGER.debug("Attempting oauth login to %s", site)
@@ -305,9 +312,9 @@ class AlexaLogin:
 
         from requests.cookies import RequestsCookieJar
 
-        cookies: Optional[
-            Union[RequestsCookieJar, http.cookiejar.MozillaCookieJar]
-        ] = None
+        cookies: Optional[Union[RequestsCookieJar, http.cookiejar.MozillaCookieJar]] = (
+            None
+        )
         return_cookies = {}
         numcookies: int = 0
         loaded: bool = False
@@ -383,7 +390,9 @@ class AlexaLogin:
                     cookie_jar: aiohttp.CookieJar = self._session.cookie_jar
                     loop = asyncio.get_event_loop()
                     try:
-                        cookie_jar = await loop.run_in_executor(None, cookie_jar.load, cookiefile)
+                        cookie_jar = await loop.run_in_executor(
+                            None, cookie_jar.load, cookiefile
+                        )
                         return_cookies = self._get_cookies_from_session()
                         numcookies = len(return_cookies)
                     except (
@@ -733,7 +742,9 @@ class AlexaLogin:
                     _LOGGER.debug("Saving cookie to %s", cookiefile)
                 loop = asyncio.get_event_loop()
                 try:
-                    await loop.run_in_executor(None, cookie_jar.save, self._cookiefile[0])
+                    await loop.run_in_executor(
+                        None, cookie_jar.save, self._cookiefile[0]
+                    )
                 except (OSError, EOFError, TypeError, AttributeError) as ex:
                     _LOGGER.debug(
                         "Error saving pickled cookie to %s: %s",
@@ -1283,9 +1294,7 @@ class AlexaLogin:
                 cookie_value = item["Value"]
                 raw_cookie[cookie_name] = (
                     cookie_value
-                    if not (
-                        cookie_value.startswith('"') and cookie_value.endswith('"')
-                    )
+                    if not (cookie_value.startswith('"') and cookie_value.endswith('"'))
                     # Strings are returned within quotations, strip them
                     else cookie_value[1:-1]
                 )
@@ -1300,7 +1309,7 @@ class AlexaLogin:
                 "Exchanged refresh token for %s %s cookies: %s",
                 len(cookies),
                 domain,
-                [c["Name"] for c in cookies]
+                [c["Name"] for c in cookies],
             )
             success = True
         return success
@@ -1309,9 +1318,7 @@ class AlexaLogin:
         """Log a debug message with the names of the session cookies for a given URL."""
         cookies = self._session.cookie_jar.filter_cookies(path)
         _LOGGER.debug(
-            "Session cookies for '%s': %s",
-            path,
-            [name for name, _ in cookies.items()]
+            "Session cookies for '%s': %s", path, [name for name, _ in cookies.items()]
         )
 
     async def get_csrf(self) -> bool:
@@ -1602,7 +1609,11 @@ class AlexaLogin:
             _LOGGER.debug("Verification code requested:")
             status["verificationcode_required"] = True
             self._data = self.get_inputs(soup, {"action": "verify"})
-        elif missingcookies_tag is not None and site_url.path != "/ap/maplanding":
+        elif (
+            missingcookies_tag is not None
+            and site_url.path  # pylint: disable=comparison-with-callable
+            != "/ap/maplanding"
+        ):
             _LOGGER.debug("Error page detected:")
             href = ""
             links = missingcookies_tag.findAll("a", href=True)
@@ -1718,9 +1729,7 @@ class AlexaLogin:
             self._data["password"] = (
                 self._password + securitycode
                 if not password
-                else password + securitycode
-                if securitycode
-                else password
+                else password + securitycode if securitycode else password
             )
             if "rememberMe" in self._data:
                 self._data["rememberMe"] = "true"

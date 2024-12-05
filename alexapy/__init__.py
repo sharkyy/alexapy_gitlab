@@ -5,6 +5,7 @@ SPDX-License-Identifier: Apache-2.0
 For more details about this api, please refer to the documentation at
 https://gitlab.com/keatontaylor/alexapy
 """
+
 try:
     from importlib_metadata import PackageNotFoundError, metadata as __load
 except ModuleNotFoundError:

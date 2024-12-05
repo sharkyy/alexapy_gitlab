@@ -9,6 +9,7 @@ This library is based on MIT code from https://github.com/Apollon77/alexa-remote
 For more details about this api, please refer to the documentation at
 https://gitlab.com/keatontaylor/alexapy
 """
+
 import asyncio
 import base64
 from collections.abc import Coroutine
@@ -23,7 +24,7 @@ from typing import Callable  # noqa pylint: disable=unused-import
 import uuid
 
 import aiohttp
-from aiohttp.http_websocket import ALLOWED_CLOSE_CODES, WSCloseCode
+from aiohttp.http_websocket import WSCloseCode
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding
 
@@ -172,7 +173,7 @@ class WebsocketEchoClient:
     https://github.com/Apollon77/alexa-remote/blob/master/alexa-wsmqtt.js
     """
 
-    def __init__(
+    def __init__(  # pylint: disable=too-many-positional-arguments
         self,
         login: AlexaLogin,
         msg_callback: Callable[[Message], Coroutine[Any, Any, None]],
@@ -180,7 +181,6 @@ class WebsocketEchoClient:
         close_callback: Callable[[], Coroutine[Any, Any, None]],
         error_callback: Callable[[str], Coroutine[Any, Any, None]],
     ) -> None:
-        # pylint: disable=too-many-arguments
         """Init for threading and WebSocket Connection."""
         if login.url.lower() == "amazon.com":
             subdomain: str = "dp-gw-na-js"
@@ -303,9 +303,11 @@ class WebsocketEchoClient:
             self.on_error(str(type(exception_)))
         _LOGGER.debug(
             "WebSocket Connection Closed. %s",
-            WSCloseCode(self.websocket.close_code)
-            if self.websocket.close_code in ALLOWED_CLOSE_CODES
-            else self.websocket.close_code,
+            (
+                WSCloseCode(self.websocket.close_code)
+                if self.websocket.close_code in WSCloseCode.__members__.values()
+                else self.websocket.close_code
+            ),
         )
         self._message_count = 0
         asyncio.run_coroutine_threadsafe(self.close_callback(), self._loop)
