@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.29.5 (2024-12-05)
+
+### Fix
+
+* Bump aiofiles to version 24.1.0 ([`8c0d926`](https://gitlab.com/keatontaylor/alexapy/-/commit/8c0d926d50d9dbf6c484930d129e49d05ae33ca3))
+
 ## v1.29.4 (2024-10-31)
 
 ### Fix
