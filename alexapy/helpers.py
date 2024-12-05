@@ -7,6 +7,7 @@ Helpers.
 For more details about this api, please refer to the documentation at
 https://gitlab.com/keatontaylor/alexapy
 """
+
 from asyncio import CancelledError
 from http.cookies import CookieError
 from json import JSONDecodeError

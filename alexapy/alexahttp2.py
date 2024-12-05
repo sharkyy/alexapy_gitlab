@@ -9,6 +9,7 @@ This library is based on MIT code from https://github.com/Apollon77/alexa-remote
 For more details about this api, please refer to the documentation at
 https://gitlab.com/keatontaylor/alexapy
 """
+
 import asyncio
 import certifi
 from collections.abc import Coroutine
@@ -25,12 +26,14 @@ from alexapy.errors import AlexapyLoginError
 
 from .alexalogin import AlexaLogin  # noqa pylint
 
+
 def _create_ssl_context():
     """Create SSL context."""
     context = ssl.create_default_context(
         purpose=ssl.Purpose.SERVER_AUTH, cafile=certifi.where()
     )
     return context
+
 
 _SSL_CONTEXT = _create_ssl_context()
 _LOGGER = logging.getLogger(__name__)
@@ -44,7 +47,7 @@ class HTTP2EchoClient:
     https://github.com/Apollon77/alexa-remote/blob/bc687b9e36da7c2318c56b4e1bec677c7198dbd4/alexa-http2push.js
     """
 
-    def __init__(
+    def __init__(  # pylint: disable=too-many-positional-arguments
         self,
         login: AlexaLogin,
         msg_callback: Callable[[Any], Coroutine[Any, Any, None]],
@@ -53,7 +56,6 @@ class HTTP2EchoClient:
         error_callback: Callable[[str], Coroutine[Any, Any, None]],
         loop: Optional[asyncio.AbstractEventLoop] = None,
     ) -> None:
-        # pylint: disable=too-many-arguments
         """Init for threading and HTTP2 Push Connection."""
         assert login.session is not None
         self._options = {
