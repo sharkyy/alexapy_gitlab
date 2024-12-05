@@ -17,7 +17,7 @@ include = ["LICENSE"]
 [tool.poetry.dependencies]
 python = ">=3.11, <4"
 beautifulsoup4 = "*"
-aiofiles = "^23.1.0"
+aiofiles = ">=24.1.0,<25.0.0"
 simplejson = "*"
 yarl = "*"
 requests = "*"

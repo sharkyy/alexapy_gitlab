@@ -7,6 +7,7 @@ API access.
 For more details about this api, please refer to the documentation at
 https://gitlab.com/keatontaylor/alexapy
 """
+
 import asyncio
 import json
 from json.decoder import JSONDecodeError
@@ -31,8 +32,10 @@ from .helpers import _catch_all_exceptions, hide_email
 
 _LOGGER = logging.getLogger(__name__)
 
+
 def _min_expo_wait(min_wait: float):
     """Exponential backoff with a specified minimum wait time."""
+
     def f(*args, **kwargs):
         gen = backoff.expo(*args, **kwargs)
         while True:
@@ -41,6 +44,7 @@ def _min_expo_wait(min_wait: float):
             v = min_wait if v is None else max(min_wait, v)
             # _LOGGER.debug("_min_expo_wait: returning %s",v)
             yield v
+
     return f
 
 
@@ -140,9 +144,8 @@ class AlexaAPI:
             return None
         return response
 
-
     @backoff.on_exception(
-        _min_expo_wait(random.uniform(0.5,1.5)),
+        _min_expo_wait(random.uniform(0.5, 1.5)),
         (AlexapyTooManyRequestsError, AlexapyConnectionError, ClientConnectionError),
         max_time=90,
         max_tries=10,
@@ -268,15 +271,15 @@ class AlexaAPI:
 
     @staticmethod
     @backoff.on_exception(
-         _min_expo_wait(random.uniform(0.8, 1.8)),
+        _min_expo_wait(random.uniform(0.8, 1.8)),
         (AlexapyTooManyRequestsError, AlexapyConnectionError, ClientConnectionError),
         max_time=120,
         max_tries=10,
-        jitter = None,
+        jitter=None,
         # factor = 2,
         logger=__name__,
     )
-    async def _static_request(
+    async def _static_request(  # pylint: disable=too-many-positional-arguments
         method: str,
         login: AlexaLogin,
         uri: str,
@@ -526,9 +529,9 @@ class AlexaAPI:
             "deviceType": self._device._device_type,
             "deviceSerialNumber": self._device.device_serial_number,
             "locale": (self._device._locale if self._device._locale else "en-US"),
-            "customerId": self._login.customer_id
-            if customer_id is None
-            else customer_id,
+            "customerId": (
+                self._login.customer_id if customer_id is None else customer_id
+            ),
         }
         root_node = {}
         if kwargs is not None:
@@ -579,9 +582,9 @@ class AlexaAPI:
                 "deviceSerialNumber": self._device.device_serial_number,
             },
             "locale": (self._device._locale if self._device._locale else "en-US"),
-            "customerId": self._login.customer_id
-            if customer_id is None
-            else customer_id,
+            "customerId": (
+                self._login.customer_id if customer_id is None else customer_id
+            ),
             "connectionRequest": {
                 "uri": "connection://AMAZON.Launch/" + skill_id,
                 "input": {},
@@ -722,7 +725,7 @@ class AlexaAPI:
             )
 
     @_catch_all_exceptions
-    async def play_music(
+    async def play_music(  # pylint: disable=too-many-positional-arguments
         self,
         provider_id: str,
         search_phrase: str,
@@ -911,25 +914,25 @@ class AlexaAPI:
         if message.startswith("alexa.cannedtts.speak"):
             await self.send_sequence(
                 "Alexa.CannedTts.Speak",
-                customer_id=self._login.customer_id
-                if customer_id is None
-                else customer_id,
+                customer_id=(
+                    self._login.customer_id if customer_id is None else customer_id
+                ),
                 cannedTtsStringId=message,
                 skillId="amzn1.ask.1p.saysomething",
                 queue_delay=queue_delay,
             )
         else:
             target = {
-                "customerId": self._login.customer_id
-                if customer_id is None
-                else customer_id,
+                "customerId": (
+                    self._login.customer_id if customer_id is None else customer_id
+                ),
                 "devices": self.process_targets(targets),
             }
             await self.send_sequence(
                 "Alexa.Speak",
-                customer_id=self._login.customer_id
-                if customer_id is None
-                else customer_id,
+                customer_id=(
+                    self._login.customer_id if customer_id is None else customer_id
+                ),
                 textToSpeak=message,
                 target=target,
                 skillId="amzn1.ask.1p.saysomething",
@@ -937,7 +940,7 @@ class AlexaAPI:
             )
 
     @_catch_all_exceptions
-    async def send_announcement(
+    async def send_announcement(  # pylint: disable=too-many-positional-arguments
         self,
         message: str,
         method: str = "all",
@@ -947,7 +950,6 @@ class AlexaAPI:
         queue_delay: float = 1.5,
         extra: Optional[dict[Any, Any]] = None,
     ) -> None:
-        # pylint: disable=too-many-arguments
         """Send announcement to Alexa devices.
 
         This uses the AlexaAnnouncement and allows visual display on the Show.
@@ -991,9 +993,9 @@ class AlexaAPI:
             }
         ]
         target = {
-            "customerId": self._login.customer_id
-            if customer_id is None
-            else customer_id,
+            "customerId": (
+                self._login.customer_id if customer_id is None else customer_id
+            ),
             "devices": self.process_targets(targets),
         }
         await self.send_sequence(
@@ -1007,7 +1009,7 @@ class AlexaAPI:
         )
 
     @_catch_all_exceptions
-    async def send_mobilepush(
+    async def send_mobilepush(  # pylint: disable=too-many-positional-arguments
         self,
         message: str,
         title: str = "AlexaAPI Message",
@@ -1046,7 +1048,7 @@ class AlexaAPI:
         )
 
     @_catch_all_exceptions
-    async def send_dropin_notification(
+    async def send_dropin_notification(  # pylint: disable=too-many-positional-arguments
         self,
         message: str,
         title: str = "AlexaAPI Dropin Notification",
@@ -1192,7 +1194,7 @@ class AlexaAPI:
             "/api/device-wifi-details",
             query={
                 "deviceSerialNumber": self._device.device_serial_number,
-                "deviceType": self._device._device_type
+                "deviceType": self._device._device_type,
             },
         )
         return await response.json(content_type=None) if response else None
@@ -1616,7 +1618,7 @@ class AlexaAPI:
 
     @staticmethod
     @_catch_all_exceptions
-    async def set_light_state(
+    async def set_light_state(  # pylint: disable=too-many-positional-arguments
         login: AlexaLogin,
         entity_id: str,
         power_on: bool = True,
