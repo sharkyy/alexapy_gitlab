@@ -1704,14 +1704,37 @@ class AlexaAPI:
         Returns json
 
         """
-        response = await AlexaAPI._static_request("get", login, "/api/phoenix")
-        # _LOGGER.debug("%s: Response: %s", hide_email(login.email),
-        #               await response.json(content_type=None))
-        return (
-            json.loads((await response.json(content_type=None))["networkDetail"])
-            if response
-            else None
-        )
+        try:
+            response = await AlexaAPI._static_request("get", login, "/api/phoenix")
+            if response:
+                json_response = await response.json(content_type=None)
+                if json_response and "networkDetail" in json_response:
+                    network_detail_str = json_response["networkDetail"]
+                    _LOGGER.debug(
+                        "%s: Successfully fetched guard details. JSON content: %s",
+                        hide_email(login.email),
+                        network_detail_str,
+                    )
+                    return json.loads(network_detail_str)
+                _LOGGER.warning(
+                    "%s: get_guard_details response did not contain 'networkDetail'. Response: %s",
+                    hide_email(login.email),
+                    json_response,
+                )
+                return None
+            _LOGGER.warning(
+                "%s: Failed to get guard details, response was None.",
+                hide_email(login.email),
+            )
+            return None
+        except Exception as e:
+            _LOGGER.error(
+                "%s: Error fetching guard details: %s",
+                hide_email(login.email),
+                e,
+                exc_info=True,
+            )
+            return None
 
     @staticmethod
     @_catch_all_exceptions
@@ -1723,12 +1746,22 @@ class AlexaAPI:
 
         Returns json
         """
-        network_detail = await AlexaAPI.get_guard_details(login)
         _LOGGER.debug(
-            "%s: get_network_details response: %s",
+            "%s: Calling get_network_details, which in turn calls get_guard_details.",
             hide_email(login.email),
-            network_detail,
         )
+        network_detail = await AlexaAPI.get_guard_details(login)
+        if network_detail is not None:
+            _LOGGER.debug(
+                "%s: get_network_details successfully received network_detail: %s",
+                hide_email(login.email),
+                json.dumps(network_detail, indent=2),  # Pretty print JSON
+            )
+        else:
+            _LOGGER.warning(
+                "%s: get_network_details received None from get_guard_details.",
+                hide_email(login.email),
+            )
         return network_detail
 
     @staticmethod
