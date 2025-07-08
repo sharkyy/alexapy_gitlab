@@ -27,7 +27,7 @@ _toml = tomlkit.loads((_root / "pyproject.toml").read_text(encoding="utf8"))
 T = TypeVar("T")
 
 
-def find(key: str, default: Optional[T] = None, as_type: Type[T] = str) -> Optional[T]:
+def find(key: str, default: Optional[T] = None, as_type: type[T] = str) -> Optional[T]:
     """
     Gets a value from pyproject.toml, or a default.
 

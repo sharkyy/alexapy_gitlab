@@ -13,8 +13,8 @@ Submodules
 
 .. toctree::
 
-   alexapy.aiohttp
    alexapy.alexaapi
+   alexapy.alexahttp2
    alexapy.alexalogin
    alexapy.alexaproxy
    alexapy.alexawebsocket
@@ -57,6 +57,9 @@ Classes
 - :py:class:`AlexaProxy`:
   Class to handle proxy login connections to Alexa.
 
+- :py:class:`HTTP2EchoClient`:
+  HTTP2 Client Class for Echo Devices.
+
 - :py:class:`WebsocketEchoClient`:
   WebSocket Client Class for Echo Devices.
 
@@ -80,6 +83,13 @@ Classes
 
    .. rubric:: Inheritance
    .. inheritance-diagram:: AlexaProxy
+      :parts: 1
+
+.. autoclass:: HTTP2EchoClient
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: HTTP2EchoClient
       :parts: 1
 
 .. autoclass:: WebsocketEchoClient

@@ -4,36 +4,40 @@ SPDX-License-Identifier: Apache-2.0
 
 Login class.
 
+This file could not have been written without referencing MIT code from https://github.com/Apollon77/alexa-remote.
+
 For more details about this api, please refer to the documentation at
 https://gitlab.com/keatontaylor/alexapy
 """
 
 import asyncio
 import base64
-import binascii
 from binascii import Error
+import certifi
 import datetime
-from http.cookies import SimpleCookie
+import hashlib
+from http.cookies import Morsel, SimpleCookie
 from json import JSONDecodeError, dumps
 import logging
 import os
 import pickle
 import re
 import secrets
-from typing import Any, Callable, Dict, List, Optional, Text, Tuple, Union
+import ssl
+from typing import Any, Callable, Optional, Union
 from urllib.parse import urlencode, urlparse
+from uuid import uuid4
 
 import aiofiles
 from aiofiles import os as aioos
+import aiohttp
+from aiohttp.client_exceptions import ContentTypeError
 from bs4 import BeautifulSoup
 import pyotp
 from simplejson import JSONDecodeError as SimpleJSONDecodeError
 from yarl import URL
 
-from alexapy import aiohttp
-from alexapy.aiohttp.client_exceptions import ContentTypeError
-
-from .const import APP_NAME, EXCEPTION_TEMPLATE, LOCALE_KEY, USER_AGENT
+from .const import APP_NAME, CALL_VERSION, EXCEPTION_TEMPLATE, LOCALE_KEY, USER_AGENT
 from .errors import AlexapyPyotpInvalidKey
 from .helpers import (
     _catch_all_exceptions,
@@ -44,6 +48,29 @@ from .helpers import (
 )
 
 _LOGGER = logging.getLogger(__name__)
+
+"""Ensure cookies.Morsel contains "partitioned"
+   See: https://github.com/python/cpython/issues/112713
+"""
+partitioned = {"partitioned": "Partitioned"}
+Morsel._reserved.update(partitioned)
+Morsel._flags.add("partitioned")
+_LOGGER.debug(
+    "http.cookies patch: Morsel._reserved: %s; Morsel._flags: %s",
+    partitioned,
+    Morsel._flags,
+)
+
+
+def create_alexa_context() -> ssl.SSLContext:
+    """Create an SSL context for Alexa."""
+    context = ssl.create_default_context(
+        purpose=ssl.Purpose.SERVER_AUTH, cafile=certifi.where()
+    )
+    return context
+
+
+_SSL_CONTEXT = create_alexa_context()
 
 
 class AlexaLogin:
@@ -61,100 +88,112 @@ class AlexaLogin:
 
     """
 
-    def __init__(
+    def __init__(  # pylint: disable=too-many-positional-arguments
         self,
-        url: Text,
-        email: Text,
-        password: Text,
-        outputpath: Callable[[Text], Text],
+        url: str,
+        email: str,
+        password: str,
+        outputpath: Callable[[str], str],
         debug: bool = False,
-        otp_secret: Text = "",
-        oauth: Optional[Dict[Any, Any]] = None,
-        uuid: Optional[Text] = None,
+        otp_secret: str = "",
+        oauth: Optional[dict[Any, Any]] = None,
+        uuid: Optional[str] = None,
         oauth_login: bool = True,
     ) -> None:
-        # pylint: disable=too-many-arguments,import-outside-toplevel
         """Set up initial connection and log in."""
-        import ssl
-
-        import certifi
-
         oauth = oauth or {}
-        self._hass_domain: Text = "alexa_media"
-        self._prefix: Text = "https://alexa."
-        self._url: Text = url
-        self._email: Text = email
-        self._password: Text = password
+
+        self._hass_domain: str = "alexa_media"
+        self._prefix: str = "https://alexa."
+        self._url: str = url
+        self._email: str = email
+        self._password: str = password
         self._session: Optional[aiohttp.ClientSession] = None
-        self._ssl = ssl.create_default_context(
-            purpose=ssl.Purpose.SERVER_AUTH, cafile=certifi.where()
-        )
-        self._headers: Dict[Text, Text] = {}
-        self._data: Optional[Dict[Text, Text]] = None
-        self.status: Optional[Dict[Text, Union[Text, bool]]] = {}
-        self.stats: Optional[Dict[Text, Union[Text, bool]]] = {
+        self._ssl = _SSL_CONTEXT
+        self._headers: dict[str, str] = {}
+        self._data: Optional[dict[str, str]] = None
+        self.status: Optional[dict[str, Union[str, bool]]] = {}
+        self.stats: Optional[dict[str, Union[str, bool]]] = {
             "login_timestamp": datetime.datetime(1, 1, 1),
             "api_calls": 0,
         }
         self._outputpath = outputpath
-        self._cookiefile: List[Text] = [
+        self._cookiefile: list[str] = [
             self._outputpath(f".storage/{self._hass_domain}.{self.email}.pickle"),
             self._outputpath(f"{self._hass_domain}.{self.email}.pickle"),
             self._outputpath(f".storage/{self._hass_domain}.{self.email}.txt"),
         ]
-        self._debugpost: Text = outputpath(
-            "{}{}post.html".format(self._hass_domain, email)
-        )
-        self._debugget: Text = outputpath(
-            "{}{}get.html".format(self._hass_domain, email)
-        )
+        self._debugpost: str = outputpath(f"{self._hass_domain}{email}post.html")
+        self._debugget: str = outputpath(f"{self._hass_domain}{email}get.html")
         self._lastreq: Optional[aiohttp.ClientResponse] = None
         self._debug: bool = debug
-        self._links: Optional[Dict[Text, Tuple[Text, Text]]] = {}
-        self._options: Optional[Dict[Text, Text]] = {}
-        self._site: Optional[Text] = None
+        self._links: Optional[dict[str, tuple[str, str]]] = {}
+        self._options: Optional[dict[str, str]] = {}
+        self._site: Optional[str] = None
         self._close_requested = False
-        self._customer_id: Optional[Text] = None
+        self._customer_id: Optional[str] = None
         self._totp: Optional[pyotp.TOTP] = None
         self.set_totp(otp_secret.replace(" ", ""))
-        self.access_token: Optional[Text] = oauth.get("access_token")
-        self.refresh_token: Optional[Text] = oauth.get("refresh_token")
+        self.access_token: Optional[str] = oauth.get("access_token")
+        self.refresh_token: Optional[str] = oauth.get("refresh_token")
+        self.mac_dms: Optional[str] = oauth.get("mac_dms")
         self.expires_in: Optional[float] = oauth.get("expires_in")
         self._oauth_lock: asyncio.Lock = asyncio.Lock()
-        self.uuid = uuid  # needed to be unique but repeateable for device registration
+        self.uuid = (
+            uuid if uuid else uuid4().hex.upper()
+        )  # needed to be unique but repeateable for device registration
+        self.deviceid: str = (
+            self.uuid.encode() + b"23413249564c5635564d32573831"
+        ).hex()
+        self.code_verifier: str = oauth.get(
+            "code_verifier",
+            base64.urlsafe_b64encode(secrets.token_bytes(32)).rstrip(b"=").decode(),
+        )
+        self.code_challenge: str = oauth.get(
+            "code_challenge",
+            base64.urlsafe_b64encode(
+                hashlib.sha256(self.code_verifier.encode()).digest()
+            )
+            .rstrip(b"=")
+            .decode(),
+        )
+        self.authorization_code: Optional[str] = oauth.get("authorization_code")
         self.oauth_login: bool = oauth_login
+        self.proxy_url: str = ""
         _LOGGER.debug(
-            "Login created for %s - %s", obfuscate(self.email), self.url,
+            "Login created for %s - %s",
+            obfuscate(self.email),
+            self.url,
         )
         self._create_session()
 
     @property
-    def email(self) -> Text:
+    def email(self) -> str:
         """Return email or mobile account for this Login."""
         return self._email
 
     @email.setter
-    def email(self, value: Optional[Text]) -> None:
+    def email(self, value: Optional[str]) -> None:
         """Set email."""
         self._email = value
 
     @property
-    def password(self) -> Text:
+    def password(self) -> str:
         """Return password for this Login."""
         return self._password
 
     @password.setter
-    def password(self, value: Optional[Text]) -> None:
+    def password(self, value: Optional[str]) -> None:
         """Set password."""
         self._password = value
 
     @property
-    def customer_id(self) -> Optional[Text]:
+    def customer_id(self) -> Optional[str]:
         """Return customer_id for this Login."""
         return self._customer_id
 
     @customer_id.setter
-    def customer_id(self, value: Optional[Text]) -> None:
+    def customer_id(self, value: Optional[str]) -> None:
         self._customer_id = value
 
     @property
@@ -163,7 +202,7 @@ class AlexaLogin:
         return self._session
 
     @property
-    def url(self) -> Text:
+    def url(self) -> str:
         """Return url for this Login."""
         return self._url
 
@@ -171,8 +210,7 @@ class AlexaLogin:
     def start_url(self) -> URL:
         """Return start url for this Login."""
         if self.oauth_login:
-            site: URL = URL("https://www.amazon.com/ap/signin")
-            deviceid: Text = f"{binascii.hexlify(secrets.token_hex(16).encode()).decode()}23413249564c5635564d32573831"
+            site: URL = URL("https://www.amazon.com/ap/register")
             query = {
                 "openid.return_to": "https://www.amazon.com/ap/maplanding",
                 "openid.assoc_handle": "amzn_dp_project_dee_ios",
@@ -182,15 +220,19 @@ class AlexaLogin:
                 "openid.claimed_id": "http://specs.openid.net/auth/2.0/identifier_select",
                 "openid.mode": "checkid_setup",
                 "openid.ns.oa2": "http://www.amazon.com/ap/ext/oauth/2",
-                "openid.oa2.client_id": f"device:{deviceid}",
+                "openid.oa2.client_id": f"device:{self.deviceid}",
                 "openid.ns.pape": "http://specs.openid.net/extensions/pape/1.0",
-                "openid.oa2.response_type": "token",
+                "openid.oa2.response_type": "code",
                 "openid.ns": "http://specs.openid.net/auth/2.0",
                 "openid.pape.max_auth_age": "0",
-                "openid.oa2.scope": "device_auth_access",
-                "language": LOCALE_KEY.get(self.url.replace("amazon", ""))
-                if LOCALE_KEY.get(self.url.replace("amazon", ""))
-                else "en_US",
+                "openid.oa2.scope": "device_auth_access offline_access",
+                "openid.oa2.code_challenge_method": "S256",
+                "openid.oa2.code_challenge": self.code_challenge,
+                "language": (
+                    LOCALE_KEY.get(self.url.replace("amazon", ""))
+                    if LOCALE_KEY.get(self.url.replace("amazon", ""))
+                    else "en_US"
+                ),
             }
             site = site.update_query(query)
             _LOGGER.debug("Attempting oauth login to %s", site)
@@ -210,7 +252,7 @@ class AlexaLogin:
         return self._close_requested
 
     @property
-    def links(self) -> Text:
+    def links(self) -> str:
         """Return string list of links from last page for this Login."""
         result = ""
         assert self._links is not None
@@ -218,7 +260,7 @@ class AlexaLogin:
             result += f"link{key}:{value[0]}\n"
         return result
 
-    def set_totp(self, otp_secret: Text) -> Optional[pyotp.TOTP]:
+    def set_totp(self, otp_secret: str) -> Optional[pyotp.TOTP]:
         """Enable a TOTP generator for the login.
 
         Args
@@ -239,11 +281,16 @@ class AlexaLogin:
                     "Error creating TOTP; %s likely invalid", hide_serial(otp_secret)
                 )
                 raise AlexapyPyotpInvalidKey(ex) from ex
+            except AttributeError:
+                self._totp = None
+                _LOGGER.warning(
+                    "Error creating TOTP; pyotp version likely outdated",
+                )
         else:
             self._totp = None
         return self._totp
 
-    def get_totp_token(self) -> Text:
+    def get_totp_token(self) -> str:
         """Generate Timed based OTP token.
 
         Returns
@@ -251,13 +298,13 @@ class AlexaLogin:
 
         """
         if self._totp:
-            token: Text = self._totp.now()
+            token: str = self._totp.now()
             _LOGGER.debug("Generating OTP %s", token)
             return token
         _LOGGER.debug("Unable to generate OTP; 2FA app key not configured")
         return ""
 
-    async def load_cookie(self, cookies_txt: Text = "") -> Optional[Dict[Text, Text]]:
+    async def load_cookie(self, cookies_txt: str = "") -> Optional[dict[str, str]]:
         # pylint: disable=import-outside-toplevel
         """Load cookie from disk."""
         from collections import defaultdict
@@ -265,9 +312,9 @@ class AlexaLogin:
 
         from requests.cookies import RequestsCookieJar
 
-        cookies: Optional[
-            Union[RequestsCookieJar, http.cookiejar.MozillaCookieJar]
-        ] = None
+        cookies: Optional[Union[RequestsCookieJar, http.cookiejar.MozillaCookieJar]] = (
+            None
+        )
         return_cookies = {}
         numcookies: int = 0
         loaded: bool = False
@@ -304,7 +351,7 @@ class AlexaLogin:
                             _LOGGER.debug(
                                 "Pickled cookie loaded: %s %s", type(cookies), cookies
                             )
-                except (pickle.UnpicklingError):
+                except pickle.UnpicklingError:
                     try:
                         cookies = http.cookiejar.MozillaCookieJar(cookiefile)
                         cookies.load(ignore_discard=True, ignore_expires=True)
@@ -333,17 +380,28 @@ class AlexaLogin:
                     for key, value in cookies.items():
                         if self._debug:
                             _LOGGER.debug('Key: "%s", Value: "%s"', key, value)
-                        # escape extra quote marks from Requests cookie
-                        return_cookies[str(key)] = value.strip('"')
+                        # skip "partitioned" key so python 3.12 http/cookies.py doesn't throw error
+                        if key != "partitioned":
+                            # escape extra quote marks from Requests cookie
+                            return_cookies[str(key)] = value.strip('"')
                     numcookies = len(return_cookies)
                 elif isinstance(cookies, defaultdict):
                     _LOGGER.debug("Trying to load aiohttpCookieJar to session")
                     cookie_jar: aiohttp.CookieJar = self._session.cookie_jar
+                    loop = asyncio.get_event_loop()
                     try:
-                        cookie_jar.load(cookiefile)
+                        cookie_jar = await loop.run_in_executor(
+                            None, cookie_jar.load, cookiefile
+                        )
                         return_cookies = self._get_cookies_from_session()
                         numcookies = len(return_cookies)
-                    except (OSError, EOFError, TypeError, AttributeError) as ex:
+                    except (
+                        OSError,
+                        EOFError,
+                        TypeError,
+                        AttributeError,
+                        ValueError,
+                    ) as ex:
                         _LOGGER.debug(
                             "Error loading aiohttpcookie from %s: %s",
                             cookiefile,
@@ -417,7 +475,7 @@ class AlexaLogin:
                 await delete_cookie(cookiefile)
 
     @classmethod
-    def get_inputs(cls, soup: BeautifulSoup, searchfield=None) -> Dict[str, str]:
+    def get_inputs(cls, soup: BeautifulSoup, searchfield=None) -> dict[str, str]:
         """Parse soup for form with searchfield."""
         searchfield = searchfield or {"name": "signIn"}
         data = {}
@@ -433,13 +491,13 @@ class AlexaLogin:
                 pass
         return data
 
-    async def test_loggedin(self, cookies: Union[Dict[str, str], None] = None) -> bool:
+    async def test_loggedin(self, cookies: Union[dict[str, str], None] = None) -> bool:
         # pylint: disable=import-outside-toplevel
         """Function that will test the connection is logged in.
 
         Tests:
-        - Attempts to get authenticaton and compares to expected login email
-        Returns false if unsuccesful getting json or the emails don't match
+        - Attempts to get authentication and compares to expected login email
+        Returns false if unsuccessful getting json or the emails don't match
         Returns false if no csrf found; necessary to issue commands
         """
         if self._debug:
@@ -450,10 +508,13 @@ class AlexaLogin:
         if not self._session:
             self._create_session()
         await self.get_tokens()
+        await self.register_capabilities()
         await self.exchange_token_for_cookies()
         await self.get_csrf()
+        path = self._prefix + "amazon.com" + "/api/bootstrap"
+        self._log_cookies_for_url(path)
         get_resp = await self._session.get(
-            self._prefix + "amazon.com" + "/api/bootstrap",
+            path,
             cookies=cookies,
             ssl=self._ssl,
         )
@@ -473,9 +534,9 @@ class AlexaLogin:
         # Convert from amazon.com domain to native domain
         if self.url.lower() != "amazon.com":
             self._headers["authority"] = f"www.{self._url}"
-            get_resp = await self._session.get(
-                self._prefix + self._url + "/api/bootstrap",
-            )
+            path = self._prefix + self._url + "/api/bootstrap"
+            self._log_cookies_for_url(path)
+            get_resp = await self._session.get(path)
             await self._process_resp(get_resp)
             try:
                 json = await get_resp.json()
@@ -505,7 +566,7 @@ class AlexaLogin:
             self.stats["login_timestamp"] = datetime.datetime.now()
             self.stats["api_calls"] = 0
             await self.check_domain()
-            await self.save_cookiefile()
+            await self.finalize_login()
             return True
         _LOGGER.debug(
             "Not logged in due to email mismatch to stored %s", hide_email(email)
@@ -541,7 +602,7 @@ class AlexaLogin:
             #  initiate session
             self._session = aiohttp.ClientSession(headers=self._headers)
 
-    def _get_cookies_from_session(self, site: Text = "") -> Dict[Text, Text]:
+    def _get_cookies_from_session(self, site: str = "") -> dict[str, str]:
         """Return cookies from aiohttp session."""
         assert self._session
         if not site:
@@ -551,8 +612,8 @@ class AlexaLogin:
         cookies = cookie_jar.filter_cookies(URL(f"https://{site}"))
         return cookies
 
-    def _print_session_cookies(self) -> Text:
-        result: Text = ""
+    def _print_session_cookies(self) -> str:
+        result: str = ""
         if not self._session.cookie_jar:
             result = "Session cookie jar is empty."
         for cookie in self._session.cookie_jar:
@@ -562,8 +623,8 @@ class AlexaLogin:
     @_catch_all_exceptions
     async def login(
         self,
-        cookies: Optional[Dict[Text, Text]] = None,
-        data: Optional[Dict[Text, Optional[Text]]] = None,
+        cookies: Optional[dict[str, str]] = None,
+        data: Optional[dict[str, Optional[str]]] = None,
     ) -> None:
         # pylint: disable=too-many-branches,too-many-locals,
         # pylint: disable=too-many-statements
@@ -572,7 +633,6 @@ class AlexaLogin:
         if cookies:
             _LOGGER.debug("Using cookies to log in")
             if await self.test_loggedin(cookies):
-                await self.finalize_login()
                 return
             await self.reset()
         _LOGGER.debug("Using credentials to log in")
@@ -612,7 +672,7 @@ class AlexaLogin:
             )
             self._lastreq = resp
             site = await self._process_resp(resp)
-        html: Text = await resp.text()
+        html: str = await resp.text()
         if self._debug:
             async with aiofiles.open(self._debugget, mode="wb") as localfile:
                 await localfile.write(await resp.read())
@@ -624,6 +684,8 @@ class AlexaLogin:
         # ) as myfile:
         #     html = await myfile.read()
         site = await self._process_page(html, site)
+        if site is None:
+            return
         if not self.status.get("ap_error"):
             missing_params = self._populate_data(site, data)
             if self._debug:
@@ -643,11 +705,17 @@ class AlexaLogin:
                     "action_required"
                 ):
                     post_resp = await self._session.get(
-                        site, params=self._data, headers=self._headers, ssl=self._ssl,
+                        site,
+                        params=self._data,
+                        headers=self._headers,
+                        ssl=self._ssl,
                     )
             else:
                 post_resp = await self._session.post(
-                    site, data=self._data, headers=self._headers, ssl=self._ssl,
+                    site,
+                    data=self._data,
+                    headers=self._headers,
+                    ssl=self._ssl,
                 )
 
             # headers need to be submitted to have the referer
@@ -672,8 +740,11 @@ class AlexaLogin:
                 assert isinstance(cookie_jar, aiohttp.CookieJar)
                 if self._debug:
                     _LOGGER.debug("Saving cookie to %s", cookiefile)
+                loop = asyncio.get_event_loop()
                 try:
-                    cookie_jar.save(self._cookiefile[0])
+                    await loop.run_in_executor(
+                        None, cookie_jar.save, self._cookiefile[0]
+                    )
                 except (OSError, EOFError, TypeError, AttributeError) as ex:
                     _LOGGER.debug(
                         "Error saving pickled cookie to %s: %s",
@@ -686,23 +757,42 @@ class AlexaLogin:
         if self._debug:
             _LOGGER.debug("Session Cookies:\n%s", self._print_session_cookies())
 
+    async def delete_cookiefile(self) -> None:
+        """Delete cookiefile."""
+        self._cookiefile = [
+            self._outputpath(f".storage/{self._hass_domain}.{self.email}.pickle"),
+            self._outputpath(f"{self._hass_domain}.{self.email}.pickle"),
+            self._outputpath(f".storage/{self._hass_domain}.{self.email}.txt"),
+        ]
+        for cookiefile in self._cookiefile:
+            if cookiefile == self._cookiefile[0]:
+                try:
+                    await delete_cookie(cookiefile)
+                except (OSError, EOFError, TypeError, AttributeError) as ex:
+                    _LOGGER.debug(
+                        "Error deleting cookiefile %s: %s",
+                        self._cookiefile[0],
+                        EXCEPTION_TEMPLATE.format(type(ex).__name__, ex.args),
+                    )
+        if self._debug:
+            _LOGGER.debug("Deleted:\n%s", self._cookiefile)
+
     async def get_tokens(self) -> bool:
         """Get access and refresh tokens after registering device using cookies.
 
         Returns:
             bool: True if successful.
         """
-        if not self.access_token:
-            _LOGGER.warning(
-                "No access token found; falling back to credential login instead of oauth."
-            )
-            return False
-        frc = base64.b64encode(secrets.token_bytes(313)).decode("ascii")
-        map_md = base64.b64encode(
-            '{"device_user_dictionary":[],"device_registration_data":{"software_version":"1"},"app_identifier":{"app_version":"2.2.223830","bundle_id":"com.amazon.echo"}}'.encode(
-                "utf8"
-            )
-        ).decode("utf8")
+        frc = base64.b64encode(secrets.token_bytes(313)).decode("ascii").rstrip("=")
+        map_md_raw = {
+            "device_user_dictionary": [],
+            "device_registration_data": {"software_version": "1"},
+            "app_identifier": {
+                "app_version": CALL_VERSION,
+                "bundle_id": "com.amazon.echo",
+            },
+        }
+        map_md = base64.b64encode(dumps(map_md_raw).encode()).decode().rstrip("=")
 
         if self.url.lower() != "amazon.com":
             urls = [self.url, "amazon.com"]
@@ -715,50 +805,49 @@ class AlexaLogin:
             cookies["map-md"] = map_md
             headers = {
                 "Content-Type": "application/json",
-                "Accept-Charset": "utf-8",
-                "x-amzn-identity-auth-domain": f"api.{url}",
-                "Connection": "keep-alive",
-                "Accept": "*/*",
-                "User-Agent": USER_AGENT,
-                "Accept-Language": "en-US",
-                # "Cookie": "; ".join(
-                #     [str(x) + "=" + str(y) for x, y in self._cookies.items()]
-                # ),
             }
             cookies_list = []
-            for k, value in cookies.items():
-                # if k == "csrf":
-                #     continue
-                cookies_list.append({"Value": value.value, "Name": k})
             data = {
                 "requested_extensions": ["device_info", "customer_info"],
                 "cookies": {"website_cookies": cookies_list, "domain": f".{url}"},
                 "registration_data": {
                     "domain": "Device",
-                    "app_version": "2.2.223830.0",
+                    "app_version": CALL_VERSION,
                     "device_type": "A2IVLV5VM2W81",
-                    "device_name": f"%FIRST_NAME%'s%DUPE_STRATEGY_1ST%{APP_NAME}",
-                    "os_version": "11.4.1",
-                    "device_serial": "2cf947a5a093d686a30c33cb07a703fd"
-                    if not self.uuid
-                    else self.uuid,
+                    "device_name": f"%FIRST_NAME%\u0027s%DUPE_STRATEGY_1ST%{APP_NAME}",
+                    "os_version": "16.6",
+                    "device_serial": self.uuid,
                     "device_model": "iPhone",
                     "app_name": APP_NAME,
                     "software_version": "1",
                 },
-                "auth_data": {"access_token": self.access_token},
+                "auth_data": {},
                 "user_context_map": {"frc": frc},
                 "requested_token_type": ["bearer", "mac_dms", "website_cookies"],
             }
+            if self.access_token:
+                data["auth_data"] = {"access_token": self.access_token}
+            elif self.code_verifier and self.authorization_code:
+                data["auth_data"] = {
+                    "client_id": self.deviceid,
+                    "authorization_code": self.authorization_code,
+                    "code_verifier": self.code_verifier,
+                    "code_algorithm": "SHA-256",
+                    "client_domain": "DeviceLegacy",
+                }
             _LOGGER.debug("Attempting to register with %s", url)
             try:
                 response = await self._session.post(
-                    "https://api." + url + "/auth/register", json=data, headers=headers,
+                    "https://api." + url + "/auth/register",
+                    json=data,
+                    headers=headers,
                 )
             except aiohttp.ClientConnectorError:
                 _LOGGER.debug("Fallback attempt to register with api.amazon.com")
                 response = await self._session.post(
-                    "https://api.amazon.com/auth/register", json=data, headers=headers,
+                    "https://api.amazon.com/auth/register",
+                    json=data,
+                    headers=headers,
                 )
             _LOGGER.debug("auth response %s with \n%s", response, dumps(data))
             if response.status == 200:
@@ -778,6 +867,7 @@ class AlexaLogin:
             self.refresh_token = response["success"]["tokens"]["bearer"][
                 "refresh_token"
             ]
+            self.mac_dms = response["success"]["tokens"]["mac_dms"]
             old = self.access_token
             self.access_token = response["success"]["tokens"]["bearer"]["access_token"]
             self.expires_in = datetime.datetime.now().timestamp() + int(
@@ -785,13 +875,299 @@ class AlexaLogin:
             )
             if old != self.access_token:
                 _LOGGER.debug(
-                    "New access token received which expires at %s in %s",
+                    "New access token(%s) received which expires at %s in %s",
+                    len(self.access_token),
                     datetime.datetime.fromtimestamp(self.expires_in),
                     datetime.datetime.fromtimestamp(self.expires_in)
                     - datetime.datetime.now(),
                 )
             return True
         return False
+
+    async def register_capabilities(self) -> bool:
+        """Register capabilities of virtual device.
+
+        Required for HTTP2/Push.
+        https://developer.amazon.com/en-US/docs/alexa/alexa-voice-service/capabilities-api.html
+
+        Returns
+            bool: Return True if successful.
+
+        """
+        data = {
+            "legacyFlags": {
+                "SUPPORTS_COMMS": True,
+                "SUPPORTS_ARBITRATION": True,
+                "SCREEN_WIDTH": 1170,
+                "SUPPORTS_SCRUBBING": True,
+                "SPEECH_SYNTH_SUPPORTS_TTS_URLS": False,
+                "SUPPORTS_HOME_AUTOMATION": True,
+                "SUPPORTS_DROPIN_OUTBOUND": True,
+                "FRIENDLY_NAME_TEMPLATE": "VOX",
+                "SUPPORTS_SIP_OUTBOUND_CALLING": True,
+                "VOICE_PROFILE_SWITCHING_DISABLED": True,
+                "SUPPORTS_LYRICS_IN_CARD": False,
+                "SUPPORTS_DATAMART_NAMESPACE": "Vox",
+                "SUPPORTS_VIDEO_CALLING": True,
+                "SUPPORTS_PFM_CHANGED": True,
+                "SUPPORTS_TARGET_PLATFORM": "TABLET",
+                "SUPPORTS_SECURE_LOCKSCREEN": False,
+                "AUDIO_PLAYER_SUPPORTS_TTS_URLS": False,
+                "SUPPORTS_KEYS_IN_HEADER": False,
+                "SUPPORTS_MIXING_BEHAVIOR_FOR_AUDIO_PLAYER": False,
+                "AXON_SUPPORT": True,
+                "SUPPORTS_TTS_SPEECHMARKS": True,
+            },
+            "envelopeVersion": "20160207",
+            "capabilities": [
+                {
+                    "version": "0.1",
+                    "interface": "CardRenderer",
+                    "type": "AlexaInterface",
+                },
+                {"interface": "Navigation", "type": "AlexaInterface", "version": "1.1"},
+                {
+                    "type": "AlexaInterface",
+                    "version": "2.0",
+                    "interface": "Alexa.Comms.PhoneCallController",
+                },
+                {
+                    "type": "AlexaInterface",
+                    "version": "1.1",
+                    "interface": "ExternalMediaPlayer",
+                },
+                {
+                    "type": "AlexaInterface",
+                    "interface": "Alerts",
+                    "configurations": {
+                        "maximumAlerts": {"timers": 2, "overall": 99, "alarms": 2}
+                    },
+                    "version": "1.3",
+                },
+                {
+                    "version": "1.0",
+                    "interface": "Alexa.Display.Window",
+                    "type": "AlexaInterface",
+                    "configurations": {
+                        "templates": [
+                            {
+                                "type": "STANDARD",
+                                "id": "app_window_template",
+                                "configuration": {
+                                    "sizes": [
+                                        {
+                                            "id": "fullscreen",
+                                            "type": "DISCRETE",
+                                            "value": {
+                                                "value": {
+                                                    "height": 1440,
+                                                    "width": 3200,
+                                                },
+                                                "unit": "PIXEL",
+                                            },
+                                        }
+                                    ],
+                                    "interactionModes": ["mobile_mode", "auto_mode"],
+                                },
+                            }
+                        ]
+                    },
+                },
+                {
+                    "type": "AlexaInterface",
+                    "interface": "AccessoryKit",
+                    "version": "0.1",
+                },
+                {
+                    "type": "AlexaInterface",
+                    "interface": "Alexa.AudioSignal.ActiveNoiseControl",
+                    "version": "1.0",
+                    "configurations": {
+                        "ambientSoundProcessingModes": [
+                            {"name": "ACTIVE_NOISE_CONTROL"},
+                            {"name": "PASSTHROUGH"},
+                        ]
+                    },
+                },
+                {
+                    "interface": "PlaybackController",
+                    "type": "AlexaInterface",
+                    "version": "1.0",
+                },
+                {"version": "1.0", "interface": "Speaker", "type": "AlexaInterface"},
+                {
+                    "version": "1.0",
+                    "interface": "SpeechSynthesizer",
+                    "type": "AlexaInterface",
+                },
+                {
+                    "version": "1.0",
+                    "interface": "AudioActivityTracker",
+                    "type": "AlexaInterface",
+                },
+                {
+                    "type": "AlexaInterface",
+                    "interface": "Alexa.Camera.LiveViewController",
+                    "version": "1.0",
+                },
+                {
+                    "type": "AlexaInterface",
+                    "version": "1.0",
+                    "interface": "Alexa.Input.Text",
+                },
+                {
+                    "type": "AlexaInterface",
+                    "interface": "Alexa.PlaybackStateReporter",
+                    "version": "1.0",
+                },
+                {
+                    "version": "1.1",
+                    "interface": "Geolocation",
+                    "type": "AlexaInterface",
+                },
+                {
+                    "interface": "Alexa.Health.Fitness",
+                    "version": "1.0",
+                    "type": "AlexaInterface",
+                },
+                {"interface": "Settings", "type": "AlexaInterface", "version": "1.0"},
+                {
+                    "configurations": {
+                        "interactionModes": [
+                            {
+                                "dialog": "SUPPORTED",
+                                "interactionDistance": {"value": 18, "unit": "INCHES"},
+                                "video": "SUPPORTED",
+                                "keyboard": "SUPPORTED",
+                                "id": "mobile_mode",
+                                "uiMode": "MOBILE",
+                                "touch": "SUPPORTED",
+                            },
+                            {
+                                "video": "UNSUPPORTED",
+                                "dialog": "SUPPORTED",
+                                "interactionDistance": {"value": 36, "unit": "INCHES"},
+                                "uiMode": "AUTO",
+                                "touch": "SUPPORTED",
+                                "id": "auto_mode",
+                                "keyboard": "UNSUPPORTED",
+                            },
+                        ]
+                    },
+                    "type": "AlexaInterface",
+                    "interface": "Alexa.InteractionMode",
+                    "version": "1.0",
+                },
+                {
+                    "type": "AlexaInterface",
+                    "configurations": {
+                        "catalogs": [
+                            {
+                                "type": "IOS_APP_STORE",
+                                "identifierTypes": [
+                                    "URI_HTTP_SCHEME",
+                                    "URI_CUSTOM_SCHEME",
+                                ],
+                            }
+                        ]
+                    },
+                    "version": "0.2",
+                    "interface": "Alexa.Launcher",
+                },
+                {"interface": "System", "version": "1.0", "type": "AlexaInterface"},
+                {
+                    "interface": "Alexa.IOComponents",
+                    "type": "AlexaInterface",
+                    "version": "1.4",
+                },
+                {
+                    "type": "AlexaInterface",
+                    "interface": "Alexa.FavoritesController",
+                    "version": "1.0",
+                },
+                {
+                    "version": "1.0",
+                    "type": "AlexaInterface",
+                    "interface": "Alexa.Mobile.Push",
+                },
+                {
+                    "type": "AlexaInterface",
+                    "interface": "InteractionModel",
+                    "version": "1.1",
+                },
+                {
+                    "interface": "Alexa.PlaylistController",
+                    "type": "AlexaInterface",
+                    "version": "1.0",
+                },
+                {
+                    "interface": "SpeechRecognizer",
+                    "type": "AlexaInterface",
+                    "version": "2.1",
+                },
+                {
+                    "interface": "AudioPlayer",
+                    "type": "AlexaInterface",
+                    "version": "1.3",
+                },
+                {
+                    "type": "AlexaInterface",
+                    "version": "3.1",
+                    "interface": "Alexa.RTCSessionController",
+                },
+                {
+                    "interface": "VisualActivityTracker",
+                    "version": "1.1",
+                    "type": "AlexaInterface",
+                },
+                {
+                    "interface": "Alexa.PlaybackController",
+                    "version": "1.0",
+                    "type": "AlexaInterface",
+                },
+                {
+                    "type": "AlexaInterface",
+                    "interface": "Alexa.SeekController",
+                    "version": "1.0",
+                },
+                {
+                    "interface": "Alexa.Comms.MessagingController",
+                    "type": "AlexaInterface",
+                    "version": "1.0",
+                },
+            ],
+        }
+        headers = {
+            "User-Agent": USER_AGENT,
+            "Accept-Language": "en-US",
+            "Accept-Charset": "utf-8",
+            "Connection": "keep-alive",
+            "Content-type": "application/json; charset=UTF-8",
+            "authorization": f"Bearer {self.access_token}",
+        }
+
+        response = await self._session.put(
+            "https://api.amazonalexa.com/v1/devices/@self/capabilities",
+            json=data,
+            headers=headers,
+        )
+        _LOGGER.debug(
+            "capabilities response %s with \n%s\n%s",
+            response,
+            dumps(data),
+            dumps(headers),
+        )
+        if response.status != 204:
+            if self._debug:
+                _LOGGER.debug(
+                    "Failed to register capabilities: %s\n%s",
+                    response,
+                    await response.text(),
+                )
+            else:
+                _LOGGER.debug("Failed to register capabilities")
+            return False
+        return True
 
     async def refresh_access_token(self) -> bool:
         """Refresh access token and expires in using refresh token.
@@ -805,8 +1181,8 @@ class AlexaLogin:
             return False
         data = {
             "app_name": APP_NAME,
-            "app_version": "2.2.223830.0",
-            "di.sdk.version": "6.10.0",
+            "app_version": CALL_VERSION,
+            "di.sdk.version": "6.12.4",
             "source_token": self.refresh_token,
             "package_name": "com.amazon.echo",
             "di.hw.version": "iPhone",
@@ -814,33 +1190,22 @@ class AlexaLogin:
             "requested_token_type": "access_token",
             "source_token_type": "refresh_token",
             "di.os.name": "iOS",
-            "di.os.version": "11.4.1",
-            "current_version": "6.10.0",
-        }
-        headers = {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Accept-Charset": "utf-8",
-            "x-amzn-identity-auth-domain": "api.amazon.com",
-            "Connection": "keep-alive",
-            "Accept": "*/*",
-            "User-Agent": USER_AGENT,
-            "Accept-Language": LOCALE_KEY.get(self.url.replace("amazon", ""))
-            if LOCALE_KEY.get(self.url.replace("amazon", ""))
-            else "en_US",
-            # "Cookie": "; ".join(
-            #     [str(x) + "=" + str(y) for x, y in self._cookies.items()]
-            # ),
+            "di.os.version": "16.6",
+            "current_version": "6.12.4",
+            "previous_version": "6.12.4",
         }
         try:
             response = await self._session.post(
-                "https://api." + self.url + "/auth/token", data=data, headers=headers,
+                "https://api." + self.url + "/auth/token",
+                data=data,
             )
         except aiohttp.ClientConnectionError:
             _LOGGER.debug(
                 "Fallback attempt to refresh access token with api.amazon.com"
             )
             response = await self._session.post(
-                "https://api.amazon.com/auth/token", data=data, headers=headers,
+                "https://api.amazon.com/auth/token",
+                data=data,
             )
         _LOGGER.debug("refresh response %s with \n%s", response, dumps(data))
         if response.status != 200:
@@ -858,7 +1223,8 @@ class AlexaLogin:
                 response.get("expires_in")
             )
             _LOGGER.debug(
-                "Successfully updated access_token which expires at %s in %s",
+                "Successfully refreshed access_token(%s) which expires at %s in %s",
+                len(self.access_token),
                 datetime.datetime.fromtimestamp(self.expires_in),
                 datetime.datetime.fromtimestamp(self.expires_in)
                 - datetime.datetime.now(),
@@ -870,38 +1236,30 @@ class AlexaLogin:
         """Generate new session cookies using refresh token.
 
         Returns
-            bool: True if succesful
+            bool: True if successful
 
         """
         if not self.refresh_token:
             _LOGGER.debug("No refresh token found to get access token")
             return False
         data = {
-            "di.os.name": "iOS",
-            "app_version": "2.2.223830.0",
+            "app_name": APP_NAME,
+            "app_version": CALL_VERSION,
+            "di.sdk.version": "6.12.4",
             "domain": f".{self.url}",
             "source_token": self.refresh_token,
+            "package_name": "com.amazon.echo",
+            "di.hw.version": "iPhone",
+            "platform": "iOS",
             "requested_token_type": "auth_cookies",
             "source_token_type": "refresh_token",
-            "di.hw.version": "iPhone",
-            "di.sdk.version": "6.10.0",
-            # "cookies": {},
-            "app_name": APP_NAME,
-            "di.os.version": "11.4.1",
+            "di.os.name": "iOS",
+            "di.os.version": "16.6",
+            "current_version": "6.12.4",
+            "previous_version": "6.12.4",
         }
         headers = {
             "Content-Type": "application/x-www-form-urlencoded",
-            "Accept-Charset": "utf-8",
-            # "x-amzn-identity-auth-domain": f"api.{self.url}",
-            "Connection": "keep-alive",
-            "Accept": "*/*",
-            "User-Agent": USER_AGENT,
-            "Accept-Language": LOCALE_KEY.get(self.url.replace("amazon", ""))
-            if LOCALE_KEY.get(self.url.replace("amazon", ""))
-            else "en_US",
-            # "Cookie": "; ".join(
-            #     [str(x) + "=" + str(y) for x, y in self._cookies.items()]
-            # ),
         }
         try:
             response = await self._session.post(
@@ -933,27 +1291,35 @@ class AlexaLogin:
             for item in cookies:
                 raw_cookie = SimpleCookie()
                 cookie_name = item["Name"]
-                raw_cookie[item["Name"]] = (
-                    item["Value"]
-                    if not (
-                        item["Value"].startswith('"') and item["Value"].endswith('"')
-                    )
+                cookie_value = item["Value"]
+                raw_cookie[cookie_name] = (
+                    cookie_value
+                    if not (cookie_value.startswith('"') and cookie_value.endswith('"'))
                     # Strings are returned within quotations, strip them
-                    else item["Value"][1:-1]
+                    else cookie_value[1:-1]
                 )
-                for name, value in item.items():
-                    if name in ["Name", "Value"]:
-                        continue
-                    raw_cookie[cookie_name][name] = f"{value}; Domain={domain}"
-                # _LOGGER.debug("updating jar with cookie %s", raw_cookie)
+                raw_cookie[cookie_name]["domain"] = domain
+                raw_cookie[cookie_name]["path"] = item["Path"]
+                raw_cookie[cookie_name]["secure"] = item["Secure"]
+                raw_cookie[cookie_name]["expires"] = item["Expires"]
+                raw_cookie[cookie_name]["httpOnly"] = item["HttpOnly"]
+                _LOGGER.debug("updating jar with cookie %s", raw_cookie)
                 self._session.cookie_jar.update_cookies(raw_cookie, URL(domain))
-            _LOGGER.debug(
-                "%s cookies successfully exchanged for refresh token for domain %s",
+            _LOGGER.info(
+                "Exchanged refresh token for %s %s cookies: %s",
                 len(cookies),
                 domain,
+                [c["Name"] for c in cookies],
             )
             success = True
         return success
+
+    def _log_cookies_for_url(self, path):
+        """Log a debug message with the names of the session cookies for a given URL."""
+        cookies = self._session.cookie_jar.filter_cookies(path)
+        _LOGGER.debug(
+            "Session cookies for '%s': %s", path, [name for name, _ in cookies.items()]
+        )
 
     async def get_csrf(self) -> bool:
         """Generate csrf if missing.
@@ -978,7 +1344,9 @@ class AlexaLogin:
             failed = False
             response = None
             try:
-                response = await self._session.get(f"{self._prefix}{self.url}{url}")
+                path = f"{self._prefix}{self.url}{url}"
+                self._log_cookies_for_url(path)
+                response = await self._session.get(path)
             except aiohttp.ClientConnectionError:
                 failed = True
             if failed or response and response.status != 200:
@@ -1010,16 +1378,21 @@ class AlexaLogin:
             "Accept-Language": "en-US",
         }
         response = await self._session.get(
-            f"{self._prefix}{self.url}/api/users/me?platform=ios&version=2.2.223830.0",
+            f"{self._prefix}{self.url}/api/users/me?platform=ios&version={CALL_VERSION}",
             headers=headers,
         )
         if response.status != 200:
             if self._debug:
                 _LOGGER.debug("Unable to check for domain; proceeding:\n%s", response)
             return True
-        response = await response.json()
-        domain = response.get("marketPlaceDomainName")
-        if self.url not in domain:
+        try:
+            response = await response.json(content_type=None)
+        except JSONDecodeError:
+            if self._debug:
+                _LOGGER.debug("Unable to check for domain; proceeding:\n%s", response)
+            return True
+        domain = URL(response.get("marketPlaceDomainName")).host.replace("www.", "", 1)
+        if self.url != domain:
             _LOGGER.warning(
                 "Domain %s does not match reported account domain %s; functionality is not likely to work, please fix",
                 self.url,
@@ -1029,7 +1402,7 @@ class AlexaLogin:
         _LOGGER.debug("Domain %s matches reported account domain: %s", self.url, domain)
         return True
 
-    async def _process_resp(self, resp) -> Text:
+    async def _process_resp(self, resp) -> str:
         if resp.history:
             for item in resp.history:
                 _LOGGER.debug("%s: redirected from\n%s", item.method, item.url)
@@ -1061,7 +1434,7 @@ class AlexaLogin:
         self._headers["Referer"] = str(url)
         return url
 
-    async def _process_page(self, html: str, site: Text) -> Text:
+    async def _process_page(self, html: str, site: str) -> str:
         # pylint: disable=too-many-branches,too-many-locals,
         # pylint: disable=too-many-statements
         # pylint: disable=import-outside-toplevel
@@ -1114,7 +1487,7 @@ class AlexaLogin:
         site_url = URL(site)
         soup: BeautifulSoup = BeautifulSoup(html, "html.parser")
 
-        status: Dict[Text, Union[Text, bool]] = {}
+        status: dict[str, Union[str, bool]] = {}
 
         #  Find tags to determine which path
         login_tag = soup.find("form", {"name": "signIn"})
@@ -1143,8 +1516,12 @@ class AlexaLogin:
 
         if errorbox:
             error_message = errorbox.find("h4").string
+            if error_message is None:
+                error_message = "unknown"
             for list_item in errorbox.findAll("li"):
-                error_message += list_item.find("span").string
+                span_text = list_item.find("span").text
+                if span_text:
+                    error_message += span_text
             _LOGGER.debug("Error message: %s", error_message)
             status["error_message"] = error_message
 
@@ -1232,7 +1609,11 @@ class AlexaLogin:
             _LOGGER.debug("Verification code requested:")
             status["verificationcode_required"] = True
             self._data = self.get_inputs(soup, {"action": "verify"})
-        elif missingcookies_tag is not None and site_url.path != "/ap/maplanding":
+        elif (
+            missingcookies_tag is not None
+            and site_url.path  # pylint: disable=comparison-with-callable
+            != "/ap/maplanding"
+        ):
             _LOGGER.debug("Error page detected:")
             href = ""
             links = missingcookies_tag.findAll("a", href=True)
@@ -1242,7 +1623,7 @@ class AlexaLogin:
             status["force_get"] = True
             status["ap_error_href"] = href
         elif javascript_authentication_tag:
-            message: Text = ""
+            message: str = ""
 
             message = soup.find("span").getText()
             for div in soup.findAll("div", {"id": "channelDetails"}):
@@ -1274,14 +1655,13 @@ class AlexaLogin:
             query = site_url.query
             self.access_token = query.get("openid.oa2.access_token")
             if await self.test_loggedin():
-                await self.finalize_login()
                 return
             _LOGGER.debug("Login failed; check credentials")
             status["login_failed"] = "login_failed"
             if self._data and "" in self._data.values():
                 missing = [k for (k, v) in self._data.items() if v == ""]
                 _LOGGER.debug(
-                    "If credentials correct, please report" " these missing values: %s",
+                    "If credentials correct, please report these missing values: %s",
                     missing,
                 )
         self.status = status
@@ -1289,7 +1669,7 @@ class AlexaLogin:
         if status.get("approval_status") == "TransactionCompleted":
             site = self._data.get("openid.return_to")
         elif form_tag and "login_successful" not in status:
-            formsite: Text = form_tag.get("action")
+            formsite: str = form_tag.get("action")
             if self._debug:
                 _LOGGER.debug("Found form to process: %s", form_tag)
             if formsite and formsite == "verify":
@@ -1321,23 +1701,23 @@ class AlexaLogin:
                 _LOGGER.debug("Found post url to %s", site)
         return str(site)
 
-    def _populate_data(self, site: Text, data: Dict[str, Optional[str]]) -> bool:
+    def _populate_data(self, site: str, data: dict[str, Optional[str]]) -> bool:
         """Populate self._data with info from data."""
         _LOGGER.debug(
             "Preparing form submission to %s with input data: %s", site, obfuscate(data)
         )
         # pull data from configurator
-        password: Optional[Text] = data.get("password", "")
-        captcha: Optional[Text] = data.get("captcha", "")
+        password: Optional[str] = data.get("password", "")
+        captcha: Optional[str] = data.get("captcha", "")
         if data.get("otp_secret"):
             self.set_totp(data.get("otp_secret", ""))
-        securitycode: Optional[Text] = data.get("securitycode", "")
+        securitycode: Optional[str] = data.get("securitycode", "")
         if not securitycode and self._totp:
             _LOGGER.debug("No 2FA code supplied but will generate.")
             securitycode = self.get_totp_token()
-        claimsoption: Optional[Text] = data.get("claimsoption", "")
-        authopt: Optional[Text] = data.get("authselectoption", "")
-        verificationcode: Optional[Text] = data.get("verificationcode", "")
+        claimsoption: Optional[str] = data.get("claimsoption", "")
+        authopt: Optional[str] = data.get("authselectoption", "")
+        verificationcode: Optional[str] = data.get("verificationcode", "")
 
         #  add username and password to self._data for post request
         #  self._data is scraped from the form page in _process_page
@@ -1349,9 +1729,7 @@ class AlexaLogin:
             self._data["password"] = (
                 self._password + securitycode
                 if not password
-                else password + securitycode
-                if securitycode
-                else password
+                else password + securitycode if securitycode else password
             )
             if "rememberMe" in self._data:
                 self._data["rememberMe"] = "true"
@@ -1377,7 +1755,9 @@ class AlexaLogin:
                     self._data["otpDeviceContext"] = self._options[str(authopt)]
                 except KeyError:
                     _LOGGER.debug(
-                        "Selected OTP option %s not in %s", str(authopt), self._options,
+                        "Selected OTP option %s not in %s",
+                        str(authopt),
+                        self._options,
                     )
             if verificationcode is not None and "code" in self._data:
                 self._data["code"] = verificationcode

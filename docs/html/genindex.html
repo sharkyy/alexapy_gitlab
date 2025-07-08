@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; AlexaPy 1.24.0 documentation</title>
+  <title>Index &mdash; AlexaPy 1.26.9 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
@@ -30,9 +32,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -62,7 +64,7 @@
             
             
               <div class="version">
-                1.24.0
+                1.26.9
               </div>
             
           
@@ -90,8 +92,8 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="alexapy/alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexaapi.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaapi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexahttp2.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexahttp2</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexalogin.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexalogin</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexaproxy.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaproxy</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexawebsocket.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexawebsocket</span></code></a></li>
@@ -100,9 +102,27 @@
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.helpers.html"><code class="docutils literal notranslate"><span class="pre">alexapy.helpers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.hide_email"><code class="docutils literal notranslate"><span class="pre">hide_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.hide_serial"><code class="docutils literal notranslate"><span class="pre">hide_serial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.obfuscate"><code class="docutils literal notranslate"><span class="pre">obfuscate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexaLogin"><code class="docutils literal notranslate"><span class="pre">AlexaLogin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexaAPI"><code class="docutils literal notranslate"><span class="pre">AlexaAPI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexaProxy"><code class="docutils literal notranslate"><span class="pre">AlexaProxy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.HTTP2EchoClient"><code class="docutils literal notranslate"><span class="pre">HTTP2EchoClient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.WebsocketEchoClient"><code class="docutils literal notranslate"><span class="pre">WebsocketEchoClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexapyConnectionError"><code class="docutils literal notranslate"><span class="pre">AlexapyConnectionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexapyLoginCloseRequested"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginCloseRequested</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexapyLoginError"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexapyPyotpInvalidKey"><code class="docutils literal notranslate"><span class="pre">AlexapyPyotpInvalidKey</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -174,145 +194,28 @@
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
- <a href="#_"><strong>_</strong></a>
- | <a href="#A"><strong>A</strong></a>
- | <a href="#B"><strong>B</strong></a>
+ <a href="#A"><strong>A</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
- | <a href="#I"><strong>I</strong></a>
- | <a href="#J"><strong>J</strong></a>
- | <a href="#K"><strong>K</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
- | <a href="#Q"><strong>Q</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
- | <a href="#V"><strong>V</strong></a>
  | <a href="#W"><strong>W</strong></a>
  
 </div>
-<h2 id="_">_</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Application.__call__">__call__() (alexapy.aiohttp.web.Application method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_app.html#alexapy.aiohttp.web_app.Application.__call__">(alexapy.aiohttp.web_app.Application method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractResource">AbstractResource (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractResource">(class in alexapy.aiohttp.web_urldispatcher)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractRoute">AbstractRoute (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractRoute">(class in alexapy.aiohttp.web_urldispatcher)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractRouteDef">AbstractRouteDef (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.AbstractRouteDef">(class in alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlMappingMatchInfo.add_app">add_app() (alexapy.aiohttp.web.UrlMappingMatchInfo method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.add_app">(alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher.add_delete">add_delete() (alexapy.aiohttp.web.UrlDispatcher method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_delete">(alexapy.aiohttp.web_urldispatcher.UrlDispatcher method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher.add_get">add_get() (alexapy.aiohttp.web.UrlDispatcher method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_get">(alexapy.aiohttp.web_urldispatcher.UrlDispatcher method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher.add_head">add_head() (alexapy.aiohttp.web.UrlDispatcher method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_head">(alexapy.aiohttp.web_urldispatcher.UrlDispatcher method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher.add_options">add_options() (alexapy.aiohttp.web.UrlDispatcher method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_options">(alexapy.aiohttp.web_urldispatcher.UrlDispatcher method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher.add_patch">add_patch() (alexapy.aiohttp.web.UrlDispatcher method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_patch">(alexapy.aiohttp.web_urldispatcher.UrlDispatcher method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher.add_post">add_post() (alexapy.aiohttp.web.UrlDispatcher method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_post">(alexapy.aiohttp.web_urldispatcher.UrlDispatcher method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractResource.add_prefix">add_prefix() (alexapy.aiohttp.web.AbstractResource method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.DynamicResource.add_prefix">(alexapy.aiohttp.web.DynamicResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.PlainResource.add_prefix">(alexapy.aiohttp.web.PlainResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractResource.add_prefix">(alexapy.aiohttp.web_urldispatcher.AbstractResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.DynamicResource.add_prefix">(alexapy.aiohttp.web_urldispatcher.DynamicResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.PlainResource.add_prefix">(alexapy.aiohttp.web_urldispatcher.PlainResource method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher.add_put">add_put() (alexapy.aiohttp.web.UrlDispatcher method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_put">(alexapy.aiohttp.web_urldispatcher.UrlDispatcher method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher.add_routes">add_routes() (alexapy.aiohttp.web.UrlDispatcher method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_routes">(alexapy.aiohttp.web_urldispatcher.UrlDispatcher method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher.add_static">add_static() (alexapy.aiohttp.web.UrlDispatcher method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_static">(alexapy.aiohttp.web_urldispatcher.UrlDispatcher method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher.add_view">add_view() (alexapy.aiohttp.web.UrlDispatcher method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_view">(alexapy.aiohttp.web_urldispatcher.UrlDispatcher method)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI">AlexaAPI (class in alexapy)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin">AlexaLogin (class in alexapy)</a>
@@ -327,334 +230,17 @@
 </li>
       </ul></li>
       <li>
-    alexapy.aiohttp
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#module-alexapy.aiohttp">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.abc
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.abc.html#module-alexapy.aiohttp.abc">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.base_protocol
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.base_protocol.html#module-alexapy.aiohttp.base_protocol">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.client
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#module-alexapy.aiohttp.client">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.client_exceptions
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_exceptions.html#module-alexapy.aiohttp.client_exceptions">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.client_proto
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_proto.html#module-alexapy.aiohttp.client_proto">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.client_reqrep
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#module-alexapy.aiohttp.client_reqrep">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.client_ws
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_ws.html#module-alexapy.aiohttp.client_ws">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.connector
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#module-alexapy.aiohttp.connector">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.cookiejar
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.cookiejar.html#module-alexapy.aiohttp.cookiejar">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.formdata
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.formdata.html#module-alexapy.aiohttp.formdata">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.frozenlist
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.frozenlist.html#module-alexapy.aiohttp.frozenlist">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.hdrs
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.hdrs.html#module-alexapy.aiohttp.hdrs">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.helpers
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.helpers.html#module-alexapy.aiohttp.helpers">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.http
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#module-alexapy.aiohttp.http">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.http_exceptions
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_exceptions.html#module-alexapy.aiohttp.http_exceptions">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.http_parser
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#module-alexapy.aiohttp.http_parser">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.http_websocket
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#module-alexapy.aiohttp.http_websocket">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.http_writer
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#module-alexapy.aiohttp.http_writer">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.locks
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.locks.html#module-alexapy.aiohttp.locks">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.log
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.log.html#module-alexapy.aiohttp.log">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.multipart
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#module-alexapy.aiohttp.multipart">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.payload
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#module-alexapy.aiohttp.payload">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.payload_streamer
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload_streamer.html#module-alexapy.aiohttp.payload_streamer">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.pytest_plugin
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.pytest_plugin.html#module-alexapy.aiohttp.pytest_plugin">module</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    alexapy.aiohttp.resolver
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.resolver.html#module-alexapy.aiohttp.resolver">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.signals
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.signals.html#module-alexapy.aiohttp.signals">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.streams
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.streams.html#module-alexapy.aiohttp.streams">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.tcp_helpers
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tcp_helpers.html#module-alexapy.aiohttp.tcp_helpers">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.test_utils
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.test_utils.html#module-alexapy.aiohttp.test_utils">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.tracing
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#module-alexapy.aiohttp.tracing">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.typedefs
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.typedefs.html#module-alexapy.aiohttp.typedefs">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#module-alexapy.aiohttp.web">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_app
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_app.html#module-alexapy.aiohttp.web_app">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_exceptions
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_exceptions.html#module-alexapy.aiohttp.web_exceptions">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_fileresponse
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_fileresponse.html#module-alexapy.aiohttp.web_fileresponse">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_log
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_log.html#module-alexapy.aiohttp.web_log">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_middlewares
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_middlewares.html#module-alexapy.aiohttp.web_middlewares">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_protocol
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#module-alexapy.aiohttp.web_protocol">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_request
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#module-alexapy.aiohttp.web_request">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_response
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#module-alexapy.aiohttp.web_response">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_routedef
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#module-alexapy.aiohttp.web_routedef">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_runner
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_runner.html#module-alexapy.aiohttp.web_runner">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_server
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_server.html#module-alexapy.aiohttp.web_server">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_urldispatcher
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#module-alexapy.aiohttp.web_urldispatcher">module</a>
-</li>
-      </ul></li>
-      <li>
-    alexapy.aiohttp.web_ws
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_ws.html#module-alexapy.aiohttp.web_ws">module</a>
-</li>
-      </ul></li>
-      <li>
     alexapy.alexaapi
 
       <ul>
         <li><a href="alexapy/alexapy.alexaapi.html#module-alexapy.alexaapi">module</a>
+</li>
+      </ul></li>
+      <li>
+    alexapy.alexahttp2
+
+      <ul>
+        <li><a href="alexapy/alexapy.alexahttp2.html#module-alexapy.alexahttp2">module</a>
 </li>
       </ul></li>
       <li>
@@ -678,6 +264,8 @@
         <li><a href="alexapy/alexapy.alexawebsocket.html#module-alexapy.alexawebsocket">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     alexapy.const
 
@@ -707,76 +295,16 @@
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexapyPyotpInvalidKey">AlexapyPyotpInvalidKey</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Request.app">app() (alexapy.aiohttp.web.Request property)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.HTTP2EchoClient.async_on_open">async_on_open() (alexapy.HTTP2EchoClient method)</a>
 
       <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request.app">(alexapy.aiohttp.web_request.Request property)</a>
+        <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient.async_on_open">(alexapy.WebsocketEchoClient method)</a>
 </li>
       </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartWriter.append_form">append_form() (alexapy.aiohttp.multipart.MultipartWriter method)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.HTTP2EchoClient.async_run">async_run() (alexapy.HTTP2EchoClient method)</a>
 
       <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartWriter.append_form">(alexapy.aiohttp.MultipartWriter method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartWriter.append_json">append_json() (alexapy.aiohttp.multipart.MultipartWriter method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartWriter.append_json">(alexapy.aiohttp.MultipartWriter method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartWriter.append_payload">append_payload() (alexapy.aiohttp.multipart.MultipartWriter method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartWriter.append_payload">(alexapy.aiohttp.MultipartWriter method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Application">Application (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_app.html#alexapy.aiohttp.web_app.Application">(class in alexapy.aiohttp.web_app)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AppRunner">AppRunner (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_runner.html#alexapy.aiohttp.web_runner.AppRunner">(class in alexapy.aiohttp.web_runner)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlMappingMatchInfo.apps">apps() (alexapy.aiohttp.web.UrlMappingMatchInfo property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.apps">(alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient.async_on_open">async_on_open() (alexapy.WebsocketEchoClient method)</a>
-</li>
-      <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient.async_run">async_run() (alexapy.WebsocketEchoClient method)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.AsyncIterablePayload">AsyncIterablePayload (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.AsyncIterablePayload">(class in alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.AsyncResolver">AsyncResolver (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.resolver.html#alexapy.aiohttp.resolver.AsyncResolver">(class in alexapy.aiohttp.resolver)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader.at_eof">at_eof() (alexapy.aiohttp.BodyPartReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader.at_eof">(alexapy.aiohttp.multipart.BodyPartReader method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartReader.at_eof">(alexapy.aiohttp.multipart.MultipartReader method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartReader.at_eof">(alexapy.aiohttp.MultipartReader method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.StreamReader.at_eof">(alexapy.aiohttp.StreamReader method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.streams.html#alexapy.aiohttp.streams.StreamReader.at_eof">(alexapy.aiohttp.streams.StreamReader method)</a>
+        <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient.async_run">(alexapy.WebsocketEchoClient method)</a>
 </li>
       </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaProxy.autofill">autofill() (alexapy.AlexaProxy method)</a>
@@ -784,376 +312,22 @@
   </ul></td>
 </tr></table>
 
-<h2 id="B">B</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BadContentDispositionHeader">BadContentDispositionHeader</a>, <a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BadContentDispositionHeader">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BadContentDispositionParam">BadContentDispositionParam</a>, <a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BadContentDispositionParam">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BaseConnector">BaseConnector (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.BaseConnector">(class in alexapy.aiohttp.client)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.BaseConnector">(class in alexapy.aiohttp.connector)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest">BaseRequest (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest">(class in alexapy.aiohttp.web_request)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRunner">BaseRunner (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_runner.html#alexapy.aiohttp.web_runner.BaseRunner">(class in alexapy.aiohttp.web_runner)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseSite">BaseSite (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_runner.html#alexapy.aiohttp.web_runner.BaseSite">(class in alexapy.aiohttp.web_runner)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BasicAuth">BasicAuth (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.helpers.html#alexapy.aiohttp.helpers.BasicAuth">(class in alexapy.aiohttp.helpers)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.body_exists">body_exists (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.body_exists">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader">BodyPartReader (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader">(class in alexapy.aiohttp.multipart)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BufferedReaderPayload">BufferedReaderPayload (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.BufferedReaderPayload">(class in alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BytesIOPayload">BytesIOPayload (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.BytesIOPayload">(class in alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BytesPayload">BytesPayload (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.BytesPayload">(class in alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.can_read_body">can_read_body() (alexapy.aiohttp.web.BaseRequest property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.can_read_body">(alexapy.aiohttp.web_request.BaseRequest property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractResource.canonical">canonical() (alexapy.aiohttp.web.AbstractResource property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.DynamicResource.canonical">(alexapy.aiohttp.web.DynamicResource property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.PlainResource.canonical">(alexapy.aiohttp.web.PlainResource property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractResource.canonical">(alexapy.aiohttp.web_urldispatcher.AbstractResource property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.DynamicResource.canonical">(alexapy.aiohttp.web_urldispatcher.DynamicResource property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.PlainResource.canonical">(alexapy.aiohttp.web_urldispatcher.PlainResource property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ChainMapProxy">ChainMapProxy (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.helpers.html#alexapy.aiohttp.helpers.ChainMapProxy">(class in alexapy.aiohttp.helpers)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaProxy.change_login">change_login() (alexapy.AlexaProxy method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StreamResponse.charset">charset() (alexapy.aiohttp.web.StreamResponse property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse.charset">(alexapy.aiohttp.web_response.StreamResponse property)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.check_domain">check_domain() (alexapy.AlexaLogin method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawRequestMessage.chunked">chunked (alexapy.aiohttp.http.RawRequestMessage attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawResponseMessage.chunked">(alexapy.aiohttp.http.RawResponseMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawRequestMessage.chunked">(alexapy.aiohttp.http_parser.RawRequestMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawResponseMessage.chunked">(alexapy.aiohttp.http_parser.RawResponseMessage attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Application.cleanup">cleanup() (alexapy.aiohttp.web.Application method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_app.html#alexapy.aiohttp.web_app.Application.cleanup">(alexapy.aiohttp.web_app.Application method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.CleanupError">CleanupError</a>, <a href="alexapy/alexapy.aiohttp.web_app.html#alexapy.aiohttp.web_app.CleanupError">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.CookieJar.clear">clear() (alexapy.aiohttp.CookieJar method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.cookiejar.html#alexapy.aiohttp.cookiejar.CookieJar.clear">(alexapy.aiohttp.cookiejar.CookieJar method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.cookiejar.html#alexapy.aiohttp.cookiejar.DummyCookieJar.clear">(alexapy.aiohttp.cookiejar.DummyCookieJar method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.DummyCookieJar.clear">(alexapy.aiohttp.DummyCookieJar method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.TCPConnector.clear_dns_cache">clear_dns_cache() (alexapy.aiohttp.client.TCPConnector method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.TCPConnector.clear_dns_cache">(alexapy.aiohttp.connector.TCPConnector method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TCPConnector.clear_dns_cache">(alexapy.aiohttp.TCPConnector method)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.clear_history">clear_history() (alexapy.AlexaAPI static method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientConnectionError">ClientConnectionError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectionError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientConnectionError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientConnectorCertificateError">ClientConnectorCertificateError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectorCertificateError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientConnectorCertificateError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientConnectorError">ClientConnectorError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectorError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientConnectorError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientConnectorSSLError">ClientConnectorSSLError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectorSSLError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientConnectorSSLError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientError">ClientError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientHttpProxyError">ClientHttpProxyError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientHttpProxyError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientHttpProxyError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientOSError">ClientOSError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientOSError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientOSError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientPayloadError">ClientPayloadError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientPayloadError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientPayloadError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientProxyConnectionError">ClientProxyConnectionError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientProxyConnectionError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientProxyConnectionError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientRequest">ClientRequest (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientRequest">(class in alexapy.aiohttp.client)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientRequest">(class in alexapy.aiohttp.client_reqrep)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientResponse">ClientResponse (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientResponse">(class in alexapy.aiohttp.client)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientResponse">(class in alexapy.aiohttp.client_reqrep)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientResponseError">ClientResponseError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientResponseError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientResponseError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession">ClientSession (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession">(class in alexapy.aiohttp.client)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSSLError">ClientSSLError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientSSLError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSSLError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientTimeout">ClientTimeout (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientTimeout">(class in alexapy.aiohttp.client)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientWebSocketResponse">ClientWebSocketResponse (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientWebSocketResponse">(class in alexapy.aiohttp.client)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.clone">clone() (alexapy.aiohttp.web.BaseRequest method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Request.clone">(alexapy.aiohttp.web.Request method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.clone">(alexapy.aiohttp.web_request.BaseRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request.clone">(alexapy.aiohttp.web_request.Request method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.AsyncResolver.close">close() (alexapy.aiohttp.AsyncResolver method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BaseConnector.close">(alexapy.aiohttp.BaseConnector method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.BaseConnector.close">(alexapy.aiohttp.client.BaseConnector method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.close">(alexapy.aiohttp.client.ClientSession method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.TCPConnector.close">(alexapy.aiohttp.client.TCPConnector method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.close">(alexapy.aiohttp.ClientSession method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.BaseConnector.close">(alexapy.aiohttp.connector.BaseConnector method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.TCPConnector.close">(alexapy.aiohttp.connector.TCPConnector method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WebSocketWriter.close">(alexapy.aiohttp.http.WebSocketWriter method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WebSocketWriter.close">(alexapy.aiohttp.http_websocket.WebSocketWriter method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.resolver.html#alexapy.aiohttp.resolver.AsyncResolver.close">(alexapy.aiohttp.resolver.AsyncResolver method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.resolver.html#alexapy.aiohttp.resolver.ThreadedResolver.close">(alexapy.aiohttp.resolver.ThreadedResolver method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TCPConnector.close">(alexapy.aiohttp.TCPConnector method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ThreadedResolver.close">(alexapy.aiohttp.ThreadedResolver method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RequestHandler.close">(alexapy.aiohttp.web.RequestHandler method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.RequestHandler.close">(alexapy.aiohttp.web_protocol.RequestHandler method)</a>
-</li>
-        <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.close">(alexapy.AlexaLogin method)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.close_requested">close_requested() (alexapy.AlexaLogin property)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.close">close() (alexapy.AlexaLogin method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BaseConnector.closed">closed() (alexapy.aiohttp.BaseConnector property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.BaseConnector.closed">(alexapy.aiohttp.client.BaseConnector property)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.close_requested">close_requested (alexapy.AlexaLogin property)</a>
 </li>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.closed">(alexapy.aiohttp.client.ClientSession property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.closed">(alexapy.aiohttp.ClientSession property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.BaseConnector.closed">(alexapy.aiohttp.connector.BaseConnector property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawResponseMessage.code">code (alexapy.aiohttp.http.RawResponseMessage attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawResponseMessage.code">(alexapy.aiohttp.http_parser.RawResponseMessage attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawRequestMessage.compression">compression (alexapy.aiohttp.http.RawRequestMessage attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawResponseMessage.compression">(alexapy.aiohttp.http.RawResponseMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawRequestMessage.compression">(alexapy.aiohttp.http_parser.RawRequestMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawResponseMessage.compression">(alexapy.aiohttp.http_parser.RawResponseMessage attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BaseConnector.connect">connect() (alexapy.aiohttp.BaseConnector method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.BaseConnector.connect">(alexapy.aiohttp.client.BaseConnector method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.BaseConnector.connect">(alexapy.aiohttp.connector.BaseConnector method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RequestHandler.connection_lost">connection_lost() (alexapy.aiohttp.web.RequestHandler method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.RequestHandler.connection_lost">(alexapy.aiohttp.web_protocol.RequestHandler method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RequestHandler.connection_made">connection_made() (alexapy.aiohttp.web.RequestHandler method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.RequestHandler.connection_made">(alexapy.aiohttp.web_protocol.RequestHandler method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.connector">connector() (alexapy.aiohttp.client.ClientSession property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.connector">(alexapy.aiohttp.ClientSession property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.content">content (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.content">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.content_disposition_filename">content_disposition_filename() (in module alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.content_disposition_filename">(in module alexapy.aiohttp.multipart)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Response.content_length">content_length() (alexapy.aiohttp.web.Response property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StreamResponse.content_length">(alexapy.aiohttp.web.StreamResponse property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.Response.content_length">(alexapy.aiohttp.web_response.Response property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse.content_length">(alexapy.aiohttp.web_response.StreamResponse property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.Payload.content_type">content_type() (alexapy.aiohttp.Payload property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload.content_type">(alexapy.aiohttp.payload.Payload property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StreamResponse.content_type">(alexapy.aiohttp.web.StreamResponse property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse.content_type">(alexapy.aiohttp.web_response.StreamResponse property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.ContentCoding">ContentCoding (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.ContentCoding">(class in alexapy.aiohttp.web_response)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ContentTypeError">ContentTypeError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ContentTypeError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ContentTypeError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.cookie_jar">cookie_jar() (alexapy.aiohttp.client.ClientSession property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.cookie_jar">(alexapy.aiohttp.ClientSession property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.CookieJar">CookieJar (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.cookiejar.html#alexapy.aiohttp.cookiejar.CookieJar">(class in alexapy.aiohttp.cookiejar)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.cookies">cookies (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.cookies">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.customer_id">customer_id() (alexapy.AlexaLogin property)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.customer_id">customer_id (alexapy.AlexaLogin property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1161,292 +335,40 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RequestHandler.data_received">data_received() (alexapy.aiohttp.web.RequestHandler method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.RequestHandler.data_received">(alexapy.aiohttp.web_protocol.RequestHandler method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.DataQueue">DataQueue (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.streams.html#alexapy.aiohttp.streams.DataQueue">(class in alexapy.aiohttp.streams)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BasicAuth.decode">decode() (alexapy.aiohttp.BasicAuth class method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader.decode">(alexapy.aiohttp.BodyPartReader method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.helpers.html#alexapy.aiohttp.helpers.BasicAuth.decode">(alexapy.aiohttp.helpers.BasicAuth class method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader.decode">(alexapy.aiohttp.multipart.BodyPartReader method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.DefaultResolver">DefaultResolver (in module alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.resolver.html#alexapy.aiohttp.resolver.DefaultResolver">(in module alexapy.aiohttp.resolver)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StreamResponse.del_cookie">del_cookie() (alexapy.aiohttp.web.StreamResponse method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse.del_cookie">(alexapy.aiohttp.web_response.StreamResponse method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.delete">delete() (alexapy.aiohttp.client.ClientSession method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.delete">(alexapy.aiohttp.ClientSession method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.delete">(in module alexapy.aiohttp.web)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.delete">(in module alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.detach">detach() (alexapy.aiohttp.client.ClientSession method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.detach">(alexapy.aiohttp.ClientSession method)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.disconnect_bluetooth">disconnect_bluetooth() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.StreamWriter.drain">drain() (alexapy.aiohttp.http.StreamWriter method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.StreamWriter.drain">(alexapy.aiohttp.http_writer.StreamWriter method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.DummyCookieJar">DummyCookieJar (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.cookiejar.html#alexapy.aiohttp.cookiejar.DummyCookieJar">(class in alexapy.aiohttp.cookiejar)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.DynamicResource">DynamicResource (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.DynamicResource">(class in alexapy.aiohttp.web_urldispatcher)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.email">email() (alexapy.AlexaLogin property)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.email">email (alexapy.AlexaLogin property)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.EMPTY_PAYLOAD">EMPTY_PAYLOAD (in module alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.streams.html#alexapy.aiohttp.streams.EMPTY_PAYLOAD">(in module alexapy.aiohttp.streams)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StreamResponse.enable_chunked_encoding">enable_chunked_encoding() (alexapy.aiohttp.web.StreamResponse method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse.enable_chunked_encoding">(alexapy.aiohttp.web_response.StreamResponse method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.StreamWriter.enable_chunking">enable_chunking() (alexapy.aiohttp.http.StreamWriter method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.StreamWriter.enable_chunking">(alexapy.aiohttp.http_writer.StreamWriter method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.StreamWriter.enable_compression">enable_compression() (alexapy.aiohttp.http.StreamWriter method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.StreamWriter.enable_compression">(alexapy.aiohttp.http_writer.StreamWriter method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StreamResponse.enable_compression">(alexapy.aiohttp.web.StreamResponse method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse.enable_compression">(alexapy.aiohttp.web_response.StreamResponse method)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BasicAuth.encode">encode() (alexapy.aiohttp.BasicAuth method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.helpers.html#alexapy.aiohttp.helpers.BasicAuth.encode">(alexapy.aiohttp.helpers.BasicAuth method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.Payload.encoding">encoding() (alexapy.aiohttp.Payload property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload.encoding">(alexapy.aiohttp.payload.Payload property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RequestHandler.eof_received">eof_received() (alexapy.aiohttp.web.RequestHandler method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.RequestHandler.eof_received">(alexapy.aiohttp.web_protocol.RequestHandler method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.EofStream">EofStream</a>, <a href="alexapy/alexapy.aiohttp.streams.html#alexapy.aiohttp.streams.EofStream">[1]</a>
-</li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.exchange_token_for_cookies">exchange_token_for_cookies() (alexapy.AlexaLogin method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlMappingMatchInfo.expect_handler">expect_handler() (alexapy.aiohttp.web.UrlMappingMatchInfo property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.expect_handler">(alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo property)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.TCPConnector.family">family() (alexapy.aiohttp.client.TCPConnector property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.TCPConnector.family">(alexapy.aiohttp.connector.TCPConnector property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TCPConnector.family">(alexapy.aiohttp.TCPConnector property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartReader.fetch_next_part">fetch_next_part() (alexapy.aiohttp.multipart.MultipartReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartReader.fetch_next_part">(alexapy.aiohttp.MultipartReader method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.FileField">FileField (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.FileField">(class in alexapy.aiohttp.web_request)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader.filename">filename (alexapy.aiohttp.BodyPartReader attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader.filename">(alexapy.aiohttp.multipart.BodyPartReader attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.Payload.filename">filename() (alexapy.aiohttp.Payload property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload.filename">(alexapy.aiohttp.payload.Payload property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.FileResponse">FileResponse (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_fileresponse.html#alexapy.aiohttp.web_fileresponse.FileResponse">(class in alexapy.aiohttp.web_fileresponse)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.CookieJar.filter_cookies">filter_cookies() (alexapy.aiohttp.CookieJar method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.cookiejar.html#alexapy.aiohttp.cookiejar.CookieJar.filter_cookies">(alexapy.aiohttp.cookiejar.CookieJar method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.cookiejar.html#alexapy.aiohttp.cookiejar.DummyCookieJar.filter_cookies">(alexapy.aiohttp.cookiejar.DummyCookieJar method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.DummyCookieJar.filter_cookies">(alexapy.aiohttp.DummyCookieJar method)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.finalize_login">finalize_login() (alexapy.AlexaLogin method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.Fingerprint">Fingerprint (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.Fingerprint">(class in alexapy.aiohttp.client)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.Fingerprint">(class in alexapy.aiohttp.client_reqrep)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.FlowControlDataQueue">FlowControlDataQueue (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.streams.html#alexapy.aiohttp.streams.FlowControlDataQueue">(class in alexapy.aiohttp.streams)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BaseConnector.force_close">force_close() (alexapy.aiohttp.BaseConnector property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.BaseConnector.force_close">(alexapy.aiohttp.client.BaseConnector property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.BaseConnector.force_close">(alexapy.aiohttp.connector.BaseConnector property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RequestHandler.force_close">(alexapy.aiohttp.web.RequestHandler method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.RequestHandler.force_close">(alexapy.aiohttp.web_protocol.RequestHandler method)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.force_logout">force_logout() (alexapy.AlexaAPI static method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader.form">form() (alexapy.aiohttp.BodyPartReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader.form">(alexapy.aiohttp.multipart.BodyPartReader method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.FormData">FormData (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.formdata.html#alexapy.aiohttp.formdata.FormData">(class in alexapy.aiohttp.formdata)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.forward">forward() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.forwarded">forwarded (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.forwarded">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher.freeze">freeze() (alexapy.aiohttp.web.UrlDispatcher method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlMappingMatchInfo.freeze">(alexapy.aiohttp.web.UrlMappingMatchInfo method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.freeze">(alexapy.aiohttp.web_urldispatcher.UrlDispatcher method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.freeze">(alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartReader.from_response">from_response() (alexapy.aiohttp.multipart.MultipartReader class method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartReader.from_response">(alexapy.aiohttp.MultipartReader class method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BasicAuth.from_url">from_url() (alexapy.aiohttp.BasicAuth class method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.helpers.html#alexapy.aiohttp.helpers.BasicAuth.from_url">(alexapy.aiohttp.helpers.BasicAuth class method)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ChainMapProxy.get">get() (alexapy.aiohttp.ChainMapProxy method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.get">(alexapy.aiohttp.client.ClientSession method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.get">(alexapy.aiohttp.ClientSession method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.helpers.html#alexapy.aiohttp.helpers.ChainMapProxy.get">(alexapy.aiohttp.helpers.ChainMapProxy method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.get">(in module alexapy.aiohttp.web)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.get">(in module alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.get_activities">get_activities() (alexapy.AlexaAPI static method)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.get_authentication">get_authentication() (alexapy.AlexaAPI static method)</a>
@@ -1455,12 +377,6 @@
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.get_bluetooth">get_bluetooth() (alexapy.AlexaAPI static method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader.get_charset">get_charset() (alexapy.aiohttp.BodyPartReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader.get_charset">(alexapy.aiohttp.multipart.BodyPartReader method)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.get_csrf">get_csrf() (alexapy.AlexaLogin method)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.get_device_preferences">get_device_preferences() (alexapy.AlexaAPI static method)</a>
@@ -1469,613 +385,75 @@
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.get_dnd_state">get_dnd_state() (alexapy.AlexaAPI static method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientWebSocketResponse.get_extra_info">get_extra_info() (alexapy.aiohttp.client.ClientWebSocketResponse method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientWebSocketResponse.get_extra_info">(alexapy.aiohttp.ClientWebSocketResponse method)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.get_entity_state">get_entity_state() (alexapy.AlexaAPI static method)</a>
 </li>
-      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.get_guard_details">get_guard_details() (alexapy.AlexaAPI static method)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.get_guard_state">get_guard_state() (alexapy.AlexaAPI static method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractResource.get_info">get_info() (alexapy.aiohttp.web.AbstractResource method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractRoute.get_info">(alexapy.aiohttp.web.AbstractRoute method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.DynamicResource.get_info">(alexapy.aiohttp.web.DynamicResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.PlainResource.get_info">(alexapy.aiohttp.web.PlainResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.ResourceRoute.get_info">(alexapy.aiohttp.web.ResourceRoute method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StaticResource.get_info">(alexapy.aiohttp.web.StaticResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlMappingMatchInfo.get_info">(alexapy.aiohttp.web.UrlMappingMatchInfo method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractResource.get_info">(alexapy.aiohttp.web_urldispatcher.AbstractResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractRoute.get_info">(alexapy.aiohttp.web_urldispatcher.AbstractRoute method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.DynamicResource.get_info">(alexapy.aiohttp.web_urldispatcher.DynamicResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.PlainResource.get_info">(alexapy.aiohttp.web_urldispatcher.PlainResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.ResourceRoute.get_info">(alexapy.aiohttp.web_urldispatcher.ResourceRoute method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.StaticResource.get_info">(alexapy.aiohttp.web_urldispatcher.StaticResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.get_info">(alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.get_inputs">get_inputs() (alexapy.AlexaLogin class method)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.get_last_device_serial">get_last_device_serial() (alexapy.AlexaAPI static method)</a>
 </li>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.get_network_details">get_network_details() (alexapy.AlexaAPI static method)</a>
+</li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.get_notifications">get_notifications() (alexapy.AlexaAPI static method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.get_payload">get_payload() (in module alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.get_payload">(in module alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.get_state">get_state() (alexapy.AlexaAPI method)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.get_tokens">get_tokens() (alexapy.AlexaLogin method)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.get_totp_token">get_totp_token() (alexapy.AlexaLogin method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.GracefulExit">GracefulExit (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_runner.html#alexapy.aiohttp.web_runner.GracefulExit">(class in alexapy.aiohttp.web_runner)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RequestHandler.handle_error">handle_error() (alexapy.aiohttp.web.RequestHandler method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.RequestHandler.handle_error">(alexapy.aiohttp.web_protocol.RequestHandler method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlMappingMatchInfo.handler">handler() (alexapy.aiohttp.web.UrlMappingMatchInfo property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.handler">(alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.has_body">has_body() (alexapy.aiohttp.web.BaseRequest property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.has_body">(alexapy.aiohttp.web_request.BaseRequest property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.hdrs">hdrs (in module alexapy.aiohttp)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.head">head() (alexapy.aiohttp.client.ClientSession method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.head">(alexapy.aiohttp.ClientSession method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.head">(in module alexapy.aiohttp.web)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.head">(in module alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawRequestMessage.headers">headers (alexapy.aiohttp.http.RawRequestMessage attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawResponseMessage.headers">(alexapy.aiohttp.http.RawResponseMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawRequestMessage.headers">(alexapy.aiohttp.http_parser.RawRequestMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawResponseMessage.headers">(alexapy.aiohttp.http_parser.RawResponseMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.headers">(alexapy.aiohttp.web.BaseRequest attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.headers">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.Payload.headers">headers() (alexapy.aiohttp.Payload property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload.headers">(alexapy.aiohttp.payload.Payload property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.HeadersParser">HeadersParser (class in alexapy.aiohttp.http)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.HeadersParser">(class in alexapy.aiohttp.http_parser)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.hide_email">hide_email() (in module alexapy)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="alexapy/alexapy.html#alexapy.hide_serial">hide_serial() (in module alexapy)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientResponse.history">history (alexapy.aiohttp.client.ClientResponse attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientResponse.history">(alexapy.aiohttp.client_reqrep.ClientResponse attribute)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.HTTP2EchoClient">HTTP2EchoClient (class in alexapy)</a>
 </li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientResponse.history">(alexapy.aiohttp.ClientResponse attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.host">host (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.host">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlMappingMatchInfo.http_exception">http_exception() (alexapy.aiohttp.web.UrlMappingMatchInfo property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.http_exception">(alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.http_range">http_range (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.http_range">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPAccepted">HTTPAccepted</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPAccepted">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPBadGateway">HTTPBadGateway</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPBadGateway">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPBadRequest">HTTPBadRequest</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPBadRequest">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPClientError">HTTPClientError</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPClientError">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPConflict">HTTPConflict</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPConflict">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPCreated">HTTPCreated</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPCreated">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPError">HTTPError</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPError">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPException">HTTPException</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPException">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPExpectationFailed">HTTPExpectationFailed</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPExpectationFailed">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPFailedDependency">HTTPFailedDependency</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPFailedDependency">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPForbidden">HTTPForbidden</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPForbidden">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPFound">HTTPFound</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPFound">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPGatewayTimeout">HTTPGatewayTimeout</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPGatewayTimeout">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPGone">HTTPGone</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPGone">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPInsufficientStorage">HTTPInsufficientStorage</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPInsufficientStorage">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPInternalServerError">HTTPInternalServerError</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPInternalServerError">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPLengthRequired">HTTPLengthRequired</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPLengthRequired">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPMethodNotAllowed">HTTPMethodNotAllowed</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPMethodNotAllowed">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPMisdirectedRequest">HTTPMisdirectedRequest</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPMisdirectedRequest">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPMovedPermanently">HTTPMovedPermanently</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPMovedPermanently">[1]</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPMultipleChoices">HTTPMultipleChoices</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPMultipleChoices">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPNetworkAuthenticationRequired">HTTPNetworkAuthenticationRequired</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPNetworkAuthenticationRequired">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPNoContent">HTTPNoContent</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPNoContent">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPNonAuthoritativeInformation">HTTPNonAuthoritativeInformation</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPNonAuthoritativeInformation">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPNotAcceptable">HTTPNotAcceptable</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPNotAcceptable">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPNotExtended">HTTPNotExtended</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPNotExtended">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPNotFound">HTTPNotFound</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPNotFound">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPNotImplemented">HTTPNotImplemented</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPNotImplemented">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPNotModified">HTTPNotModified</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPNotModified">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPOk">HTTPOk</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPOk">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.HttpParser">HttpParser (class in alexapy.aiohttp.http)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.HttpParser">(class in alexapy.aiohttp.http_parser)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPPartialContent">HTTPPartialContent</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPPartialContent">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPPaymentRequired">HTTPPaymentRequired</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPPaymentRequired">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPPermanentRedirect">HTTPPermanentRedirect</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPPermanentRedirect">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPPreconditionFailed">HTTPPreconditionFailed</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPPreconditionFailed">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPPreconditionRequired">HTTPPreconditionRequired</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPPreconditionRequired">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.HttpProcessingError">HttpProcessingError</a>, <a href="alexapy/alexapy.aiohttp.http_exceptions.html#alexapy.aiohttp.http_exceptions.HttpProcessingError">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPProxyAuthenticationRequired">HTTPProxyAuthenticationRequired</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPProxyAuthenticationRequired">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPRedirection">HTTPRedirection</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPRedirection">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPRequestEntityTooLarge">HTTPRequestEntityTooLarge</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPRequestEntityTooLarge">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPRequestHeaderFieldsTooLarge">HTTPRequestHeaderFieldsTooLarge</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPRequestHeaderFieldsTooLarge">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.HttpRequestParser">HttpRequestParser (class in alexapy.aiohttp.http)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.HttpRequestParser">(class in alexapy.aiohttp.http_parser)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPRequestRangeNotSatisfiable">HTTPRequestRangeNotSatisfiable</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPRequestRangeNotSatisfiable">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPRequestTimeout">HTTPRequestTimeout</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPRequestTimeout">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPRequestURITooLong">HTTPRequestURITooLong</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPRequestURITooLong">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPResetContent">HTTPResetContent</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPResetContent">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.HttpResponseParser">HttpResponseParser (class in alexapy.aiohttp.http)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.HttpResponseParser">(class in alexapy.aiohttp.http_parser)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPSeeOther">HTTPSeeOther</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPSeeOther">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPServerError">HTTPServerError</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPServerError">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPServiceUnavailable">HTTPServiceUnavailable</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPServiceUnavailable">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPSuccessful">HTTPSuccessful</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPSuccessful">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPTemporaryRedirect">HTTPTemporaryRedirect</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPTemporaryRedirect">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPTooManyRequests">HTTPTooManyRequests</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPTooManyRequests">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPUnauthorized">HTTPUnauthorized</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPUnauthorized">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPUnavailableForLegalReasons">HTTPUnavailableForLegalReasons</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPUnavailableForLegalReasons">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPUnprocessableEntity">HTTPUnprocessableEntity</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPUnprocessableEntity">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPUnsupportedMediaType">HTTPUnsupportedMediaType</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPUnsupportedMediaType">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPUpgradeRequired">HTTPUpgradeRequired</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPUpgradeRequired">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPUseProxy">HTTPUseProxy</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPUseProxy">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPVariantAlsoNegotiates">HTTPVariantAlsoNegotiates</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPVariantAlsoNegotiates">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.HttpVersion">HttpVersion (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.HttpVersion">(class in alexapy.aiohttp.http)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.HttpVersion">(class in alexapy.aiohttp.http_writer)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.HttpVersion10">HttpVersion10 (in module alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.HttpVersion10">(in module alexapy.aiohttp.http)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.HttpVersion10">(in module alexapy.aiohttp.http_writer)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.HttpVersion11">HttpVersion11 (in module alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.HttpVersion11">(in module alexapy.aiohttp.http)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.HttpVersion11">(in module alexapy.aiohttp.http_writer)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.HTTPVersionNotSupported">HTTPVersionNotSupported</a>, <a href="alexapy/alexapy.aiohttp.web_exceptions.html#alexapy.aiohttp.web_exceptions.HTTPVersionNotSupported">[1]</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="I">I</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.if_modified_since">if_modified_since (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.if_modified_since">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.if_range">if_range (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.if_range">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.if_unmodified_since">if_unmodified_since (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.if_unmodified_since">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.InvalidURL">InvalidURL</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.InvalidURL">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.InvalidURL">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.IOBasePayload">IOBasePayload (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.IOBasePayload">(class in alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.StreamReader.is_eof">is_eof() (alexapy.aiohttp.StreamReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.streams.html#alexapy.aiohttp.streams.StreamReader.is_eof">(alexapy.aiohttp.streams.StreamReader method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="J">J</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader.json">json() (alexapy.aiohttp.BodyPartReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientResponse.json">(alexapy.aiohttp.client.ClientResponse method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientResponse.json">(alexapy.aiohttp.client_reqrep.ClientResponse method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientResponse.json">(alexapy.aiohttp.ClientResponse method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WSMessage.json">(alexapy.aiohttp.http.WSMessage method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WSMessage.json">(alexapy.aiohttp.http_websocket.WSMessage method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader.json">(alexapy.aiohttp.multipart.BodyPartReader method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.json">(alexapy.aiohttp.web.BaseRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.json">(alexapy.aiohttp.web_request.BaseRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.WSMessage.json">(alexapy.aiohttp.WSMessage method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.json_response">json_response() (in module alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.json_response">(in module alexapy.aiohttp.web_response)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.JsonPayload">JsonPayload (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.JsonPayload">(class in alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="K">K</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.keep_alive">keep_alive (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.keep_alive">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RequestHandler.keep_alive">keep_alive() (alexapy.aiohttp.web.RequestHandler method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.RequestHandler.keep_alive">(alexapy.aiohttp.web_protocol.RequestHandler method)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StreamResponse.last_modified">last_modified() (alexapy.aiohttp.web.StreamResponse property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse.last_modified">(alexapy.aiohttp.web_response.StreamResponse property)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.lastreq">lastreq (alexapy.AlexaLogin property)</a>
 </li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.lastreq">lastreq() (alexapy.AlexaLogin property)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.links">links (alexapy.AlexaLogin property)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BaseConnector.limit">limit() (alexapy.aiohttp.BaseConnector property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.BaseConnector.limit">(alexapy.aiohttp.client.BaseConnector property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.BaseConnector.limit">(alexapy.aiohttp.connector.BaseConnector property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BaseConnector.limit_per_host">limit_per_host() (alexapy.aiohttp.BaseConnector property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.BaseConnector.limit_per_host">(alexapy.aiohttp.client.BaseConnector property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.BaseConnector.limit_per_host">(alexapy.aiohttp.connector.BaseConnector property)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.links">links() (alexapy.AlexaLogin property)</a>
-</li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.load_cookie">load_cookie() (alexapy.AlexaLogin method)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.login">login() (alexapy.AlexaLogin method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.loop">loop() (alexapy.aiohttp.client.ClientSession property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.loop">(alexapy.aiohttp.ClientSession property)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.HttpVersion.major">major (alexapy.aiohttp.http.HttpVersion attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.HttpVersion.major">(alexapy.aiohttp.http_writer.HttpVersion attribute)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.HTTP2EchoClient.manage_pings">manage_pings() (alexapy.HTTP2EchoClient method)</a>
 </li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.HttpVersion.major">(alexapy.aiohttp.HttpVersion attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Request.match_info">match_info (alexapy.aiohttp.web.Request attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request.match_info">(alexapy.aiohttp.web_request.Request attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawRequestMessage.method">method (alexapy.aiohttp.http.RawRequestMessage attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawRequestMessage.method">(alexapy.aiohttp.http_parser.RawRequestMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.method">(alexapy.aiohttp.web.BaseRequest attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.method">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.middleware">middleware() (in module alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_middlewares.html#alexapy.aiohttp.web_middlewares.middleware">(in module alexapy.aiohttp.web_middlewares)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.HttpVersion.minor">minor (alexapy.aiohttp.http.HttpVersion attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.HttpVersion.minor">(alexapy.aiohttp.http_writer.HttpVersion attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.HttpVersion.minor">(alexapy.aiohttp.HttpVersion attribute)</a>
-</li>
-      </ul></li>
       <li>
     module
 
       <ul>
         <li><a href="alexapy/alexapy.html#module-alexapy">alexapy</a>
 </li>
-        <li><a href="alexapy/alexapy.aiohttp.html#module-alexapy.aiohttp">alexapy.aiohttp</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.abc.html#module-alexapy.aiohttp.abc">alexapy.aiohttp.abc</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.base_protocol.html#module-alexapy.aiohttp.base_protocol">alexapy.aiohttp.base_protocol</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#module-alexapy.aiohttp.client">alexapy.aiohttp.client</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client_exceptions.html#module-alexapy.aiohttp.client_exceptions">alexapy.aiohttp.client_exceptions</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client_proto.html#module-alexapy.aiohttp.client_proto">alexapy.aiohttp.client_proto</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#module-alexapy.aiohttp.client_reqrep">alexapy.aiohttp.client_reqrep</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client_ws.html#module-alexapy.aiohttp.client_ws">alexapy.aiohttp.client_ws</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#module-alexapy.aiohttp.connector">alexapy.aiohttp.connector</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.cookiejar.html#module-alexapy.aiohttp.cookiejar">alexapy.aiohttp.cookiejar</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.formdata.html#module-alexapy.aiohttp.formdata">alexapy.aiohttp.formdata</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.frozenlist.html#module-alexapy.aiohttp.frozenlist">alexapy.aiohttp.frozenlist</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.hdrs.html#module-alexapy.aiohttp.hdrs">alexapy.aiohttp.hdrs</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.helpers.html#module-alexapy.aiohttp.helpers">alexapy.aiohttp.helpers</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#module-alexapy.aiohttp.http">alexapy.aiohttp.http</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_exceptions.html#module-alexapy.aiohttp.http_exceptions">alexapy.aiohttp.http_exceptions</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#module-alexapy.aiohttp.http_parser">alexapy.aiohttp.http_parser</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#module-alexapy.aiohttp.http_websocket">alexapy.aiohttp.http_websocket</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#module-alexapy.aiohttp.http_writer">alexapy.aiohttp.http_writer</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.locks.html#module-alexapy.aiohttp.locks">alexapy.aiohttp.locks</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.log.html#module-alexapy.aiohttp.log">alexapy.aiohttp.log</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#module-alexapy.aiohttp.multipart">alexapy.aiohttp.multipart</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#module-alexapy.aiohttp.payload">alexapy.aiohttp.payload</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.payload_streamer.html#module-alexapy.aiohttp.payload_streamer">alexapy.aiohttp.payload_streamer</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.pytest_plugin.html#module-alexapy.aiohttp.pytest_plugin">alexapy.aiohttp.pytest_plugin</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.resolver.html#module-alexapy.aiohttp.resolver">alexapy.aiohttp.resolver</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.signals.html#module-alexapy.aiohttp.signals">alexapy.aiohttp.signals</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.streams.html#module-alexapy.aiohttp.streams">alexapy.aiohttp.streams</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.tcp_helpers.html#module-alexapy.aiohttp.tcp_helpers">alexapy.aiohttp.tcp_helpers</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.test_utils.html#module-alexapy.aiohttp.test_utils">alexapy.aiohttp.test_utils</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#module-alexapy.aiohttp.tracing">alexapy.aiohttp.tracing</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.typedefs.html#module-alexapy.aiohttp.typedefs">alexapy.aiohttp.typedefs</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#module-alexapy.aiohttp.web">alexapy.aiohttp.web</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_app.html#module-alexapy.aiohttp.web_app">alexapy.aiohttp.web_app</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_exceptions.html#module-alexapy.aiohttp.web_exceptions">alexapy.aiohttp.web_exceptions</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_fileresponse.html#module-alexapy.aiohttp.web_fileresponse">alexapy.aiohttp.web_fileresponse</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_log.html#module-alexapy.aiohttp.web_log">alexapy.aiohttp.web_log</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_middlewares.html#module-alexapy.aiohttp.web_middlewares">alexapy.aiohttp.web_middlewares</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#module-alexapy.aiohttp.web_protocol">alexapy.aiohttp.web_protocol</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#module-alexapy.aiohttp.web_request">alexapy.aiohttp.web_request</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#module-alexapy.aiohttp.web_response">alexapy.aiohttp.web_response</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#module-alexapy.aiohttp.web_routedef">alexapy.aiohttp.web_routedef</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_runner.html#module-alexapy.aiohttp.web_runner">alexapy.aiohttp.web_runner</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_server.html#module-alexapy.aiohttp.web_server">alexapy.aiohttp.web_server</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#module-alexapy.aiohttp.web_urldispatcher">alexapy.aiohttp.web_urldispatcher</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_ws.html#module-alexapy.aiohttp.web_ws">alexapy.aiohttp.web_ws</a>
-</li>
         <li><a href="alexapy/alexapy.alexaapi.html#module-alexapy.alexaapi">alexapy.alexaapi</a>
+</li>
+        <li><a href="alexapy/alexapy.alexahttp2.html#module-alexapy.alexahttp2">alexapy.alexahttp2</a>
 </li>
         <li><a href="alexapy/alexapy.alexalogin.html#module-alexapy.alexalogin">alexapy.alexalogin</a>
 </li>
@@ -2091,83 +469,13 @@
 </li>
       </ul></li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.multipart">multipart() (alexapy.aiohttp.web.BaseRequest method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.multipart">(alexapy.aiohttp.web_request.BaseRequest method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartReader.multipart_reader_cls">multipart_reader_cls (alexapy.aiohttp.multipart.MultipartReader attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartReader.multipart_reader_cls">(alexapy.aiohttp.MultipartReader attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartReader">MultipartReader (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartReader">(class in alexapy.aiohttp.multipart)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartWriter">MultipartWriter (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartWriter">(class in alexapy.aiohttp.multipart)</a>
-</li>
-      </ul></li>
-  </ul></td>
 </tr></table>
 
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader.name">name (alexapy.aiohttp.BodyPartReader attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader.name">(alexapy.aiohttp.multipart.BodyPartReader attribute)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.next">next() (alexapy.AlexaAPI method)</a>
 </li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractRoute.name">name() (alexapy.aiohttp.web.AbstractRoute property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.ResourceRoute.name">(alexapy.aiohttp.web.ResourceRoute property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractRoute.name">(alexapy.aiohttp.web_urldispatcher.AbstractRoute property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.ResourceRoute.name">(alexapy.aiohttp.web_urldispatcher.ResourceRoute property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.NamedPipeConnector">NamedPipeConnector (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.NamedPipeConnector">(class in alexapy.aiohttp.client)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.NamedPipeConnector">(class in alexapy.aiohttp.connector)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.NamedPipeSite">NamedPipeSite (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_runner.html#alexapy.aiohttp.web_runner.NamedPipeSite">(class in alexapy.aiohttp.web_runner)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartReader.next">next() (alexapy.aiohttp.multipart.MultipartReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartReader.next">(alexapy.aiohttp.MultipartReader method)</a>
-</li>
-        <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.next">(alexapy.AlexaAPI method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.normalize_path_middleware">normalize_path_middleware() (in module alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_middlewares.html#alexapy.aiohttp.web_middlewares.normalize_path_middleware">(in module alexapy.aiohttp.web_middlewares)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -2176,22 +484,24 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="alexapy/alexapy.html#alexapy.obfuscate">obfuscate() (in module alexapy)</a>
 </li>
-      <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient.on_close">on_close() (alexapy.WebsocketEchoClient method)</a>
-</li>
-      <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient.on_error">on_error() (alexapy.WebsocketEchoClient method)</a>
-</li>
-      <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient.on_message">on_message() (alexapy.WebsocketEchoClient method)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.options">options() (alexapy.aiohttp.client.ClientSession method)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.HTTP2EchoClient.on_close">on_close() (alexapy.HTTP2EchoClient method)</a>
 
       <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.options">(alexapy.aiohttp.ClientSession method)</a>
+        <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient.on_close">(alexapy.WebsocketEchoClient method)</a>
 </li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.options">(in module alexapy.aiohttp.web)</a>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="alexapy/alexapy.html#alexapy.HTTP2EchoClient.on_error">on_error() (alexapy.HTTP2EchoClient method)</a>
+
+      <ul>
+        <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient.on_error">(alexapy.WebsocketEchoClient method)</a>
 </li>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.options">(in module alexapy.aiohttp.web_routedef)</a>
+      </ul></li>
+      <li><a href="alexapy/alexapy.html#alexapy.HTTP2EchoClient.on_message">on_message() (alexapy.HTTP2EchoClient method)</a>
+
+      <ul>
+        <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient.on_message">(alexapy.WebsocketEchoClient method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2200,417 +510,51 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.parse_content_disposition">parse_content_disposition() (in module alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.parse_content_disposition">(in module alexapy.aiohttp.multipart)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.password">password (alexapy.AlexaLogin property)</a>
 </li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WebSocketReader.parse_frame">parse_frame() (alexapy.aiohttp.http.WebSocketReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WebSocketReader.parse_frame">(alexapy.aiohttp.http_websocket.WebSocketReader method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.HttpParser.parse_headers">parse_headers() (alexapy.aiohttp.http.HttpParser method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.HttpParser.parse_headers">(alexapy.aiohttp.http_parser.HttpParser method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartReader.part_reader_cls">part_reader_cls (alexapy.aiohttp.multipart.MultipartReader attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartReader.part_reader_cls">(alexapy.aiohttp.MultipartReader attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.password">password() (alexapy.AlexaLogin property)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.patch">patch() (alexapy.aiohttp.client.ClientSession method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.patch">(alexapy.aiohttp.ClientSession method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.patch">(in module alexapy.aiohttp.web)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.patch">(in module alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawRequestMessage.path">path (alexapy.aiohttp.http.RawRequestMessage attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawRequestMessage.path">(alexapy.aiohttp.http_parser.RawRequestMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.path">(alexapy.aiohttp.web.BaseRequest attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.path">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.NamedPipeConnector.path">path() (alexapy.aiohttp.client.NamedPipeConnector property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.UnixConnector.path">(alexapy.aiohttp.client.UnixConnector property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.NamedPipeConnector.path">(alexapy.aiohttp.connector.NamedPipeConnector property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.UnixConnector.path">(alexapy.aiohttp.connector.UnixConnector property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.NamedPipeConnector.path">(alexapy.aiohttp.NamedPipeConnector property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.UnixConnector.path">(alexapy.aiohttp.UnixConnector property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.path_qs">path_qs (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.path_qs">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.pause">pause() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.Payload">Payload (class in alexapy.aiohttp)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.ping">ping() (alexapy.AlexaAPI static method)</a>
 
       <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload">(class in alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.PAYLOAD_REGISTRY">PAYLOAD_REGISTRY (in module alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.PAYLOAD_REGISTRY">(in module alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.payload_type">payload_type (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.payload_type">(class in alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.PayloadAccessError">PayloadAccessError</a>, <a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.PayloadAccessError">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WebSocketWriter.ping">ping() (alexapy.aiohttp.http.WebSocketWriter method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WebSocketWriter.ping">(alexapy.aiohttp.http_websocket.WebSocketWriter method)</a>
-</li>
-        <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.ping">(alexapy.AlexaAPI static method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.PlainResource">PlainResource (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.PlainResource">(class in alexapy.aiohttp.web_urldispatcher)</a>
+        <li><a href="alexapy/alexapy.html#alexapy.HTTP2EchoClient.ping">(alexapy.HTTP2EchoClient method)</a>
 </li>
       </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.play">play() (alexapy.AlexaAPI method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.play_music">play_music() (alexapy.AlexaAPI method)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.play_sound">play_sound() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WebSocketWriter.pong">pong() (alexapy.aiohttp.http.WebSocketWriter method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WebSocketWriter.pong">(alexapy.aiohttp.http_websocket.WebSocketWriter method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.post">post() (alexapy.aiohttp.client.ClientSession method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.post">(alexapy.aiohttp.ClientSession method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.post">(alexapy.aiohttp.web.BaseRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.post">(alexapy.aiohttp.web_request.BaseRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.post">(in module alexapy.aiohttp.web)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.post">(in module alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.previous">previous() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient.process_messages">process_messages() (alexapy.WebsocketEchoClient method)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.HTTP2EchoClient.process_messages">process_messages() (alexapy.HTTP2EchoClient method)</a>
+
+      <ul>
+        <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient.process_messages">(alexapy.WebsocketEchoClient method)</a>
 </li>
+      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.process_targets">process_targets() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.put">put() (alexapy.aiohttp.client.ClientSession method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.put">(alexapy.aiohttp.ClientSession method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.put">(in module alexapy.aiohttp.web)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.put">(in module alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="Q">Q</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.query">query (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.query">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.query_string">query_string (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.query_string">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawRequestMessage.raw_headers">raw_headers (alexapy.aiohttp.http.RawRequestMessage attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawResponseMessage.raw_headers">(alexapy.aiohttp.http.RawResponseMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawRequestMessage.raw_headers">(alexapy.aiohttp.http_parser.RawRequestMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawResponseMessage.raw_headers">(alexapy.aiohttp.http_parser.RawResponseMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.raw_headers">(alexapy.aiohttp.web.BaseRequest attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.raw_headers">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractResource.raw_match">raw_match() (alexapy.aiohttp.web.AbstractResource method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.DynamicResource.raw_match">(alexapy.aiohttp.web.DynamicResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.PlainResource.raw_match">(alexapy.aiohttp.web.PlainResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractResource.raw_match">(alexapy.aiohttp.web_urldispatcher.AbstractResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.DynamicResource.raw_match">(alexapy.aiohttp.web_urldispatcher.DynamicResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.PlainResource.raw_match">(alexapy.aiohttp.web_urldispatcher.PlainResource method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.raw_path">raw_path (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.raw_path">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawRequestMessage">RawRequestMessage (class in alexapy.aiohttp.http)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawRequestMessage">(class in alexapy.aiohttp.http_parser)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawResponseMessage">RawResponseMessage (class in alexapy.aiohttp.http)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawResponseMessage">(class in alexapy.aiohttp.http_parser)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader.read">read() (alexapy.aiohttp.BodyPartReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientResponse.read">(alexapy.aiohttp.client.ClientResponse method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientResponse.read">(alexapy.aiohttp.client_reqrep.ClientResponse method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientResponse.read">(alexapy.aiohttp.ClientResponse method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader.read">(alexapy.aiohttp.multipart.BodyPartReader method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.read">(alexapy.aiohttp.web.BaseRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.read">(alexapy.aiohttp.web_request.BaseRequest method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader.read_chunk">read_chunk() (alexapy.aiohttp.BodyPartReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader.read_chunk">(alexapy.aiohttp.multipart.BodyPartReader method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.StreamReader.readchunk">readchunk() (alexapy.aiohttp.StreamReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.streams.html#alexapy.aiohttp.streams.StreamReader.readchunk">(alexapy.aiohttp.streams.StreamReader method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader.readline">readline() (alexapy.aiohttp.BodyPartReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader.readline">(alexapy.aiohttp.multipart.BodyPartReader method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawResponseMessage.reason">reason (alexapy.aiohttp.http.RawResponseMessage attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawResponseMessage.reason">(alexapy.aiohttp.http_parser.RawResponseMessage attribute)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.refresh_access_token">refresh_access_token() (alexapy.AlexaLogin method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractRouteDef.register">register() (alexapy.aiohttp.web.AbstractRouteDef method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RouteDef.register">(alexapy.aiohttp.web.RouteDef method)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.register_capabilities">register_capabilities() (alexapy.AlexaLogin method)</a>
 </li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StaticDef.register">(alexapy.aiohttp.web.StaticDef method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.AbstractRouteDef.register">(alexapy.aiohttp.web_routedef.AbstractRouteDef method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.RouteDef.register">(alexapy.aiohttp.web_routedef.RouteDef method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.StaticDef.register">(alexapy.aiohttp.web_routedef.StaticDef method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader.release">release() (alexapy.aiohttp.BodyPartReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader.release">(alexapy.aiohttp.multipart.BodyPartReader method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartReader.release">(alexapy.aiohttp.multipart.MultipartReader method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartReader.release">(alexapy.aiohttp.MultipartReader method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.release">(alexapy.aiohttp.web.BaseRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.release">(alexapy.aiohttp.web_request.BaseRequest method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.remote">remote (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.remote">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.repeat">repeat() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Request">Request (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request">(class in alexapy.aiohttp.web_request)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.request">request() (alexapy.aiohttp.client.ClientSession method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.request">(alexapy.aiohttp.ClientSession method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.request">(in module alexapy.aiohttp)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.request">(in module alexapy.aiohttp.client)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RequestHandler">RequestHandler (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.RequestHandler">(class in alexapy.aiohttp.web_protocol)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.RequestInfo">RequestInfo (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.RequestInfo">(class in alexapy.aiohttp.client)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.RequestInfo">(class in alexapy.aiohttp.client_reqrep)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RequestPayloadError">RequestPayloadError</a>, <a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.RequestPayloadError">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.requote_redirect_url">requote_redirect_url() (alexapy.aiohttp.client.ClientSession property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.requote_redirect_url">(alexapy.aiohttp.ClientSession property)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.reset">reset() (alexapy.AlexaLogin method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.AsyncResolver.resolve">resolve() (alexapy.aiohttp.AsyncResolver method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.resolver.html#alexapy.aiohttp.resolver.AsyncResolver.resolve">(alexapy.aiohttp.resolver.AsyncResolver method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.resolver.html#alexapy.aiohttp.resolver.ThreadedResolver.resolve">(alexapy.aiohttp.resolver.ThreadedResolver method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ThreadedResolver.resolve">(alexapy.aiohttp.ThreadedResolver method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractResource.resolve">(alexapy.aiohttp.web.AbstractResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Resource.resolve">(alexapy.aiohttp.web.Resource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StaticResource.resolve">(alexapy.aiohttp.web.StaticResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher.resolve">(alexapy.aiohttp.web.UrlDispatcher method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractResource.resolve">(alexapy.aiohttp.web_urldispatcher.AbstractResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.Resource.resolve">(alexapy.aiohttp.web_urldispatcher.Resource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.StaticResource.resolve">(alexapy.aiohttp.web_urldispatcher.StaticResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.resolve">(alexapy.aiohttp.web_urldispatcher.UrlDispatcher method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Resource">Resource (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.Resource">(class in alexapy.aiohttp.web_urldispatcher)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.ResourceRoute">ResourceRoute (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.ResourceRoute">(class in alexapy.aiohttp.web_urldispatcher)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Response">Response (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.Response">(class in alexapy.aiohttp.web_response)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartReader.response_wrapper_cls">response_wrapper_cls (alexapy.aiohttp.multipart.MultipartReader attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartReader.response_wrapper_cls">(alexapy.aiohttp.MultipartReader attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RESPONSES">RESPONSES (in module alexapy.aiohttp.http)</a>
-</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.rewind">rewind() (alexapy.AlexaAPI method)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.route">route() (in module alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.route">(in module alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RouteDef">RouteDef (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.RouteDef">(class in alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RouteTableDef">RouteTableDef (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.RouteTableDef">(class in alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.run_app">run_app() (in module alexapy.aiohttp.web)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.run_behavior">run_behavior() (alexapy.AlexaAPI method)</a>
 </li>
@@ -2628,28 +572,6 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.save_cookiefile">save_cookiefile() (alexapy.AlexaLogin method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.scheme">scheme (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.scheme">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.secure">secure (alexapy.aiohttp.web.BaseRequest attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.secure">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WebSocketWriter.send">send() (alexapy.aiohttp.http.WebSocketWriter method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WebSocketWriter.send">(alexapy.aiohttp.http_websocket.WebSocketWriter method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.Signal.send">(alexapy.aiohttp.Signal method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.signals.html#alexapy.aiohttp.signals.Signal.send">(alexapy.aiohttp.signals.Signal method)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.send_announcement">send_announcement() (alexapy.AlexaAPI method)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.send_dropin_notification">send_dropin_notification() (alexapy.AlexaAPI method)</a>
@@ -2660,49 +582,19 @@
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.send_tts">send_tts() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Server">Server (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_server.html#alexapy.aiohttp.web_server.Server">(class in alexapy.aiohttp.web_server)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.SERVER_SOFTWARE">SERVER_SOFTWARE (in module alexapy.aiohttp.http)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ServerConnectionError">ServerConnectionError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ServerConnectionError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ServerConnectionError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ServerDisconnectedError">ServerDisconnectedError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ServerDisconnectedError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ServerDisconnectedError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ServerFingerprintMismatch">ServerFingerprintMismatch</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ServerFingerprintMismatch">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ServerFingerprintMismatch">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.ServerRunner">ServerRunner (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_runner.html#alexapy.aiohttp.web_runner.ServerRunner">(class in alexapy.aiohttp.web_runner)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ServerTimeoutError">ServerTimeoutError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ServerTimeoutError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ServerTimeoutError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.session">session() (alexapy.AlexaLogin property)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.session">session (alexapy.AlexaLogin property)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.set_background">set_background() (alexapy.AlexaAPI method)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.set_bluetooth">set_bluetooth() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.Payload.set_content_disposition">set_content_disposition() (alexapy.aiohttp.Payload method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload.set_content_disposition">(alexapy.aiohttp.payload.Payload method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StreamResponse.set_cookie">set_cookie() (alexapy.aiohttp.web.StreamResponse method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse.set_cookie">(alexapy.aiohttp.web_response.StreamResponse method)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.set_dnd_state">set_dnd_state() (alexapy.AlexaAPI method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.set_guard_state">set_guard_state() (alexapy.AlexaAPI method)</a>
+</li>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.set_light_state">set_light_state() (alexapy.AlexaAPI static method)</a>
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.set_media">set_media() (alexapy.AlexaAPI method)</a>
 </li>
@@ -2712,504 +604,38 @@
 </li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.set_volume">set_volume() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawRequestMessage.should_close">should_close (alexapy.aiohttp.http.RawRequestMessage attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawResponseMessage.should_close">(alexapy.aiohttp.http.RawResponseMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawRequestMessage.should_close">(alexapy.aiohttp.http_parser.RawRequestMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawResponseMessage.should_close">(alexapy.aiohttp.http_parser.RawResponseMessage attribute)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.shuffle">shuffle() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Application.shutdown">shutdown() (alexapy.aiohttp.web.Application method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RequestHandler.shutdown">(alexapy.aiohttp.web.RequestHandler method)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.start_url">start_url (alexapy.AlexaLogin property)</a>
 </li>
-        <li><a href="alexapy/alexapy.aiohttp.web_app.html#alexapy.aiohttp.web_app.Application.shutdown">(alexapy.aiohttp.web_app.Application method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.RequestHandler.shutdown">(alexapy.aiohttp.web_protocol.RequestHandler method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.Signal">Signal (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.signals.html#alexapy.aiohttp.signals.Signal">(class in alexapy.aiohttp.signals)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BufferedReaderPayload.size">size() (alexapy.aiohttp.BufferedReaderPayload property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BytesIOPayload.size">(alexapy.aiohttp.BytesIOPayload property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartWriter.size">(alexapy.aiohttp.multipart.MultipartWriter property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartWriter.size">(alexapy.aiohttp.MultipartWriter property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.Payload.size">(alexapy.aiohttp.Payload property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.BufferedReaderPayload.size">(alexapy.aiohttp.payload.BufferedReaderPayload property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.BytesIOPayload.size">(alexapy.aiohttp.payload.BytesIOPayload property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload.size">(alexapy.aiohttp.payload.Payload property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.TextIOPayload.size">(alexapy.aiohttp.payload.TextIOPayload property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TextIOPayload.size">(alexapy.aiohttp.TextIOPayload property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.SockSite">SockSite (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_runner.html#alexapy.aiohttp.web_runner.SockSite">(class in alexapy.aiohttp.web_runner)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientResponse.start">start() (alexapy.aiohttp.client.ClientResponse method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientResponse.start">(alexapy.aiohttp.client_reqrep.ClientResponse method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientResponse.start">(alexapy.aiohttp.ClientResponse method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.RequestHandler.start">(alexapy.aiohttp.web.RequestHandler method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_protocol.html#alexapy.aiohttp.web_protocol.RequestHandler.start">(alexapy.aiohttp.web_protocol.RequestHandler method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.start_url">start_url() (alexapy.AlexaLogin property)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.Application.startup">startup() (alexapy.aiohttp.web.Application method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_app.html#alexapy.aiohttp.web_app.Application.startup">(alexapy.aiohttp.web_app.Application method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.static">static() (in module alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.static">(in module alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.static_set_guard_state">static_set_guard_state() (alexapy.AlexaAPI static method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StaticDef">StaticDef (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.StaticDef">(class in alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StaticResource">StaticResource (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.StaticResource">(class in alexapy.aiohttp.web_urldispatcher)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.stop">stop() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.streamer">streamer (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload_streamer.html#alexapy.aiohttp.payload_streamer.streamer">(class in alexapy.aiohttp.payload_streamer)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.StreamReader">StreamReader (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.streams.html#alexapy.aiohttp.streams.StreamReader">(class in alexapy.aiohttp.streams)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StreamResponse">StreamResponse (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse">(class in alexapy.aiohttp.web_response)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.StreamWriter">StreamWriter (class in alexapy.aiohttp.http)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.StreamWriter">(class in alexapy.aiohttp.http_writer)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.StringIOPayload">StringIOPayload (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.StringIOPayload">(class in alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.StringPayload">StringPayload (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.StringPayload">(class in alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.tcp_helpers.html#alexapy.aiohttp.tcp_helpers.tcp_cork">tcp_cork() (in module alexapy.aiohttp.tcp_helpers)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.tcp_helpers.html#alexapy.aiohttp.tcp_helpers.tcp_keepalive">tcp_keepalive() (in module alexapy.aiohttp.tcp_helpers)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.tcp_helpers.html#alexapy.aiohttp.tcp_helpers.tcp_nodelay">tcp_nodelay() (in module alexapy.aiohttp.tcp_helpers)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TCPConnector">TCPConnector (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.TCPConnector">(class in alexapy.aiohttp.client)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.TCPConnector">(class in alexapy.aiohttp.connector)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.TCPSite">TCPSite (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_runner.html#alexapy.aiohttp.web_runner.TCPSite">(class in alexapy.aiohttp.web_runner)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaProxy.test_amazon_url">test_amazon_url() (alexapy.AlexaProxy method)</a>
 </li>
-      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.test_loggedin">test_loggedin() (alexapy.AlexaLogin method)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BodyPartReader.text">text() (alexapy.aiohttp.BodyPartReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientResponse.text">(alexapy.aiohttp.client.ClientResponse method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientResponse.text">(alexapy.aiohttp.client_reqrep.ClientResponse method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientResponse.text">(alexapy.aiohttp.ClientResponse method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader.text">(alexapy.aiohttp.multipart.BodyPartReader method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.text">(alexapy.aiohttp.web.BaseRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.text">(alexapy.aiohttp.web_request.BaseRequest method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TextIOPayload">TextIOPayload (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.TextIOPayload">(class in alexapy.aiohttp.payload)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ThreadedResolver">ThreadedResolver (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.resolver.html#alexapy.aiohttp.resolver.ThreadedResolver">(class in alexapy.aiohttp.resolver)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.TooManyRedirects">TooManyRedirects</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TooManyRedirects">[1]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceConfig.trace_config_ctx">trace_config_ctx() (alexapy.aiohttp.TraceConfig method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceConfig.trace_config_ctx">(alexapy.aiohttp.tracing.TraceConfig method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceConfig">TraceConfig (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceConfig">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceConnectionCreateEndParams">TraceConnectionCreateEndParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceConnectionCreateEndParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceConnectionCreateStartParams">TraceConnectionCreateStartParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceConnectionCreateStartParams">(class in alexapy.aiohttp.tracing)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.test_loggedin">test_loggedin() (alexapy.AlexaLogin method)</a>
 </li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceConnectionQueuedEndParams">TraceConnectionQueuedEndParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceConnectionQueuedEndParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceConnectionQueuedStartParams">TraceConnectionQueuedStartParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceConnectionQueuedStartParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceConnectionReuseconnParams">TraceConnectionReuseconnParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceConnectionReuseconnParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceDnsCacheHitParams">TraceDnsCacheHitParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceDnsCacheHitParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceDnsCacheMissParams">TraceDnsCacheMissParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceDnsCacheMissParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceDnsResolveHostEndParams">TraceDnsResolveHostEndParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceDnsResolveHostEndParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceDnsResolveHostStartParams">TraceDnsResolveHostStartParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceDnsResolveHostStartParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceRequestChunkSentParams">TraceRequestChunkSentParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceRequestChunkSentParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceRequestEndParams">TraceRequestEndParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceRequestEndParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceRequestExceptionParams">TraceRequestExceptionParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceRequestExceptionParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceRequestRedirectParams">TraceRequestRedirectParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceRequestRedirectParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceRequestStartParams">TraceRequestStartParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceRequestStartParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TraceResponseChunkReceivedParams">TraceResponseChunkReceivedParams (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.tracing.html#alexapy.aiohttp.tracing.TraceResponseChunkReceivedParams">(class in alexapy.aiohttp.tracing)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.UnixConnector">UnixConnector (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.UnixConnector">(class in alexapy.aiohttp.client)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.UnixConnector">(class in alexapy.aiohttp.connector)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UnixSite">UnixSite (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_runner.html#alexapy.aiohttp.web_runner.UnixSite">(class in alexapy.aiohttp.web_runner)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.StreamReader.unread_data">unread_data() (alexapy.aiohttp.StreamReader method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.streams.html#alexapy.aiohttp.streams.StreamReader.unread_data">(alexapy.aiohttp.streams.StreamReader method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientRequest.update_auth">update_auth() (alexapy.aiohttp.client.ClientRequest method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientRequest.update_auth">(alexapy.aiohttp.client_reqrep.ClientRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientRequest.update_auth">(alexapy.aiohttp.ClientRequest method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientRequest.update_content_encoding">update_content_encoding() (alexapy.aiohttp.client.ClientRequest method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientRequest.update_content_encoding">(alexapy.aiohttp.client_reqrep.ClientRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientRequest.update_content_encoding">(alexapy.aiohttp.ClientRequest method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientRequest.update_cookies">update_cookies() (alexapy.aiohttp.client.ClientRequest method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientRequest.update_cookies">(alexapy.aiohttp.client_reqrep.ClientRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientRequest.update_cookies">(alexapy.aiohttp.ClientRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.CookieJar.update_cookies">(alexapy.aiohttp.CookieJar method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.cookiejar.html#alexapy.aiohttp.cookiejar.CookieJar.update_cookies">(alexapy.aiohttp.cookiejar.CookieJar method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.cookiejar.html#alexapy.aiohttp.cookiejar.DummyCookieJar.update_cookies">(alexapy.aiohttp.cookiejar.DummyCookieJar method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.DummyCookieJar.update_cookies">(alexapy.aiohttp.DummyCookieJar method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientRequest.update_headers">update_headers() (alexapy.aiohttp.client.ClientRequest method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientRequest.update_headers">(alexapy.aiohttp.client_reqrep.ClientRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientRequest.update_headers">(alexapy.aiohttp.ClientRequest method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientRequest.update_host">update_host() (alexapy.aiohttp.client.ClientRequest method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientRequest.update_host">(alexapy.aiohttp.client_reqrep.ClientRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientRequest.update_host">(alexapy.aiohttp.ClientRequest method)</a>
-</li>
-      </ul></li>
       <li><a href="alexapy/alexapy.html#alexapy.AlexaAPI.update_login">update_login() (alexapy.AlexaAPI method)</a>
 </li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientRequest.update_transfer_encoding">update_transfer_encoding() (alexapy.aiohttp.client.ClientRequest method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientRequest.update_transfer_encoding">(alexapy.aiohttp.client_reqrep.ClientRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientRequest.update_transfer_encoding">(alexapy.aiohttp.ClientRequest method)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientRequest.update_version">update_version() (alexapy.aiohttp.client.ClientRequest method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientRequest.update_version">(alexapy.aiohttp.client_reqrep.ClientRequest method)</a>
+      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.url">url (alexapy.AlexaLogin property)</a>
 </li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientRequest.update_version">(alexapy.aiohttp.ClientRequest method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawRequestMessage.upgrade">upgrade (alexapy.aiohttp.http.RawRequestMessage attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawResponseMessage.upgrade">(alexapy.aiohttp.http.RawResponseMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawRequestMessage.upgrade">(alexapy.aiohttp.http_parser.RawRequestMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawResponseMessage.upgrade">(alexapy.aiohttp.http_parser.RawResponseMessage attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawRequestMessage.url">url (alexapy.aiohttp.http.RawRequestMessage attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawRequestMessage.url">(alexapy.aiohttp.http_parser.RawRequestMessage attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.html#alexapy.AlexaLogin.url">url() (alexapy.AlexaLogin property)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractResource.url_for">url_for() (alexapy.aiohttp.web.AbstractResource method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.AbstractRoute.url_for">(alexapy.aiohttp.web.AbstractRoute method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.DynamicResource.url_for">(alexapy.aiohttp.web.DynamicResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.PlainResource.url_for">(alexapy.aiohttp.web.PlainResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.ResourceRoute.url_for">(alexapy.aiohttp.web.ResourceRoute method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.StaticResource.url_for">(alexapy.aiohttp.web.StaticResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractResource.url_for">(alexapy.aiohttp.web_urldispatcher.AbstractResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractRoute.url_for">(alexapy.aiohttp.web_urldispatcher.AbstractRoute method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.DynamicResource.url_for">(alexapy.aiohttp.web_urldispatcher.DynamicResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.PlainResource.url_for">(alexapy.aiohttp.web_urldispatcher.PlainResource method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.ResourceRoute.url_for">(alexapy.aiohttp.web_urldispatcher.ResourceRoute method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.StaticResource.url_for">(alexapy.aiohttp.web_urldispatcher.StaticResource method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlDispatcher">UrlDispatcher (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher">(class in alexapy.aiohttp.web_urldispatcher)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.UrlMappingMatchInfo">UrlMappingMatchInfo (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo">(class in alexapy.aiohttp.web_urldispatcher)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.TCPConnector.use_dns_cache">use_dns_cache() (alexapy.aiohttp.client.TCPConnector property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.TCPConnector.use_dns_cache">(alexapy.aiohttp.connector.TCPConnector property)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TCPConnector.use_dns_cache">(alexapy.aiohttp.TCPConnector property)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="V">V</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawRequestMessage.version">version (alexapy.aiohttp.http.RawRequestMessage attribute)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.RawResponseMessage.version">(alexapy.aiohttp.http.RawResponseMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawRequestMessage.version">(alexapy.aiohttp.http_parser.RawRequestMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_parser.html#alexapy.aiohttp.http_parser.RawResponseMessage.version">(alexapy.aiohttp.http_parser.RawResponseMessage attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.BaseRequest.version">(alexapy.aiohttp.web.BaseRequest attribute)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.BaseRequest.version">(alexapy.aiohttp.web_request.BaseRequest attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.version">version() (alexapy.aiohttp.client.ClientSession property)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.version">(alexapy.aiohttp.ClientSession property)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.View">View (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.View">(class in alexapy.aiohttp.web_urldispatcher)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.view">view() (in module alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.view">(in module alexapy.aiohttp.web_routedef)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -3217,142 +643,6 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="alexapy/alexapy.html#alexapy.WebsocketEchoClient">WebsocketEchoClient (class in alexapy)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.WebSocketError">WebSocketError</a>, <a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WebSocketError">[1]</a>, <a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WebSocketError">[2]</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WebSocketReader">WebSocketReader (class in alexapy.aiohttp.http)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WebSocketReader">(class in alexapy.aiohttp.http_websocket)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.WebSocketReady">WebSocketReady (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_ws.html#alexapy.aiohttp.web_ws.WebSocketReady">(class in alexapy.aiohttp.web_ws)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.WebSocketResponse">WebSocketResponse (class in alexapy.aiohttp.web)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.web_ws.html#alexapy.aiohttp.web_ws.WebSocketResponse">(class in alexapy.aiohttp.web_ws)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WebSocketWriter">WebSocketWriter (class in alexapy.aiohttp.http)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WebSocketWriter">(class in alexapy.aiohttp.http_websocket)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.AsyncIterablePayload.write">write() (alexapy.aiohttp.AsyncIterablePayload method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.BytesPayload.write">(alexapy.aiohttp.BytesPayload method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.StreamWriter.write">(alexapy.aiohttp.http.StreamWriter method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.StreamWriter.write">(alexapy.aiohttp.http_writer.StreamWriter method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.IOBasePayload.write">(alexapy.aiohttp.IOBasePayload method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartWriter.write">(alexapy.aiohttp.multipart.MultipartWriter method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.MultipartWriter.write">(alexapy.aiohttp.MultipartWriter method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.Payload.write">(alexapy.aiohttp.Payload method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.AsyncIterablePayload.write">(alexapy.aiohttp.payload.AsyncIterablePayload method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.BytesPayload.write">(alexapy.aiohttp.payload.BytesPayload method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.IOBasePayload.write">(alexapy.aiohttp.payload.IOBasePayload method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload.write">(alexapy.aiohttp.payload.Payload method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.TextIOPayload.write">(alexapy.aiohttp.payload.TextIOPayload method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.TextIOPayload.write">(alexapy.aiohttp.TextIOPayload method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientRequest.write_bytes">write_bytes() (alexapy.aiohttp.client.ClientRequest method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientRequest.write_bytes">(alexapy.aiohttp.client_reqrep.ClientRequest method)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientRequest.write_bytes">(alexapy.aiohttp.ClientRequest method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.StreamWriter.write_eof">write_eof() (alexapy.aiohttp.http.StreamWriter method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.StreamWriter.write_eof">(alexapy.aiohttp.http_writer.StreamWriter method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.StreamWriter.write_headers">write_headers() (alexapy.aiohttp.http.StreamWriter method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.StreamWriter.write_headers">(alexapy.aiohttp.http_writer.StreamWriter method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WS_CLOSED_MESSAGE">WS_CLOSED_MESSAGE (in module alexapy.aiohttp.http)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WS_CLOSED_MESSAGE">(in module alexapy.aiohttp.http_websocket)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WS_CLOSING_MESSAGE">WS_CLOSING_MESSAGE (in module alexapy.aiohttp.http)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WS_CLOSING_MESSAGE">(in module alexapy.aiohttp.http_websocket)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.ClientSession.ws_connect">ws_connect() (alexapy.aiohttp.client.ClientSession method)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.ClientSession.ws_connect">(alexapy.aiohttp.ClientSession method)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.ws_ext_gen">ws_ext_gen() (in module alexapy.aiohttp.http)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.ws_ext_parse">ws_ext_parse() (in module alexapy.aiohttp.http)</a>
-</li>
-      <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WS_KEY">WS_KEY (in module alexapy.aiohttp.http)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WS_KEY">(in module alexapy.aiohttp.http_websocket)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.WSCloseCode">WSCloseCode (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WSCloseCode">(class in alexapy.aiohttp.http)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WSCloseCode">(class in alexapy.aiohttp.http_websocket)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.WSMessage">WSMessage (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WSMessage">(class in alexapy.aiohttp.http)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WSMessage">(class in alexapy.aiohttp.http_websocket)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.WSMsgType">WSMsgType (class in alexapy.aiohttp)</a>
-
-      <ul>
-        <li><a href="alexapy/alexapy.aiohttp.http.html#alexapy.aiohttp.http.WSMsgType">(class in alexapy.aiohttp.http)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.http_websocket.html#alexapy.aiohttp.http_websocket.WSMsgType">(class in alexapy.aiohttp.http_websocket)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web.html#alexapy.aiohttp.web.WSMsgType">(class in alexapy.aiohttp.web)</a>
-</li>
-        <li><a href="alexapy/alexapy.aiohttp.web_ws.html#alexapy.aiohttp.web_ws.WSMsgType">(class in alexapy.aiohttp.web_ws)</a>
-</li>
-      </ul></li>
-      <li><a href="alexapy/alexapy.aiohttp.client.html#alexapy.aiohttp.client.WSServerHandshakeError">WSServerHandshakeError</a>, <a href="alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.WSServerHandshakeError">[1]</a>, <a href="alexapy/alexapy.aiohttp.html#alexapy.aiohttp.WSServerHandshakeError">[2]</a>
 </li>
   </ul></td>
 </tr></table>

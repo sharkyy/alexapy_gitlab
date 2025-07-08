@@ -7,17 +7,18 @@ Helpers.
 For more details about this api, please refer to the documentation at
 https://gitlab.com/keatontaylor/alexapy
 """
+
 from asyncio import CancelledError
 from http.cookies import CookieError
 from json import JSONDecodeError
 import logging
 import os
 from types import MappingProxyType
-from typing import Optional, Text, Union
+from typing import Optional, Union
 
 import aiofiles.os as aioos
+from aiohttp import ClientConnectionError, ContentTypeError, ServerDisconnectedError
 
-from alexapy.aiohttp import ClientConnectionError, ContentTypeError
 import alexapy.alexalogin
 
 from .const import EXCEPTION_TEMPLATE
@@ -30,22 +31,15 @@ from .errors import (
 _LOGGER = logging.getLogger(__name__)
 
 
-def hide_email(email: Text) -> Text:
+def hide_email(email: str) -> str:
     """Obfuscate email."""
     part = email.split("@")
     if len(part) > 1:
-        return "{}{}{}@{}{}{}".format(
-            part[0][0],
-            "*" * (len(part[0]) - 2),
-            part[0][-1],
-            part[1][0],
-            "*" * (len(part[1]) - 2),
-            part[1][-1],
-        )
+        return f"{part[0][0]}{'*' * (len(part[0]) - 2)}{part[0][-1]}@{part[1][0]}{'*' * (len(part[1]) - 2)}{part[1][-1]}"
     return hide_serial(email)
 
 
-def hide_password(value: Text) -> Text:
+def hide_password(value: str) -> str:
     """Obfuscate password."""
     return f"REDACTED {len(value)} CHARS"
 
@@ -73,7 +67,7 @@ def hide_serial(item: Optional[Union[dict, str, list]]) -> Union[dict, str, list
                 response[key] = hide_serial(value)
     elif isinstance(item, str):
         response = (
-            "{}{}{}".format(item[0], "*" * (len(item) - 4), item[-3:])
+            f"{item[0]}{'*' * (len(item) - 4)}{item[-3:]}"
             if len(item) > 6
             else f"{'*' * len(item)}"
         )
@@ -142,9 +136,9 @@ def _catch_all_exceptions(func):
                 break
         try:
             return await func(*args, **kwargs)
-        except (ClientConnectionError, KeyError) as ex:
+        except (ClientConnectionError, KeyError, ServerDisconnectedError) as ex:
             _LOGGER.warning(
-                "%s.%s(%s, %s): A connection error occured: %s",
+                "%s.%s(%s, %s): A connection error occurred: %s",
                 func.__module__[func.__module__.find(".") + 1 :],
                 func.__name__,
                 obfuscate(args),
@@ -154,7 +148,7 @@ def _catch_all_exceptions(func):
             raise AlexapyConnectionError from ex
         except (JSONDecodeError, CookieError) as ex:
             _LOGGER.warning(
-                "%s.%s(%s, %s): A login error occured: %s",
+                "%s.%s(%s, %s): A login error occurred: %s",
                 func.__module__[func.__module__.find(".") + 1 :],
                 func.__name__,
                 obfuscate(args),
@@ -164,9 +158,9 @@ def _catch_all_exceptions(func):
             if login:
                 login.status["login_successful"] = False
             raise AlexapyLoginError from ex
-        except (ContentTypeError) as ex:
+        except ContentTypeError as ex:
             _LOGGER.warning(
-                "%s.%s(%s, %s): A login error occured; Amazon may want you to change your password: %s",
+                "%s.%s(%s, %s): A login error occurred; Amazon may want you to change your password: %s",
                 func.__module__[func.__module__.find(".") + 1 :],
                 func.__name__,
                 obfuscate(args),
@@ -178,7 +172,7 @@ def _catch_all_exceptions(func):
             raise AlexapyLoginError from ex
         except CancelledError as ex:
             _LOGGER.warning(
-                "%s.%s(%s, %s): Timeout error occured accessing AlexaAPI: %s",
+                "%s.%s(%s, %s): Timeout error occurred accessing AlexaAPI: %s",
                 func.__module__[func.__module__.find(".") + 1 :],
                 func.__name__,
                 obfuscate(args),
@@ -188,9 +182,9 @@ def _catch_all_exceptions(func):
             return None
         except AlexapyLoginCloseRequested:
             raise
-        except Exception as ex:  # pylint: disable=broad-except
+        except Exception as ex:
             _LOGGER.warning(
-                "%s.%s(%s, %s): An error occured accessing AlexaAPI: %s",
+                "%s.%s(%s, %s): An error occurred accessing AlexaAPI: %s",
                 func.__module__[func.__module__.find(".") + 1 :],
                 func.__name__,
                 obfuscate(args),
@@ -203,7 +197,7 @@ def _catch_all_exceptions(func):
     return wrapper
 
 
-async def delete_cookie(cookiefile: Text) -> None:
+async def delete_cookie(cookiefile: str) -> None:
     """Delete a cookie.
 
     Args:

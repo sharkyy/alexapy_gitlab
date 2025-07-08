@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Search &mdash; AlexaPy 1.24.0 documentation</title>
+  <title>Search &mdash; AlexaPy 1.26.9 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
@@ -31,9 +33,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -65,7 +67,7 @@
             
             
               <div class="version">
-                1.24.0
+                1.26.9
               </div>
             
           
@@ -93,8 +95,8 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="alexapy/alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexaapi.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaapi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexahttp2.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexahttp2</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexalogin.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexalogin</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexaproxy.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaproxy</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexawebsocket.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexawebsocket</span></code></a></li>
@@ -103,9 +105,27 @@
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.helpers.html"><code class="docutils literal notranslate"><span class="pre">alexapy.helpers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.hide_email"><code class="docutils literal notranslate"><span class="pre">hide_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.hide_serial"><code class="docutils literal notranslate"><span class="pre">hide_serial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.obfuscate"><code class="docutils literal notranslate"><span class="pre">obfuscate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexaLogin"><code class="docutils literal notranslate"><span class="pre">AlexaLogin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexaAPI"><code class="docutils literal notranslate"><span class="pre">AlexaAPI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexaProxy"><code class="docutils literal notranslate"><span class="pre">AlexaProxy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.HTTP2EchoClient"><code class="docutils literal notranslate"><span class="pre">HTTP2EchoClient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.WebsocketEchoClient"><code class="docutils literal notranslate"><span class="pre">WebsocketEchoClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexapyConnectionError"><code class="docutils literal notranslate"><span class="pre">AlexapyConnectionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexapyLoginCloseRequested"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginCloseRequested</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexapyLoginError"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexapyPyotpInvalidKey"><code class="docutils literal notranslate"><span class="pre">AlexapyPyotpInvalidKey</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

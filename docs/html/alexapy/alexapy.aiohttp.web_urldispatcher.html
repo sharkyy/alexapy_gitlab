@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>alexapy.aiohttp.web_urldispatcher &mdash; AlexaPy 1.24.0 documentation</title>
+  <title>alexapy.aiohttp.web_urldispatcher &mdash; AlexaPy 1.26.9 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
@@ -30,17 +33,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="alexapy.aiohttp.web_ws" href="alexapy.aiohttp.web_ws.html" />
-    <link rel="prev" title="alexapy.aiohttp.web_server" href="alexapy.aiohttp.web_server.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +65,7 @@
             
             
               <div class="version">
-                1.24.0
+                1.26.9
               </div>
             
           
@@ -89,11 +90,11 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaapi.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaapi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.alexahttp2.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexahttp2</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexalogin.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexalogin</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaproxy.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaproxy</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexawebsocket.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexawebsocket</span></code></a></li>
@@ -102,9 +103,27 @@
 <li class="toctree-l3"><a class="reference internal" href="alexapy.helpers.html"><code class="docutils literal notranslate"><span class="pre">alexapy.helpers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_email"><code class="docutils literal notranslate"><span class="pre">hide_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_serial"><code class="docutils literal notranslate"><span class="pre">hide_serial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.obfuscate"><code class="docutils literal notranslate"><span class="pre">obfuscate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaLogin"><code class="docutils literal notranslate"><span class="pre">AlexaLogin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaAPI"><code class="docutils literal notranslate"><span class="pre">AlexaAPI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaProxy"><code class="docutils literal notranslate"><span class="pre">AlexaProxy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.HTTP2EchoClient"><code class="docutils literal notranslate"><span class="pre">HTTP2EchoClient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.WebsocketEchoClient"><code class="docutils literal notranslate"><span class="pre">WebsocketEchoClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyConnectionError"><code class="docutils literal notranslate"><span class="pre">AlexapyConnectionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginCloseRequested"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginCloseRequested</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginError"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyPyotpInvalidKey"><code class="docutils literal notranslate"><span class="pre">AlexapyPyotpInvalidKey</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -155,10 +174,6 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a> &raquo;</li>
-        
-          <li><a href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a> &raquo;</li>
-        
       <li><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.web_urldispatcher</span></code></li>
     
     
@@ -178,530 +193,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-alexapy.aiohttp.web_urldispatcher">
-<span id="alexapy-aiohttp-web-urldispatcher"></span><h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.web_urldispatcher</span></code><a class="headerlink" href="#module-alexapy.aiohttp.web_urldispatcher" title="Permalink to this headline">¶</a></h1>
-<div class="contents local topic" id="contents">
+  <section id="alexapy-aiohttp-web-urldispatcher">
+<h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.web_urldispatcher</span></code><a class="headerlink" href="#alexapy-aiohttp-web-urldispatcher" title="Permalink to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
-</ul>
-</div>
-<div class="section" id="classes">
-<h2><a class="toc-backref" href="#id1">Classes</a><a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher" title="alexapy.aiohttp.web_urldispatcher.UrlDispatcher"><code class="xref py py-class docutils literal notranslate"><span class="pre">UrlDispatcher</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">UrlDispatcher</span></code>:
 Helper class that provides a standard way to create an ABC using</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo" title="alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">UrlMappingMatchInfo</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">UrlMappingMatchInfo</span></code>:
 dict() -&gt; new empty dictionary</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractResource" title="alexapy.aiohttp.web_urldispatcher.AbstractResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractResource</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractResource</span></code>:
 Abstract base class for generic types.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.Resource" title="alexapy.aiohttp.web_urldispatcher.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">Resource</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Resource</span></code>:
 Abstract base class for generic types.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.PlainResource" title="alexapy.aiohttp.web_urldispatcher.PlainResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlainResource</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PlainResource</span></code>:
 Abstract base class for generic types.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.DynamicResource" title="alexapy.aiohttp.web_urldispatcher.DynamicResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">DynamicResource</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DynamicResource</span></code>:
 Abstract base class for generic types.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute" title="alexapy.aiohttp.web_urldispatcher.AbstractRoute"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractRoute</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractRoute</span></code>:
 Helper class that provides a standard way to create an ABC using</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.ResourceRoute" title="alexapy.aiohttp.web_urldispatcher.ResourceRoute"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceRoute</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceRoute</span></code>:
 A route with resource</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.StaticResource" title="alexapy.aiohttp.web_urldispatcher.StaticResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">StaticResource</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">StaticResource</span></code>:
 Abstract base class for generic types.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.View" title="alexapy.aiohttp.web_urldispatcher.View"><code class="xref py py-class docutils literal notranslate"><span class="pre">View</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">View</span></code>:
 Abstract class based view.</p></li>
 </ul>
-<dl class="py class">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.web_urldispatcher.</span></code><code class="sig-name descname"><span class="pre">UrlDispatcher</span></code><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance318ab367b6 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;AbstractRouter&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;ABC&quot; -&gt; &quot;AbstractRouter&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Collection&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;Sized&quot; -&gt; &quot;Collection&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Iterable&quot; -&gt; &quot;Collection&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Container&quot; -&gt; &quot;Collection&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Container&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;Generic&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Abstract base class for generic types.&quot;];
-  &quot;Iterable&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;Mapping&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;Collection&quot; -&gt; &quot;Mapping&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Sized&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;UrlDispatcher&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlDispatcher&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;AbstractRouter&quot; -&gt; &quot;UrlDispatcher&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Mapping&quot; -&gt; &quot;UrlDispatcher&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Generic&quot; -&gt; &quot;UrlDispatcher&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_delete">
-<code class="sig-name descname"><span class="pre">add_delete</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse" title="alexapy.aiohttp.web_response.StreamResponse"><span class="pre">alexapy.aiohttp.web_response.StreamResponse</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute" title="alexapy.aiohttp.web_urldispatcher.AbstractRoute"><span class="pre">alexapy.aiohttp.web_urldispatcher.AbstractRoute</span></a><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shortcut for add_route with method DELETE</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_get">
-<code class="sig-name descname"><span class="pre">add_get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse" title="alexapy.aiohttp.web_response.StreamResponse"><span class="pre">alexapy.aiohttp.web_response.StreamResponse</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_head</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute" title="alexapy.aiohttp.web_urldispatcher.AbstractRoute"><span class="pre">alexapy.aiohttp.web_urldispatcher.AbstractRoute</span></a><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shortcut for add_route with method GET, if allow_head is true another
-route is added allowing head requests to the same endpoint</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_head">
-<code class="sig-name descname"><span class="pre">add_head</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse" title="alexapy.aiohttp.web_response.StreamResponse"><span class="pre">alexapy.aiohttp.web_response.StreamResponse</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute" title="alexapy.aiohttp.web_urldispatcher.AbstractRoute"><span class="pre">alexapy.aiohttp.web_urldispatcher.AbstractRoute</span></a><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_head" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shortcut for add_route with method HEAD</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_options">
-<code class="sig-name descname"><span class="pre">add_options</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse" title="alexapy.aiohttp.web_response.StreamResponse"><span class="pre">alexapy.aiohttp.web_response.StreamResponse</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute" title="alexapy.aiohttp.web_urldispatcher.AbstractRoute"><span class="pre">alexapy.aiohttp.web_urldispatcher.AbstractRoute</span></a><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_options" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shortcut for add_route with method OPTIONS</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_patch">
-<code class="sig-name descname"><span class="pre">add_patch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse" title="alexapy.aiohttp.web_response.StreamResponse"><span class="pre">alexapy.aiohttp.web_response.StreamResponse</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute" title="alexapy.aiohttp.web_urldispatcher.AbstractRoute"><span class="pre">alexapy.aiohttp.web_urldispatcher.AbstractRoute</span></a><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_patch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shortcut for add_route with method PATCH</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_post">
-<code class="sig-name descname"><span class="pre">add_post</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse" title="alexapy.aiohttp.web_response.StreamResponse"><span class="pre">alexapy.aiohttp.web_response.StreamResponse</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute" title="alexapy.aiohttp.web_urldispatcher.AbstractRoute"><span class="pre">alexapy.aiohttp.web_urldispatcher.AbstractRoute</span></a><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_post" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shortcut for add_route with method POST</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_put">
-<code class="sig-name descname"><span class="pre">add_put</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse" title="alexapy.aiohttp.web_response.StreamResponse"><span class="pre">alexapy.aiohttp.web_response.StreamResponse</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute" title="alexapy.aiohttp.web_urldispatcher.AbstractRoute"><span class="pre">alexapy.aiohttp.web_urldispatcher.AbstractRoute</span></a><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_put" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shortcut for add_route with method PUT</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_routes">
-<code class="sig-name descname"><span class="pre">add_routes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">routes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_routedef.html#alexapy.aiohttp.web_routedef.AbstractRouteDef" title="alexapy.aiohttp.web_routedef.AbstractRouteDef"><span class="pre">alexapy.aiohttp.web_routedef.AbstractRouteDef</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_routes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Append routes to route table.</p>
-<p>Parameter should be a sequence of RouteDef objects.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_static">
-<code class="sig-name descname"><span class="pre">add_static</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">os.PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expect_handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">262144</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">follow_symlinks</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append_version</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractResource" title="alexapy.aiohttp.web_urldispatcher.AbstractResource"><span class="pre">alexapy.aiohttp.web_urldispatcher.AbstractResource</span></a><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_static" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add static files view.</p>
-<p>prefix - url prefix
-path - folder with files</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_view">
-<code class="sig-name descname"><span class="pre">add_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">alexapy.aiohttp.abc.AbstractView</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute" title="alexapy.aiohttp.web_urldispatcher.AbstractRoute"><span class="pre">alexapy.aiohttp.web_urldispatcher.AbstractRoute</span></a><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.add_view" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shortcut for add_route with ANY methods for a class-based view</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher.freeze">
-<code class="sig-name descname"><span class="pre">freeze</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.freeze" title="Permalink to this definition">¶</a></dt>
-<dd><p>Freeze router.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlDispatcher.resolve">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">resolve</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">alexapy.aiohttp.abc.AbstractMatchInfo</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlDispatcher.resolve" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return MATCH_INFO for given request</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.web_urldispatcher.</span></code><code class="sig-name descname"><span class="pre">UrlMappingMatchInfo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">match_dict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">route</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute" title="alexapy.aiohttp.web_urldispatcher.AbstractRoute"><span class="pre">alexapy.aiohttp.web_urldispatcher.AbstractRoute</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance69b241f34b {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;AbstractMatchInfo&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;ABC&quot; -&gt; &quot;AbstractMatchInfo&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;UrlMappingMatchInfo&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;AbstractMatchInfo&quot; -&gt; &quot;UrlMappingMatchInfo&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.add_app">
-<code class="sig-name descname"><span class="pre">add_app</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Application</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.add_app" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add application to the nested apps stack.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.apps">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">apps</span></code><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.apps" title="Permalink to this definition">¶</a></dt>
-<dd><p>Stack of nested applications.</p>
-<p>Top level application is left-most element.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.expect_handler">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">expect_handler</span></code><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.expect_handler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Expect handler for 100-continue processing</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.freeze">
-<code class="sig-name descname"><span class="pre">freeze</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.freeze" title="Permalink to this definition">¶</a></dt>
-<dd><p>Freeze the match info.</p>
-<p>The method is called after route resolution.</p>
-<p>After the call .add_app() is forbidden.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.get_info">
-<code class="sig-name descname"><span class="pre">get_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.get_info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a dict with additional info useful for introspection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.handler">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">handler</span></code><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.handler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Execute matched request handler</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.http_exception">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">http_exception</span></code><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.UrlMappingMatchInfo.http_exception" title="Permalink to this definition">¶</a></dt>
-<dd><p>HTTPException instance raised on router’s resolving, or None</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.web_urldispatcher.AbstractResource">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.web_urldispatcher.</span></code><code class="sig-name descname"><span class="pre">AbstractResource</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.AbstractResource" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance3d98737d5b {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;AbstractResource&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractResource&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Sized&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Iterable&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Generic&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Generic&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Abstract base class for generic types.&quot;];
-  &quot;Iterable&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;Sized&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.AbstractResource.add_prefix">
-<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">add_prefix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.AbstractResource.add_prefix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a prefix to processed URLs.</p>
-<p>Required for subapplications support.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.AbstractResource.canonical">
-<em class="property"><span class="pre">abstract</span> <span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">canonical</span></code><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.AbstractResource.canonical" title="Permalink to this definition">¶</a></dt>
-<dd><p>Exposes the resource’s canonical path.</p>
-<p>For example ‘/foo/bar/{name}’</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.AbstractResource.get_info">
-<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">get_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.AbstractResource.get_info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a dict with additional info useful for introspection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.AbstractResource.raw_match">
-<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">raw_match</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.AbstractResource.raw_match" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform a raw match against path</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.AbstractResource.resolve">
-<em class="property"><span class="pre">abstract</span> <span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">resolve</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">alexapy.aiohttp.abc.AbstractMatchInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.AbstractResource.resolve" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resolve resource</p>
-<p>Return (UrlMappingMatchInfo, allowed_methods) pair.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.AbstractResource.url_for">
-<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">url_for</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">yarl.URL</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.AbstractResource.url_for" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct url for resource with additional params.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.web_urldispatcher.Resource">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.web_urldispatcher.</span></code><code class="sig-name descname"><span class="pre">Resource</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.Resource" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance70f75dd7ea {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;AbstractResource&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractResource&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Sized&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Iterable&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Generic&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Generic&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Abstract base class for generic types.&quot;];
-  &quot;Iterable&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;Resource&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.Resource&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;AbstractResource&quot; -&gt; &quot;Resource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Sized&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.Resource.resolve">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">resolve</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">alexapy.aiohttp.abc.AbstractMatchInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.Resource.resolve" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resolve resource</p>
-<p>Return (UrlMappingMatchInfo, allowed_methods) pair.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.web_urldispatcher.PlainResource">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.web_urldispatcher.</span></code><code class="sig-name descname"><span class="pre">PlainResource</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.PlainResource" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritancefc1dd4824d {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;AbstractResource&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractResource&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Sized&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Iterable&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Generic&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Generic&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Abstract base class for generic types.&quot;];
-  &quot;Iterable&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;PlainResource&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.PlainResource&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Resource&quot; -&gt; &quot;PlainResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Resource&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.Resource&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;AbstractResource&quot; -&gt; &quot;Resource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Sized&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.PlainResource.add_prefix">
-<code class="sig-name descname"><span class="pre">add_prefix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.PlainResource.add_prefix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a prefix to processed URLs.</p>
-<p>Required for subapplications support.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.PlainResource.canonical">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">canonical</span></code><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.PlainResource.canonical" title="Permalink to this definition">¶</a></dt>
-<dd><p>Exposes the resource’s canonical path.</p>
-<p>For example ‘/foo/bar/{name}’</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.PlainResource.get_info">
-<code class="sig-name descname"><span class="pre">get_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.PlainResource.get_info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a dict with additional info useful for introspection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.PlainResource.raw_match">
-<code class="sig-name descname"><span class="pre">raw_match</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.PlainResource.raw_match" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform a raw match against path</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.PlainResource.url_for">
-<code class="sig-name descname"><span class="pre">url_for</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">yarl.URL</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.PlainResource.url_for" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct url for resource with additional params.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.web_urldispatcher.DynamicResource">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.web_urldispatcher.</span></code><code class="sig-name descname"><span class="pre">DynamicResource</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.DynamicResource" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance29b8070377 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;AbstractResource&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractResource&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Sized&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Iterable&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Generic&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;DynamicResource&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.DynamicResource&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Resource&quot; -&gt; &quot;DynamicResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Generic&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Abstract base class for generic types.&quot;];
-  &quot;Iterable&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;Resource&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.Resource&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;AbstractResource&quot; -&gt; &quot;Resource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Sized&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.DynamicResource.add_prefix">
-<code class="sig-name descname"><span class="pre">add_prefix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.DynamicResource.add_prefix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a prefix to processed URLs.</p>
-<p>Required for subapplications support.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.DynamicResource.canonical">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">canonical</span></code><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.DynamicResource.canonical" title="Permalink to this definition">¶</a></dt>
-<dd><p>Exposes the resource’s canonical path.</p>
-<p>For example ‘/foo/bar/{name}’</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.DynamicResource.get_info">
-<code class="sig-name descname"><span class="pre">get_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.DynamicResource.get_info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a dict with additional info useful for introspection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.DynamicResource.raw_match">
-<code class="sig-name descname"><span class="pre">raw_match</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.DynamicResource.raw_match" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform a raw match against path</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.DynamicResource.url_for">
-<code class="sig-name descname"><span class="pre">url_for</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">parts</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">yarl.URL</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.DynamicResource.url_for" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct url for resource with additional params.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.web_urldispatcher.AbstractRoute">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.web_urldispatcher.</span></code><code class="sig-name descname"><span class="pre">AbstractRoute</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse" title="alexapy.aiohttp.web_response.StreamResponse"><span class="pre">alexapy.aiohttp.web_response.StreamResponse</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">alexapy.aiohttp.abc.AbstractView</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expect_handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractResource" title="alexapy.aiohttp.web_urldispatcher.AbstractResource"><span class="pre">alexapy.aiohttp.web_urldispatcher.AbstractResource</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance8e7e5b3af4 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;AbstractRoute&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractRoute&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;AbstractRoute&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.AbstractRoute.get_info">
-<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">get_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute.get_info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a dict with additional info useful for introspection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.AbstractRoute.name">
-<em class="property"><span class="pre">abstract</span> <span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">name</span></code><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Optional route’s name, always equals to resource’s name.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.AbstractRoute.url_for">
-<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">url_for</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">yarl.URL</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.AbstractRoute.url_for" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct url for route with additional params.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.web_urldispatcher.ResourceRoute">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.web_urldispatcher.</span></code><code class="sig-name descname"><span class="pre">ResourceRoute</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_response.html#alexapy.aiohttp.web_response.StreamResponse" title="alexapy.aiohttp.web_response.StreamResponse"><span class="pre">alexapy.aiohttp.web_response.StreamResponse</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">alexapy.aiohttp.abc.AbstractView</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#alexapy.aiohttp.web_urldispatcher.AbstractResource" title="alexapy.aiohttp.web_urldispatcher.AbstractResource"><span class="pre">alexapy.aiohttp.web_urldispatcher.AbstractResource</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expect_handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.ResourceRoute" title="Permalink to this definition">¶</a></dt>
-<dd><p>A route with resource</p>
-<p class="rubric">Inheritance</p>
-digraph inheritancee2b25cdbd4 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;AbstractRoute&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractRoute&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;AbstractRoute&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ResourceRoute&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.ResourceRoute&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;A route with resource&quot;];
-  &quot;AbstractRoute&quot; -&gt; &quot;ResourceRoute&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.ResourceRoute.get_info">
-<code class="sig-name descname"><span class="pre">get_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.ResourceRoute.get_info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a dict with additional info useful for introspection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.ResourceRoute.name">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">name</span></code><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.ResourceRoute.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Optional route’s name, always equals to resource’s name.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.ResourceRoute.url_for">
-<code class="sig-name descname"><span class="pre">url_for</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">yarl.URL</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.ResourceRoute.url_for" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct url for route with additional params.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.web_urldispatcher.StaticResource">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.web_urldispatcher.</span></code><code class="sig-name descname"><span class="pre">StaticResource</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">os.PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expect_handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">262144</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">follow_symlinks</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append_version</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.StaticResource" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance0edfe3071b {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;AbstractResource&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.AbstractResource&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Sized&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Iterable&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Generic&quot; -&gt; &quot;AbstractResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Generic&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Abstract base class for generic types.&quot;];
-  &quot;Iterable&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;PrefixResource&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;AbstractResource&quot; -&gt; &quot;PrefixResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Sized&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-  &quot;StaticResource&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.StaticResource&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;PrefixResource&quot; -&gt; &quot;StaticResource&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.StaticResource.get_info">
-<code class="sig-name descname"><span class="pre">get_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.StaticResource.get_info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a dict with additional info useful for introspection</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.StaticResource.resolve">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">resolve</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="alexapy.aiohttp.web_request.html#alexapy.aiohttp.web_request.Request" title="alexapy.aiohttp.web_request.Request"><span class="pre">alexapy.aiohttp.web_request.Request</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">alexapy.aiohttp.abc.AbstractMatchInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.StaticResource.resolve" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resolve resource</p>
-<p>Return (UrlMappingMatchInfo, allowed_methods) pair.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.web_urldispatcher.StaticResource.url_for">
-<code class="sig-name descname"><span class="pre">url_for</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append_version</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">yarl.URL</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.StaticResource.url_for" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct url for resource with additional params.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.web_urldispatcher.View">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.web_urldispatcher.</span></code><code class="sig-name descname"><span class="pre">View</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.web_urldispatcher.View" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritancebefd66ca19 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;AbstractView&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Abstract class based view.&quot;];
-  &quot;ABC&quot; -&gt; &quot;AbstractView&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;View&quot; [URL=&quot;../alexapy/alexapy.aiohttp.web_urldispatcher.html#alexapy.aiohttp.web_urldispatcher.View&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;AbstractView&quot; -&gt; &quot;View&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="alexapy.aiohttp.web_ws.html" class="btn btn-neutral float-right" title="alexapy.aiohttp.web_ws" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="alexapy.aiohttp.web_server.html" class="btn btn-neutral float-left" title="alexapy.aiohttp.web_server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

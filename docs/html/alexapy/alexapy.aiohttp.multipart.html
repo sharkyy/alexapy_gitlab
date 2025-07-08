@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>alexapy.aiohttp.multipart &mdash; AlexaPy 1.24.0 documentation</title>
+  <title>alexapy.aiohttp.multipart &mdash; AlexaPy 1.26.9 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
@@ -30,17 +33,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="alexapy.aiohttp.payload" href="alexapy.aiohttp.payload.html" />
-    <link rel="prev" title="alexapy.aiohttp.log" href="alexapy.aiohttp.log.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +65,7 @@
             
             
               <div class="version">
-                1.24.0
+                1.26.9
               </div>
             
           
@@ -89,11 +90,11 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaapi.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaapi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.alexahttp2.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexahttp2</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexalogin.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexalogin</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaproxy.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaproxy</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexawebsocket.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexawebsocket</span></code></a></li>
@@ -102,9 +103,27 @@
 <li class="toctree-l3"><a class="reference internal" href="alexapy.helpers.html"><code class="docutils literal notranslate"><span class="pre">alexapy.helpers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_email"><code class="docutils literal notranslate"><span class="pre">hide_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_serial"><code class="docutils literal notranslate"><span class="pre">hide_serial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.obfuscate"><code class="docutils literal notranslate"><span class="pre">obfuscate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaLogin"><code class="docutils literal notranslate"><span class="pre">AlexaLogin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaAPI"><code class="docutils literal notranslate"><span class="pre">AlexaAPI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaProxy"><code class="docutils literal notranslate"><span class="pre">AlexaProxy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.HTTP2EchoClient"><code class="docutils literal notranslate"><span class="pre">HTTP2EchoClient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.WebsocketEchoClient"><code class="docutils literal notranslate"><span class="pre">WebsocketEchoClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyConnectionError"><code class="docutils literal notranslate"><span class="pre">AlexapyConnectionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginCloseRequested"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginCloseRequested</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginError"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyPyotpInvalidKey"><code class="docutils literal notranslate"><span class="pre">AlexapyPyotpInvalidKey</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -155,10 +174,6 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a> &raquo;</li>
-        
-          <li><a href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a> &raquo;</li>
-        
       <li><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.multipart</span></code></li>
     
     
@@ -178,301 +193,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-alexapy.aiohttp.multipart">
-<span id="alexapy-aiohttp-multipart"></span><h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.multipart</span></code><a class="headerlink" href="#module-alexapy.aiohttp.multipart" title="Permalink to this headline">¶</a></h1>
-<div class="contents local topic" id="contents">
+  <section id="alexapy-aiohttp-multipart">
+<h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.multipart</span></code><a class="headerlink" href="#alexapy-aiohttp-multipart" title="Permalink to this heading">¶</a></h1>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#functions" id="id1">Functions</a></p></li>
-<li><p><a class="reference internal" href="#classes" id="id2">Classes</a></p></li>
-<li><p><a class="reference internal" href="#exceptions" id="id3">Exceptions</a></p></li>
-</ul>
-</div>
-<div class="section" id="functions">
-<h2><a class="toc-backref" href="#id1">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="#alexapy.aiohttp.multipart.parse_content_disposition" title="alexapy.aiohttp.multipart.parse_content_disposition"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_content_disposition()</span></code></a>:
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">parse_content_disposition()</span></code>:
 Undocumented.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.multipart.content_disposition_filename" title="alexapy.aiohttp.multipart.content_disposition_filename"><code class="xref py py-func docutils literal notranslate"><span class="pre">content_disposition_filename()</span></code></a>:
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">content_disposition_filename()</span></code>:
 Undocumented.</p></li>
 </ul>
-<dl class="py function">
-<dt id="alexapy.aiohttp.multipart.parse_content_disposition">
-<code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.multipart.</span></code><code class="sig-name descname"><span class="pre">parse_content_disposition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.multipart.parse_content_disposition" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="alexapy.aiohttp.multipart.content_disposition_filename">
-<code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.multipart.</span></code><code class="sig-name descname"><span class="pre">content_disposition_filename</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'filename'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.multipart.content_disposition_filename" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="section" id="classes">
-<h2><a class="toc-backref" href="#id2">Classes</a><a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#alexapy.aiohttp.multipart.MultipartReader" title="alexapy.aiohttp.multipart.MultipartReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultipartReader</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">MultipartReader</span></code>:
 Multipart body reader.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.multipart.MultipartWriter" title="alexapy.aiohttp.multipart.MultipartWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultipartWriter</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">MultipartWriter</span></code>:
 Multipart body writer.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.multipart.BodyPartReader" title="alexapy.aiohttp.multipart.BodyPartReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">BodyPartReader</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BodyPartReader</span></code>:
 Multipart reader for single body part.</p></li>
 </ul>
-<dl class="py class">
-<dt id="alexapy.aiohttp.multipart.MultipartReader">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.multipart.</span></code><code class="sig-name descname"><span class="pre">MultipartReader</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="alexapy.aiohttp.streams.html#alexapy.aiohttp.streams.StreamReader" title="alexapy.aiohttp.streams.StreamReader"><span class="pre">alexapy.aiohttp.streams.StreamReader</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartReader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Multipart body reader.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritanceb91c991871 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;MultipartReader&quot; [URL=&quot;../alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartReader&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Multipart body reader.&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.MultipartReader.at_eof">
-<code class="sig-name descname"><span class="pre">at_eof</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartReader.at_eof" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns True if the final boundary was reached or
-False otherwise.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.MultipartReader.fetch_next_part">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">fetch_next_part</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#alexapy.aiohttp.multipart.MultipartReader" title="alexapy.aiohttp.multipart.MultipartReader"><span class="pre">alexapy.aiohttp.multipart.MultipartReader</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#alexapy.aiohttp.multipart.BodyPartReader" title="alexapy.aiohttp.multipart.BodyPartReader"><span class="pre">alexapy.aiohttp.multipart.BodyPartReader</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartReader.fetch_next_part" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the next body part reader.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.MultipartReader.from_response">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_response</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ClientResponse</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">alexapy.aiohttp.multipart.MultipartResponseWrapper</span><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartReader.from_response" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constructs reader instance from HTTP response.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>response</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">ClientResponse</span></code> instance</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="alexapy.aiohttp.multipart.MultipartReader.multipart_reader_cls">
-<code class="sig-name descname"><span class="pre">multipart_reader_cls</span></code><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartReader.multipart_reader_cls" title="Permalink to this definition">¶</a></dt>
-<dd><p>Multipart reader class, used to handle multipart/* body parts.
-None points to type(self)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.MultipartReader.next">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">next</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#alexapy.aiohttp.multipart.MultipartReader" title="alexapy.aiohttp.multipart.MultipartReader"><span class="pre">alexapy.aiohttp.multipart.MultipartReader</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#alexapy.aiohttp.multipart.BodyPartReader" title="alexapy.aiohttp.multipart.BodyPartReader"><span class="pre">alexapy.aiohttp.multipart.BodyPartReader</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartReader.next" title="Permalink to this definition">¶</a></dt>
-<dd><p>Emits the next multipart body part.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="alexapy.aiohttp.multipart.MultipartReader.part_reader_cls">
-<code class="sig-name descname"><span class="pre">part_reader_cls</span></code><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartReader.part_reader_cls" title="Permalink to this definition">¶</a></dt>
-<dd><p>Body part reader class for non multipart/* content types.</p>
-<p>alias of <a class="reference internal" href="#alexapy.aiohttp.multipart.BodyPartReader" title="alexapy.aiohttp.multipart.BodyPartReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">alexapy.aiohttp.multipart.BodyPartReader</span></code></a></p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.MultipartReader.release">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">release</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartReader.release" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads all the body parts to the void till the final boundary.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="alexapy.aiohttp.multipart.MultipartReader.response_wrapper_cls">
-<code class="sig-name descname"><span class="pre">response_wrapper_cls</span></code><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartReader.response_wrapper_cls" title="Permalink to this definition">¶</a></dt>
-<dd><p>Response wrapper, used when multipart readers constructs from response.</p>
-<p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">alexapy.aiohttp.multipart.MultipartResponseWrapper</span></code></p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.multipart.MultipartWriter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.multipart.</span></code><code class="sig-name descname"><span class="pre">MultipartWriter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'mixed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartWriter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Multipart body writer.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance0e5794ac95 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;MultipartWriter&quot; [URL=&quot;../alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.MultipartWriter&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Multipart body writer.&quot;];
-  &quot;Payload&quot; -&gt; &quot;MultipartWriter&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Payload&quot; [URL=&quot;../alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;Payload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.MultipartWriter.append_form">
-<code class="sig-name descname"><span class="pre">append_form</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">multidict._abc.MultiMapping</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload" title="alexapy.aiohttp.payload.Payload"><span class="pre">alexapy.aiohttp.payload.Payload</span></a><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartWriter.append_form" title="Permalink to this definition">¶</a></dt>
-<dd><p>Helper to append form urlencoded part.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.MultipartWriter.append_json">
-<code class="sig-name descname"><span class="pre">append_json</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">multidict._abc.MultiMapping</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload" title="alexapy.aiohttp.payload.Payload"><span class="pre">alexapy.aiohttp.payload.Payload</span></a><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartWriter.append_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Helper to append JSON part.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.MultipartWriter.append_payload">
-<code class="sig-name descname"><span class="pre">append_payload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload" title="alexapy.aiohttp.payload.Payload"><span class="pre">alexapy.aiohttp.payload.Payload</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload" title="alexapy.aiohttp.payload.Payload"><span class="pre">alexapy.aiohttp.payload.Payload</span></a><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartWriter.append_payload" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds a new body part to multipart writer.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.MultipartWriter.size">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">size</span></code><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartWriter.size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Size of the payload.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.MultipartWriter.write">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">close_boundary</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.multipart.MultipartWriter.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write body.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.multipart.</span></code><code class="sig-name descname"><span class="pre">BodyPartReader</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">multidict._multidict.CIMultiDictProxy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="alexapy.aiohttp.streams.html#alexapy.aiohttp.streams.StreamReader" title="alexapy.aiohttp.streams.StreamReader"><span class="pre">alexapy.aiohttp.streams.StreamReader</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Multipart reader for single body part.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance85295a9d2f {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;BodyPartReader&quot; [URL=&quot;../alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BodyPartReader&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Multipart reader for single body part.&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader.at_eof">
-<code class="sig-name descname"><span class="pre">at_eof</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader.at_eof" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns True if the boundary was reached or False otherwise.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader.decode">
-<code class="sig-name descname"><span class="pre">decode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bytes</span><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader.decode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decodes data according the specified Content-Encoding
-or Content-Transfer-Encoding headers value.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader.filename">
-<code class="sig-name descname"><span class="pre">filename</span></code><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader.filename" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns filename specified in Content-Disposition header or None
-if missed or header is malformed.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader.form">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">form</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader.form" title="Permalink to this definition">¶</a></dt>
-<dd><p>Like read(), but assumes that body parts contains form
-urlencoded data.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader.get_charset">
-<code class="sig-name descname"><span class="pre">get_charset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader.get_charset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns charset parameter from Content-Type header or default.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader.json">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">json</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader.json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Like read(), but assumes that body parts contains JSON data.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader.name">
-<code class="sig-name descname"><span class="pre">name</span></code><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns name specified in Content-Disposition header or None
-if missed or header is malformed.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader.read">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bytes</span><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader.read" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads body part data.</p>
-<dl class="simple">
-<dt>decode: Decodes data following by encoding</dt><dd><p>method from Content-Encoding header. If it missed
-data remains untouched</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader.read_chunk">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">read_chunk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">8192</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bytes</span><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader.read_chunk" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads body part content chunk of the specified size.</p>
-<p>size: chunk size</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader.readline">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">readline</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bytes</span><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader.readline" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads body part by line by line.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader.release">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">release</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader.release" title="Permalink to this definition">¶</a></dt>
-<dd><p>Like read(), but reads all the data to the void.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.multipart.BodyPartReader.text">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">text</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#alexapy.aiohttp.multipart.BodyPartReader.text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Like read(), but assumes that body part contains text data.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="exceptions">
-<h2><a class="toc-backref" href="#id3">Exceptions</a><a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#alexapy.aiohttp.multipart.BadContentDispositionHeader" title="alexapy.aiohttp.multipart.BadContentDispositionHeader"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadContentDispositionHeader</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadContentDispositionHeader</span></code>:
 Base class for warnings about dubious runtime behavior.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.multipart.BadContentDispositionParam" title="alexapy.aiohttp.multipart.BadContentDispositionParam"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadContentDispositionParam</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadContentDispositionParam</span></code>:
 Base class for warnings about dubious runtime behavior.</p></li>
 </ul>
-<dl class="py exception">
-<dt id="alexapy.aiohttp.multipart.BadContentDispositionHeader">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.multipart.</span></code><code class="sig-name descname"><span class="pre">BadContentDispositionHeader</span></code><a class="headerlink" href="#alexapy.aiohttp.multipart.BadContentDispositionHeader" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance7d8192cc3d {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;BadContentDispositionHeader&quot; [URL=&quot;../alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BadContentDispositionHeader&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.multipart.BadContentDispositionParam">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.multipart.</span></code><code class="sig-name descname"><span class="pre">BadContentDispositionParam</span></code><a class="headerlink" href="#alexapy.aiohttp.multipart.BadContentDispositionParam" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance3602f188c0 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;BadContentDispositionParam&quot; [URL=&quot;../alexapy/alexapy.aiohttp.multipart.html#alexapy.aiohttp.multipart.BadContentDispositionParam&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-}
-</dd></dl>
-
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="alexapy.aiohttp.payload.html" class="btn btn-neutral float-right" title="alexapy.aiohttp.payload" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="alexapy.aiohttp.log.html" class="btn btn-neutral float-left" title="alexapy.aiohttp.log" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

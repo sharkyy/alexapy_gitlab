@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>alexapy.aiohttp.payload &mdash; AlexaPy 1.24.0 documentation</title>
+  <title>alexapy.aiohttp.payload &mdash; AlexaPy 1.26.9 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
@@ -30,17 +33,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="alexapy.aiohttp.payload_streamer" href="alexapy.aiohttp.payload_streamer.html" />
-    <link rel="prev" title="alexapy.aiohttp.multipart" href="alexapy.aiohttp.multipart.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +65,7 @@
             
             
               <div class="version">
-                1.24.0
+                1.26.9
               </div>
             
           
@@ -89,11 +90,11 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaapi.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaapi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.alexahttp2.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexahttp2</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexalogin.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexalogin</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaproxy.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaproxy</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexawebsocket.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexawebsocket</span></code></a></li>
@@ -102,9 +103,27 @@
 <li class="toctree-l3"><a class="reference internal" href="alexapy.helpers.html"><code class="docutils literal notranslate"><span class="pre">alexapy.helpers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_email"><code class="docutils literal notranslate"><span class="pre">hide_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_serial"><code class="docutils literal notranslate"><span class="pre">hide_serial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.obfuscate"><code class="docutils literal notranslate"><span class="pre">obfuscate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaLogin"><code class="docutils literal notranslate"><span class="pre">AlexaLogin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaAPI"><code class="docutils literal notranslate"><span class="pre">AlexaAPI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaProxy"><code class="docutils literal notranslate"><span class="pre">AlexaProxy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.HTTP2EchoClient"><code class="docutils literal notranslate"><span class="pre">HTTP2EchoClient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.WebsocketEchoClient"><code class="docutils literal notranslate"><span class="pre">WebsocketEchoClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyConnectionError"><code class="docutils literal notranslate"><span class="pre">AlexapyConnectionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginCloseRequested"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginCloseRequested</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginError"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyPyotpInvalidKey"><code class="docutils literal notranslate"><span class="pre">AlexapyPyotpInvalidKey</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -155,10 +174,6 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a> &raquo;</li>
-        
-          <li><a href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a> &raquo;</li>
-        
       <li><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.payload</span></code></li>
     
     
@@ -178,354 +193,55 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-alexapy.aiohttp.payload">
-<span id="alexapy-aiohttp-payload"></span><h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.payload</span></code><a class="headerlink" href="#module-alexapy.aiohttp.payload" title="Permalink to this headline">¶</a></h1>
-<div class="contents local topic" id="contents">
+  <section id="alexapy-aiohttp-payload">
+<h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.payload</span></code><a class="headerlink" href="#alexapy-aiohttp-payload" title="Permalink to this heading">¶</a></h1>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#functions" id="id1">Functions</a></p></li>
-<li><p><a class="reference internal" href="#classes" id="id2">Classes</a></p></li>
-<li><p><a class="reference internal" href="#variables" id="id3">Variables</a></p></li>
-</ul>
-</div>
-<div class="section" id="functions">
-<h2><a class="toc-backref" href="#id1">Functions</a><a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.get_payload" title="alexapy.aiohttp.payload.get_payload"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_payload()</span></code></a>:
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">get_payload()</span></code>:
 Undocumented.</p></li>
 </ul>
-<dl class="py function">
-<dt id="alexapy.aiohttp.payload.get_payload">
-<code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">get_payload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#alexapy.aiohttp.payload.Payload" title="alexapy.aiohttp.payload.Payload"><span class="pre">alexapy.aiohttp.payload.Payload</span></a><a class="headerlink" href="#alexapy.aiohttp.payload.get_payload" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="section" id="classes">
-<h2><a class="toc-backref" href="#id2">Classes</a><a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.payload_type" title="alexapy.aiohttp.payload.payload_type"><code class="xref py py-class docutils literal notranslate"><span class="pre">payload_type</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">payload_type</span></code>:
 Undocumented.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.Payload" title="alexapy.aiohttp.payload.Payload"><code class="xref py py-class docutils literal notranslate"><span class="pre">Payload</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Payload</span></code>:
 Helper class that provides a standard way to create an ABC using</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.BytesPayload" title="alexapy.aiohttp.payload.BytesPayload"><code class="xref py py-class docutils literal notranslate"><span class="pre">BytesPayload</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BytesPayload</span></code>:
 Helper class that provides a standard way to create an ABC using</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.StringPayload" title="alexapy.aiohttp.payload.StringPayload"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringPayload</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">StringPayload</span></code>:
 Helper class that provides a standard way to create an ABC using</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.IOBasePayload" title="alexapy.aiohttp.payload.IOBasePayload"><code class="xref py py-class docutils literal notranslate"><span class="pre">IOBasePayload</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">IOBasePayload</span></code>:
 Helper class that provides a standard way to create an ABC using</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.BytesIOPayload" title="alexapy.aiohttp.payload.BytesIOPayload"><code class="xref py py-class docutils literal notranslate"><span class="pre">BytesIOPayload</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BytesIOPayload</span></code>:
 Helper class that provides a standard way to create an ABC using</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.BufferedReaderPayload" title="alexapy.aiohttp.payload.BufferedReaderPayload"><code class="xref py py-class docutils literal notranslate"><span class="pre">BufferedReaderPayload</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BufferedReaderPayload</span></code>:
 Helper class that provides a standard way to create an ABC using</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.TextIOPayload" title="alexapy.aiohttp.payload.TextIOPayload"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextIOPayload</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">TextIOPayload</span></code>:
 Helper class that provides a standard way to create an ABC using</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.StringIOPayload" title="alexapy.aiohttp.payload.StringIOPayload"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringIOPayload</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">StringIOPayload</span></code>:
 Helper class that provides a standard way to create an ABC using</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.JsonPayload" title="alexapy.aiohttp.payload.JsonPayload"><code class="xref py py-class docutils literal notranslate"><span class="pre">JsonPayload</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">JsonPayload</span></code>:
 Helper class that provides a standard way to create an ABC using</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.AsyncIterablePayload" title="alexapy.aiohttp.payload.AsyncIterablePayload"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterablePayload</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterablePayload</span></code>:
 Helper class that provides a standard way to create an ABC using</p></li>
 </ul>
-<dl class="py class">
-<dt id="alexapy.aiohttp.payload.payload_type">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">payload_type</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">type:</span> <span class="pre">Any</span></em>, <em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">order:</span> <span class="pre">alexapy.aiohttp.payload.Order</span> <span class="pre">=</span> <span class="pre">&lt;Order.normal:</span> <span class="pre">'normal'&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.payload.payload_type" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritancef2c82fdd1f {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;payload_type&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.payload_type&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-}
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.payload.Payload">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">Payload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">value:</span> <span class="pre">Any,</span> <span class="pre">headers:</span> <span class="pre">Optional[Union[multidict._multidict.CIMultiDict,</span> <span class="pre">Dict[str,</span> <span class="pre">str],</span> <span class="pre">Iterable[Tuple[str,</span> <span class="pre">str]]]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">content_type:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">&lt;object</span> <span class="pre">object&gt;,</span> <span class="pre">filename:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">encoding:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">**kwargs:</span> <span class="pre">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.payload.Payload" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritancef21e4da4ae {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;Payload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;Payload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.Payload.content_type">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">content_type</span></code><a class="headerlink" href="#alexapy.aiohttp.payload.Payload.content_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Content type</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.Payload.encoding">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">encoding</span></code><a class="headerlink" href="#alexapy.aiohttp.payload.Payload.encoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>Payload encoding</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.Payload.filename">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">filename</span></code><a class="headerlink" href="#alexapy.aiohttp.payload.Payload.filename" title="Permalink to this definition">¶</a></dt>
-<dd><p>Filename of the payload.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.Payload.headers">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">headers</span></code><a class="headerlink" href="#alexapy.aiohttp.payload.Payload.headers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Custom item headers</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.Payload.set_content_disposition">
-<code class="sig-name descname"><span class="pre">set_content_disposition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">disptype</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quote_fields</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.payload.Payload.set_content_disposition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets <code class="docutils literal notranslate"><span class="pre">Content-Disposition</span></code> header.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.Payload.size">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">size</span></code><a class="headerlink" href="#alexapy.aiohttp.payload.Payload.size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Size of the payload.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.Payload.write">
-<em class="property"><span class="pre">abstract</span> <span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">alexapy.aiohttp.abc.AbstractStreamWriter</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.payload.Payload.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write payload.</p>
-<p>writer is an AbstractStreamWriter instance:</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.payload.BytesPayload">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">BytesPayload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ByteString</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.payload.BytesPayload" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance022e3e2539 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;BytesPayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.BytesPayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Payload&quot; -&gt; &quot;BytesPayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Payload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;Payload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.BytesPayload.write">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">alexapy.aiohttp.abc.AbstractStreamWriter</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.payload.BytesPayload.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write payload.</p>
-<p>writer is an AbstractStreamWriter instance:</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.payload.StringPayload">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">StringPayload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.payload.StringPayload" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance80a81a4434 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;BytesPayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.BytesPayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Payload&quot; -&gt; &quot;BytesPayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Payload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;Payload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;StringPayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.StringPayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;BytesPayload&quot; -&gt; &quot;StringPayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.payload.IOBasePayload">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">IOBasePayload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">IO</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disposition</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'attachment'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.payload.IOBasePayload" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance3f651d94db {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;IOBasePayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.IOBasePayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Payload&quot; -&gt; &quot;IOBasePayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Payload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;Payload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.IOBasePayload.write">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">alexapy.aiohttp.abc.AbstractStreamWriter</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.payload.IOBasePayload.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write payload.</p>
-<p>writer is an AbstractStreamWriter instance:</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.payload.BytesIOPayload">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">BytesIOPayload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">IO</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disposition</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'attachment'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.payload.BytesIOPayload" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritanced760214923 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;BytesIOPayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.BytesIOPayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;IOBasePayload&quot; -&gt; &quot;BytesIOPayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;IOBasePayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.IOBasePayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Payload&quot; -&gt; &quot;IOBasePayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Payload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;Payload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.BytesIOPayload.size">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">size</span></code><a class="headerlink" href="#alexapy.aiohttp.payload.BytesIOPayload.size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Size of the payload.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.payload.BufferedReaderPayload">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">BufferedReaderPayload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">IO</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disposition</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'attachment'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.payload.BufferedReaderPayload" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance8ce6e541d6 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;BufferedReaderPayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.BufferedReaderPayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;IOBasePayload&quot; -&gt; &quot;BufferedReaderPayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;IOBasePayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.IOBasePayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Payload&quot; -&gt; &quot;IOBasePayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Payload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;Payload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.BufferedReaderPayload.size">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">size</span></code><a class="headerlink" href="#alexapy.aiohttp.payload.BufferedReaderPayload.size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Size of the payload.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.payload.TextIOPayload">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">TextIOPayload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">TextIO</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.payload.TextIOPayload" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance59c58dbdb6 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;IOBasePayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.IOBasePayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Payload&quot; -&gt; &quot;IOBasePayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Payload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;Payload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;TextIOPayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.TextIOPayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;IOBasePayload&quot; -&gt; &quot;TextIOPayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.TextIOPayload.size">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">size</span></code><a class="headerlink" href="#alexapy.aiohttp.payload.TextIOPayload.size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Size of the payload.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.TextIOPayload.write">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">alexapy.aiohttp.abc.AbstractStreamWriter</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.payload.TextIOPayload.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write payload.</p>
-<p>writer is an AbstractStreamWriter instance:</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.payload.StringIOPayload">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">StringIOPayload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">IO</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.payload.StringIOPayload" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritanced75505266e {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;BytesPayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.BytesPayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Payload&quot; -&gt; &quot;BytesPayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Payload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;Payload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;StringIOPayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.StringIOPayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;StringPayload&quot; -&gt; &quot;StringIOPayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;StringPayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.StringPayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;BytesPayload&quot; -&gt; &quot;StringPayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.payload.JsonPayload">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">JsonPayload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">value:</span> <span class="pre">Any,</span> <span class="pre">encoding:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'utf-8',</span> <span class="pre">content_type:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'application/json',</span> <span class="pre">dumps:</span> <span class="pre">Callable[[Any],</span> <span class="pre">str]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">dumps&gt;,</span> <span class="pre">*args:</span> <span class="pre">Any,</span> <span class="pre">**kwargs:</span> <span class="pre">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.payload.JsonPayload" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritancecab5d7c18b {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;BytesPayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.BytesPayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Payload&quot; -&gt; &quot;BytesPayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;JsonPayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.JsonPayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;BytesPayload&quot; -&gt; &quot;JsonPayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Payload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;Payload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.payload.AsyncIterablePayload">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">AsyncIterablePayload</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">collections.abc.AsyncIterable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.payload.AsyncIterablePayload" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritanceb5efe53b06 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;AsyncIterablePayload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.AsyncIterablePayload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;Payload&quot; -&gt; &quot;AsyncIterablePayload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;Payload&quot; [URL=&quot;../alexapy/alexapy.aiohttp.payload.html#alexapy.aiohttp.payload.Payload&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;ABC&quot; -&gt; &quot;Payload&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.payload.AsyncIterablePayload.write">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">alexapy.aiohttp.abc.AbstractStreamWriter</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.payload.AsyncIterablePayload.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write payload.</p>
-<p>writer is an AbstractStreamWriter instance:</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="variables">
-<h2><a class="toc-backref" href="#id3">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#alexapy.aiohttp.payload.PAYLOAD_REGISTRY" title="alexapy.aiohttp.payload.PAYLOAD_REGISTRY"><code class="xref py py-data docutils literal notranslate"><span class="pre">PAYLOAD_REGISTRY</span></code></a></p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">PAYLOAD_REGISTRY</span></code></p></li>
 </ul>
-<dl class="py data">
-<dt id="alexapy.aiohttp.payload.PAYLOAD_REGISTRY">
-<code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.payload.</span></code><code class="sig-name descname"><span class="pre">PAYLOAD_REGISTRY</span></code><a class="headerlink" href="#alexapy.aiohttp.payload.PAYLOAD_REGISTRY" title="Permalink to this definition">¶</a></dt>
-<dd><p>Payload registry.</p>
-<p>note: we need zope.interface for more efficient adapter search</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;alexapy.aiohttp.payload.PayloadRegistry object at 0x10e2973d0&gt;
-</pre></div>
-</div>
-</dd></dl>
-
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="alexapy.aiohttp.payload_streamer.html" class="btn btn-neutral float-right" title="alexapy.aiohttp.payload_streamer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="alexapy.aiohttp.multipart.html" class="btn btn-neutral float-left" title="alexapy.aiohttp.multipart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

@@ -1,9 +1,12 @@
 #  SPDX-License-Identifier: Apache-2.0
 [tool.poetry]
 name = "AlexaPy"
-version = "1.24.2"
+version = "1.27.10"
 description = "Python API to control Amazon Echo Devices Programmatically."
-authors = ["Keaton Taylor <keatonstaylor@gmail.com>", "Alan Tse <alandtse@gmail.com"]
+authors = [
+  "Keaton Taylor <keatonstaylor@gmail.com>",
+  "Alan Tse <alandtse@gmail.com",
+]
 license = "Apache-2.0"
 readme = 'README.md'
 repository = "https://gitlab.com/keatontaylor/alexapy"
@@ -12,17 +15,20 @@ include = ["LICENSE"]
 
 
 [tool.poetry.dependencies]
-python = "^3.6.1"
-bs4 = "*"
-aiohttp = "*"
-aiofiles = "^0.5.0"
+python = ">=3.11, <4"
+beautifulsoup4 = "*"
+aiofiles = ">=24.1.0,<25.0.0"
 simplejson = "*"
 yarl = "*"
 requests = "*"
 certifi = "*"
-backoff = "^1.10.0"
-pyotp = "^2.4.1"
-authcaptureproxy = "^0.4.2"
+backoff = ">=1.10"
+pyotp = ">=2.4"
+authcaptureproxy = "^1.3.2"
+cryptography = ">=35.0"
+aiohttp = "^3.8.4"
+httpx = { extras = ["http2"], version = ">=0.24.0" }
+
 
 [tool.poetry.dev-dependencies]
 aresponses = "*"
@@ -33,17 +39,27 @@ pydocstyle = "*"
 pylint = "*"
 pytest-aiohttp = "*"
 pytest-cov = "*"
-python-semantic-release = "*"
+python-semantic-release = "7.28.1"
 tox = "*"
-safety = "^1.8.7"
-black = {version = "^19.10b0", allow-prereleases = true}
-Sphinx = "^3.5.0"
-autoapi = "^2.0.1"
+safety = ">=1.8.7"
+black = { version = ">19.10b0", allow-prereleases = true }
+Sphinx = ">=3.5.0,<7.0.0"
+autoapi = ">=2.0.1"
 sphinx-rtd-theme = "^0.5.1"
-m2r2 = "^0.2.7"
-tomlkit = "^0.7.0"
-sphinx-autoapi = "^1.7.0"
-sphinx-copybutton = "^0.3.1"
+m2r2 = ">=0.2.7"
+tomlkit = ">=0.7.0"
+sphinx-autoapi = ">=1.7.0"
+sphinx-copybutton = ">=0.3.1"
+pipdeptree = "^2.2.1"
+
+[tool.poetry.group.dev.dependencies]
+pyupgrade = "^3.4.0"
+pre-commit = "^3.3.1"
+
+[tool.codespell]
+skip = '*.csv,*.json,^docs,.*\.lock'
+count = ''
+quiet-level = 3
 
 [tool.black]
 line-length = 88
@@ -64,11 +80,10 @@ exclude = '''
     | dist
   )/
   | deps
-  | alexapy/aiohttp           # also separately exclude a file named deps in
                      # the root of the project
 )
 '''
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
 
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

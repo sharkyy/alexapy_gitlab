@@ -7,17 +7,19 @@ API access.
 For more details about this api, please refer to the documentation at
 https://gitlab.com/keatontaylor/alexapy
 """
+
 import asyncio
 import json
+from json.decoder import JSONDecodeError
 import logging
 import math
+import random
 import time
-from typing import Any, Dict, List, Optional, Text
+from typing import Any, Optional
 
+from aiohttp import ClientConnectionError, ClientResponse
 import backoff
 from yarl import URL
-
-from alexapy.aiohttp import ClientConnectionError, ClientResponse
 
 from .alexalogin import AlexaLogin
 from .errors import (
@@ -31,6 +33,21 @@ from .helpers import _catch_all_exceptions, hide_email
 _LOGGER = logging.getLogger(__name__)
 
 
+def _min_expo_wait(min_wait: float):
+    """Exponential backoff with a specified minimum wait time."""
+
+    def f(*args, **kwargs):
+        gen = backoff.expo(*args, **kwargs)
+        while True:
+            v = next(gen, None)
+            # _LOGGER.debug("_min_expo_wait: next(gen) was %s", v)
+            v = min_wait if v is None else max(min_wait, v)
+            # _LOGGER.debug("_min_expo_wait: returning %s",v)
+            yield v
+
+    return f
+
+
 class AlexaAPI:
     # pylint: disable=too-many-public-methods
     """Class for accessing a specific Alexa device using rest API.
@@ -41,17 +58,18 @@ class AlexaAPI:
 
     """
 
-    devices: Dict[Text, Any] = {}
-    _sequence_queue: Dict[Any, List[Dict[Any, Any]]] = {}
-    _sequence_lock: Dict[Any, asyncio.Lock] = {}
+    devices: dict[str, Any] = {}
+    wake_words: dict[str, Any] = {}
+    _sequence_queue: dict[Any, list[dict[Any, Any]]] = {}
+    _sequence_lock: dict[Any, asyncio.Lock] = {}
 
     def __init__(self, device, login: AlexaLogin):
         """Initialize Alexa device."""
         self._device = device
         self._login = login
         self._session = login.session
-        self._url: Text = "https://alexa." + login.url
-        self._login._headers["Referer"] = "{}/spa/index.html".format(self._url)
+        self._url: str = "https://alexa." + login.url
+        self._login._headers["Referer"] = f"{self._url}/spa/index.html"
         AlexaAPI._sequence_queue[self._login.email] = []
         AlexaAPI._sequence_lock[self._login.email] = asyncio.Lock()
         try:
@@ -85,8 +103,8 @@ class AlexaAPI:
             )
             self._login = login
             self._session = login.session
-            self._url: Text = "https://alexa." + login.url
-            self._login._headers["Referer"] = "{}/spa/index.html".format(self._url)
+            self._url: str = "https://alexa." + login.url
+            self._login._headers["Referer"] = f"{self._url}/spa/index.html"
             try:
                 csrf = self._login._get_cookies_from_session()["csrf"]
                 self._login._headers["csrf"] = csrf.value
@@ -102,19 +120,45 @@ class AlexaAPI:
             return True
         return False
 
+    @classmethod
+    async def _process_response(
+        cls, response: ClientResponse, login: AlexaLogin
+    ) -> Optional[ClientResponse]:
+        """Process a response from _request or static_request.
+
+        Args:
+            ClientResponse (response): Response from _request
+
+        Returns:
+            None | ClientResponse: Response from server
+        """
+        login.stats["api_calls"] += 1
+        _LOGGER.debug("api_calls: %s", login.stats["api_calls"])
+        if response.status == 401:
+            login.status["login_successful"] = False
+            raise AlexapyLoginError(response.reason)
+        if response.status == 429:
+            raise AlexapyTooManyRequestsError(response.reason)
+        if response.status >= 400:
+            _LOGGER.debug("Returning None due to status: %s", response.status)
+            return None
+        return response
+
     @backoff.on_exception(
-        backoff.expo,
+        _min_expo_wait(random.uniform(0.5, 1.5)),
         (AlexapyTooManyRequestsError, AlexapyConnectionError, ClientConnectionError),
-        max_time=60,
-        max_tries=5,
+        max_time=90,
+        max_tries=10,
+        jitter=None,
+        # factor = 2,
         logger=__name__,
     )
     async def _request(
         self,
-        method: Text,
-        uri: Text,
-        data: Optional[Dict[Text, Text]] = None,
-        query: Optional[Dict[Text, Text]] = None,
+        method: str,
+        uri: str,
+        data: Optional[dict[str, str]] = None,
+        query: Optional[dict[str, str]] = None,
     ) -> ClientResponse:
         async with self._login._oauth_lock:
             if self._login.expires_in and (self._login.expires_in - time.time() < 0):
@@ -129,10 +173,11 @@ class AlexaAPI:
                     and await self._login.exchange_token_for_cookies()
                     and await self._login.get_csrf()
                 ):
-                    await self._login.save_cookiefile()
+                    await self._login.finalize_login()
                 else:
                     _LOGGER.debug(
-                        "%s: Unable to refresh oauth", hide_email(self._login.email),
+                        "%s: Unable to refresh oauth",
+                        hide_email(self._login.email),
                     )
                     self._login.access_token = None
                     self._login.refresh_token = None
@@ -143,12 +188,15 @@ class AlexaAPI:
             elif query is None:
                 query = {"_": math.floor(time.time() * 1000)}
         url: URL = URL(self._url + uri).update_query(query)
-        # _LOGGER.debug("%s: Trying %s: %s : with uri: %s data %s query %s",
-        #               method,
-        #               url,
-        #               uri,
-        #               data,
-        #               query)
+        _LOGGER.debug(
+            "%s: Trying %s: %s : with uri: %s data %s query %s",
+            hide_email(self._login.email),
+            method,
+            url,
+            uri,
+            data,
+            query,
+        )
         if self._login.close_requested:
             _LOGGER.debug(
                 "%s: Login object has been asked to close; ignoring %s request to %s with %s %s",
@@ -187,48 +235,57 @@ class AlexaAPI:
             response.reason,
             response.content_type,
         )
-        self._login.stats["api_calls"] += 1
-        if response.status == 401:
-            self._login.status["login_successful"] = False
-            raise AlexapyLoginError(response.reason)
-        if response.status == 429:
-            raise AlexapyTooManyRequestsError(response.reason)
-        return response
+        return await self._process_response(response, self._login)
 
     async def _post_request(
-        self, uri: Text, data: Optional[Dict[Text, Any]] = None
+        self,
+        uri: str,
+        data: Optional[dict[str, Any]] = None,
+        query: Optional[dict[str, Any]] = None,
     ) -> ClientResponse:
-        return await self._request("post", uri, data)
+        return await self._request("post", uri, data, query)
 
     async def _put_request(
-        self, uri: Text, data: Optional[Dict[Text, Text]] = None
+        self,
+        uri: str,
+        data: Optional[dict[str, Any]] = None,
+        query: Optional[dict[str, Any]] = None,
     ) -> ClientResponse:
-        return await self._request("put", uri, data)
+        return await self._request("put", uri, data, query)
 
     async def _get_request(
-        self, uri: Text, data: Optional[Dict[Text, Text]] = None
+        self,
+        uri: str,
+        data: Optional[dict[str, Any]] = None,
+        query: Optional[dict[str, Any]] = None,
     ) -> ClientResponse:
-        return await self._request("get", uri, data)
+        return await self._request("get", uri, data, query)
 
     async def _del_request(
-        self, uri: Text, data: Optional[Dict[Text, Text]] = None
+        self,
+        uri: str,
+        data: Optional[dict[str, Any]] = None,
+        query: Optional[dict[str, Any]] = None,
     ) -> ClientResponse:
-        return await self._request("delete", uri, data)
+        return await self._request("delete", uri, data, query)
 
     @staticmethod
     @backoff.on_exception(
-        backoff.expo,
+        _min_expo_wait(random.uniform(0.8, 1.8)),
         (AlexapyTooManyRequestsError, AlexapyConnectionError, ClientConnectionError),
-        max_time=60,
-        max_tries=5,
+        max_time=120,
+        max_tries=10,
+        jitter=None,
+        # factor = 2,
         logger=__name__,
     )
-    async def _static_request(
-        method: Text,
+    async def _static_request(  # pylint: disable=too-many-positional-arguments
+        method: str,
         login: AlexaLogin,
-        uri: Text,
-        data: Optional[Dict[Text, Text]] = None,
-        query: Optional[Dict[Text, Text]] = None,
+        uri: str,
+        data: Optional[dict[str, str]] = None,
+        query: Optional[dict[str, str]] = None,
+        sub_domain: Optional[str] = "alexa",
     ) -> ClientResponse:
         async with login._oauth_lock:
             if login.expires_in and (login.expires_in - time.time() < 0):
@@ -243,16 +300,19 @@ class AlexaAPI:
                     and await login.exchange_token_for_cookies()
                     and await login.get_csrf()
                 ):
-                    await login.save_cookiefile()
+                    await login.finalize_login()
                 else:
                     _LOGGER.debug(
-                        "%s: Unable to refresh oauth", hide_email(login.email),
+                        "%s: Unable to refresh oauth",
+                        hide_email(login.email),
                     )
                     login.access_token = None
                     login.refresh_token = None
                     login.expires_in = None
         session = login.session
-        url: URL = URL("https://alexa." + login.url + uri).update_query(query)
+        url: URL = URL("https://" + sub_domain + "." + login.url + uri).update_query(
+            query
+        )
         # _LOGGER.debug("%s: %s: Trying static %s: %s : with uri: %s data %s query %s", hide_email(login.email)
         #               method,
         #               url,
@@ -297,16 +357,34 @@ class AlexaAPI:
             response.reason,
             response.content_type,
         )
-        login.stats["api_calls"] += 1
+
         if response.status == 401:
-            login.status["login_successful"] = False
-            raise AlexapyLoginError(response.reason)
-        if response.status == 429:
-            raise AlexapyTooManyRequestsError(response.reason)
-        return response
+            if await login.test_loggedin():
+                response = await getattr(session, method)(
+                    url,
+                    json=data,
+                    # cookies=login._cookies,
+                    headers=login._headers,
+                    ssl=login._ssl,
+                )
+                _LOGGER.debug(
+                    "Error 401, retried once request: %s: static %s: %s returned %s:%s:%s",
+                    hide_email(login.email),
+                    response.request_info.method,
+                    response.request_info.url,
+                    response.status,
+                    response.reason,
+                    response.content_type,
+                )
+
+        return await AlexaAPI._process_response(response, login)
 
     @_catch_all_exceptions
-    async def run_behavior(self, node_data, queue_delay: float = 1.5,) -> None:
+    async def run_behavior(
+        self,
+        node_data,
+        queue_delay: float = 1.5,
+    ) -> None:
         """Queue node_data for running a behavior in sequence.
 
         Amazon sequences and routines are based on node_data.
@@ -319,7 +397,7 @@ class AlexaAPI:
                                           Must be positive.
 
         """
-        sequence_json: Dict[Any, Any] = {
+        sequence_json: dict[Any, Any] = {
             "@type": "com.amazon.alexa.behaviors.model.Sequence",
             "startNode": node_data,
         }
@@ -349,7 +427,8 @@ class AlexaAPI:
                         "deviceSerialNumber"
                     ):
                         _LOGGER.debug(
-                            "%s: Creating Parallel node", hide_email(self._login.email),
+                            "%s: Creating Parallel node",
+                            hide_email(self._login.email),
                         )
                         sequence_json["startNode"][
                             "@type"
@@ -359,7 +438,7 @@ class AlexaAPI:
                 else:
                     AlexaAPI._sequence_queue[self._login.email].append(node_data)
                 items = len(AlexaAPI._sequence_queue[self._login.email])
-                old_sequence: List[Dict[Any, Any]] = AlexaAPI._sequence_queue[
+                old_sequence: list[dict[Any, Any]] = AlexaAPI._sequence_queue[
                     self._login.email
                 ]
             await asyncio.sleep(queue_delay)
@@ -399,15 +478,15 @@ class AlexaAPI:
     @_catch_all_exceptions
     async def send_sequence(
         self,
-        sequence: Text,
-        customer_id: Optional[Text] = None,
+        sequence: str,
+        customer_id: Optional[str] = None,
         queue_delay: float = 1.5,
-        extra: Optional[Dict[Any, Any]] = None,
+        extra: Optional[dict[Any, Any]] = None,
         **kwargs,
     ) -> None:
         """Send sequence command.
 
-        This allows some programatic control of Echo device using the behaviors
+        This allows some programmatic control of Echo device using the behaviors
         API and is the basis of play_music, send_announcement, and send_tts.
 
         Args:
@@ -450,9 +529,9 @@ class AlexaAPI:
             "deviceType": self._device._device_type,
             "deviceSerialNumber": self._device.device_serial_number,
             "locale": (self._device._locale if self._device._locale else "en-US"),
-            "customerId": self._login.customer_id
-            if customer_id is None
-            else customer_id,
+            "customerId": (
+                self._login.customer_id if customer_id is None else customer_id
+            ),
         }
         root_node = {}
         if kwargs is not None:
@@ -477,8 +556,8 @@ class AlexaAPI:
     @_catch_all_exceptions
     async def run_skill(
         self,
-        skill_id: Text,
-        customer_id: Optional[Text] = None,
+        skill_id: str,
+        customer_id: Optional[str] = None,
         queue_delay: float = 0,
     ) -> None:
         """Run Alexa skill.
@@ -503,9 +582,9 @@ class AlexaAPI:
                 "deviceSerialNumber": self._device.device_serial_number,
             },
             "locale": (self._device._locale if self._device._locale else "en-US"),
-            "customerId": self._login.customer_id
-            if customer_id is None
-            else customer_id,
+            "customerId": (
+                self._login.customer_id if customer_id is None else customer_id
+            ),
             "connectionRequest": {
                 "uri": "connection://AMAZON.Launch/" + skill_id,
                 "input": {},
@@ -521,10 +600,10 @@ class AlexaAPI:
     @_catch_all_exceptions
     async def run_custom(
         self,
-        text: Text,
-        customer_id: Optional[Text] = None,
+        text: str,
+        customer_id: Optional[str] = None,
         queue_delay: float = 0,
-        extra: Optional[Dict[Any, Any]] = None,
+        extra: Optional[dict[Any, Any]] = None,
     ) -> None:
         """Run Alexa skill.
 
@@ -554,8 +633,8 @@ class AlexaAPI:
     @_catch_all_exceptions
     async def run_routine(
         self,
-        utterance: Text,
-        customer_id: Optional[Text] = None,
+        utterance: str,
+        customer_id: Optional[str] = None,
         queue_delay: float = 1.5,
     ) -> None:
         """Run Alexa automation routine.
@@ -634,31 +713,33 @@ class AlexaAPI:
                 new_nodes.append(node)
             sequence["startNode"]["nodesToExecute"] = new_nodes
             await self.run_behavior(
-                sequence["startNode"]["nodesToExecute"], queue_delay=queue_delay,
+                sequence["startNode"]["nodesToExecute"],
+                queue_delay=queue_delay,
             )
         else:
             # Single entry with no nodesToExecute
             _populate_device_info(sequence["startNode"])
             await self.run_behavior(
-                sequence["startNode"], queue_delay=queue_delay,
+                sequence["startNode"],
+                queue_delay=queue_delay,
             )
 
     @_catch_all_exceptions
-    async def play_music(
+    async def play_music(  # pylint: disable=too-many-positional-arguments
         self,
-        provider_id: Text,
-        search_phrase: Text,
-        customer_id: Optional[Text] = None,
+        provider_id: str,
+        search_phrase: str,
+        customer_id: Optional[str] = None,
         timer: Optional[int] = None,
         queue_delay: float = 1.5,
-        extra: Optional[Dict[Any, Any]] = None,
+        extra: Optional[dict[Any, Any]] = None,
     ) -> None:
         """Play music based on search.
 
         Args:
-            provider_id (Text): Amazon music provider.
-            search_phrase (Text): Phrase to be searched for
-            customer_id (Optional[Text], optional): CustomerId to use for authorization. When none
+            provider_id (str): Amazon music provider.
+            search_phrase (str): Phrase to be searched for
+            customer_id (Optional[str], optional): CustomerId to use for authorization. When none
                              specified this defaults to the logged in user. Used
                              with households where others may have their own
                              music.
@@ -694,10 +775,10 @@ class AlexaAPI:
     @_catch_all_exceptions
     async def play_sound(
         self,
-        sound_string_id: Text,
-        customer_id: Optional[Text] = None,
+        sound_string_id: str,
+        customer_id: Optional[str] = None,
         queue_delay: float = 1.5,
-        extra: Optional[Dict[Any, Any]] = None,
+        extra: Optional[dict[Any, Any]] = None,
     ) -> None:
         """Play Alexa sound."""
         extra = extra or {}
@@ -712,14 +793,14 @@ class AlexaAPI:
     @_catch_all_exceptions
     async def stop(
         self,
-        customer_id: Optional[Text] = None,
+        customer_id: Optional[str] = None,
         queue_delay: float = 1.5,
         all_devices: bool = False,
     ) -> None:
         """Stop device playback.
 
         Keyword Arguments:
-            customer_id {Text} -- CustomerId issuing command (default: {None})
+            customer_id {str} -- CustomerId issuing command (default: {None})
             queue_delay {float} -- The number of seconds to wait
                                    for commands to queue together.
                                    Must be positive.
@@ -753,16 +834,16 @@ class AlexaAPI:
         )
 
     def process_targets(
-        self, targets: Optional[List[Text]] = None
-    ) -> List[Dict[Text, Text]]:
+        self, targets: Optional[list[str]] = None
+    ) -> list[dict[str, str]]:
         """Process targets list to generate list of devices.
 
         Keyword Arguments
-            targets {Optional[List[Text]]} -- List of serial numbers
+            targets {Optional[List[str]]} -- List of serial numbers
                 (default: {[]})
 
         Returns
-            List[Dict[Text, Text] -- List of device dicts
+            List[Dict[str, str] -- List of device dicts
 
         """
         targets = targets or []
@@ -798,9 +879,9 @@ class AlexaAPI:
     @_catch_all_exceptions
     async def send_tts(
         self,
-        message: Text,
-        customer_id: Optional[Text] = None,
-        targets: Optional[List[Text]] = None,
+        message: str,
+        customer_id: Optional[str] = None,
+        targets: Optional[list[str]] = None,
         queue_delay: float = 1.5,
     ) -> None:
         """Send message for TTS at speaker.
@@ -833,25 +914,25 @@ class AlexaAPI:
         if message.startswith("alexa.cannedtts.speak"):
             await self.send_sequence(
                 "Alexa.CannedTts.Speak",
-                customer_id=self._login.customer_id
-                if customer_id is None
-                else customer_id,
+                customer_id=(
+                    self._login.customer_id if customer_id is None else customer_id
+                ),
                 cannedTtsStringId=message,
                 skillId="amzn1.ask.1p.saysomething",
                 queue_delay=queue_delay,
             )
         else:
             target = {
-                "customerId": self._login.customer_id
-                if customer_id is None
-                else customer_id,
+                "customerId": (
+                    self._login.customer_id if customer_id is None else customer_id
+                ),
                 "devices": self.process_targets(targets),
             }
             await self.send_sequence(
                 "Alexa.Speak",
-                customer_id=self._login.customer_id
-                if customer_id is None
-                else customer_id,
+                customer_id=(
+                    self._login.customer_id if customer_id is None else customer_id
+                ),
                 textToSpeak=message,
                 target=target,
                 skillId="amzn1.ask.1p.saysomething",
@@ -859,18 +940,17 @@ class AlexaAPI:
             )
 
     @_catch_all_exceptions
-    async def send_announcement(
+    async def send_announcement(  # pylint: disable=too-many-positional-arguments
         self,
-        message: Text,
-        method: Text = "all",
-        title: Text = "Announcement",
-        customer_id: Optional[Text] = None,
-        targets: Optional[List[Text]] = None,
+        message: str,
+        method: str = "all",
+        title: str = "Announcement",
+        customer_id: Optional[str] = None,
+        targets: Optional[list[str]] = None,
         queue_delay: float = 1.5,
-        extra: Optional[Dict[Any, Any]] = None,
+        extra: Optional[dict[Any, Any]] = None,
     ) -> None:
-        # pylint: disable=too-many-arguments
-        """Send announcment to Alexa devices.
+        """Send announcement to Alexa devices.
 
         This uses the AlexaAnnouncement and allows visual display on the Show.
         It will beep prior to speaking.
@@ -913,9 +993,9 @@ class AlexaAPI:
             }
         ]
         target = {
-            "customerId": self._login.customer_id
-            if customer_id is None
-            else customer_id,
+            "customerId": (
+                self._login.customer_id if customer_id is None else customer_id
+            ),
             "devices": self.process_targets(targets),
         }
         await self.send_sequence(
@@ -929,13 +1009,13 @@ class AlexaAPI:
         )
 
     @_catch_all_exceptions
-    async def send_mobilepush(
+    async def send_mobilepush(  # pylint: disable=too-many-positional-arguments
         self,
-        message: Text,
-        title: Text = "AlexaAPI Message",
-        customer_id: Optional[Text] = None,
+        message: str,
+        title: str = "AlexaAPI Message",
+        customer_id: Optional[str] = None,
         queue_delay: float = 1.5,
-        extra: Optional[Dict[Any, Any]] = None,
+        extra: Optional[dict[Any, Any]] = None,
     ) -> None:
         """Send mobile push to Alexa app.
 
@@ -968,13 +1048,13 @@ class AlexaAPI:
         )
 
     @_catch_all_exceptions
-    async def send_dropin_notification(
+    async def send_dropin_notification(  # pylint: disable=too-many-positional-arguments
         self,
-        message: Text,
-        title: Text = "AlexaAPI Dropin Notification",
-        customer_id: Optional[Text] = None,
+        message: str,
+        title: str = "AlexaAPI Dropin Notification",
+        customer_id: Optional[str] = None,
         queue_delay: float = 1.5,
-        extra: Optional[Dict[Any, Any]] = None,
+        extra: Optional[dict[Any, Any]] = None,
     ) -> None:
         """Send dropin notification to Alexa app for Alexa device.
 
@@ -1009,14 +1089,15 @@ class AlexaAPI:
             locale=None,
         )
 
-    async def set_media(self, data: Dict[Text, Any]) -> None:
+    async def set_media(self, data: dict[str, Any]) -> None:
         """Select the media player."""
         await self._post_request(
-            "/api/np/command?deviceSerialNumber="
-            + self._device.device_serial_number
-            + "&deviceType="
-            + self._device._device_type,
+            "/api/np/command",
             data=data,
+            query={
+                "deviceSerialNumber": self._device.device_serial_number,
+                "deviceType": self._device._device_type,
+            },
         )
 
     @_catch_all_exceptions
@@ -1053,7 +1134,7 @@ class AlexaAPI:
     async def set_volume(
         self,
         volume: float,
-        customer_id: Optional[Text] = None,
+        customer_id: Optional[str] = None,
         queue_delay: float = 1.5,
     ) -> None:
         """Set volume.
@@ -1094,14 +1175,27 @@ class AlexaAPI:
         await self.set_media({"type": "RepeatCommand", "repeat": setting})
 
     @_catch_all_exceptions
-    async def get_state(self) -> Optional[Dict[Text, Any]]:
+    async def get_state(self) -> Optional[dict[str, Any]]:
         """Get playing state."""
         response = await self._get_request(
-            "/api/np/player?deviceSerialNumber="
-            + self._device.device_serial_number
-            + "&deviceType="
-            + self._device._device_type
-            + "&screenWidth=2560"
+            "/api/np/player",
+            query={
+                "deviceSerialNumber": self._device.device_serial_number,
+                "deviceType": self._device._device_type,
+                "screenWidth": 2560,
+            },
+        )
+        return await response.json(content_type=None) if response else None
+
+    @_catch_all_exceptions
+    async def get_wifi_details(self) -> Optional[dict[str, Any]]:
+        """Get wifi details."""
+        response = await self._get_request(
+            "/api/device-wifi-details",
+            query={
+                "deviceSerialNumber": self._device.device_serial_number,
+                "deviceType": self._device._device_type,
+            },
         )
         return await response.json(content_type=None) if response else None
 
@@ -1139,7 +1233,7 @@ class AlexaAPI:
 
     @staticmethod
     @_catch_all_exceptions
-    async def get_bluetooth(login) -> Optional[Dict[Text, Any]]:
+    async def get_bluetooth(login) -> Optional[dict[str, Any]]:
         """Get paired bluetooth devices."""
         response = await AlexaAPI._static_request(
             "get", login, "/api/bluetooth", query={"cached": "false"}
@@ -1147,7 +1241,7 @@ class AlexaAPI:
         return await response.json(content_type=None) if response else None
 
     @_catch_all_exceptions
-    async def set_bluetooth(self, mac: Text) -> None:
+    async def set_bluetooth(self, mac: str) -> None:
         """Pair with bluetooth device with mac address."""
         await self._post_request(
             "/api/bluetooth/pair-sink/"
@@ -1170,7 +1264,7 @@ class AlexaAPI:
 
     @staticmethod
     @_catch_all_exceptions
-    async def get_devices(login: AlexaLogin) -> Optional[Dict[Text, Any]]:
+    async def get_devices(login: AlexaLogin) -> Optional[dict[str, Any]]:
         """Identify all Alexa devices."""
         response = await AlexaAPI._static_request(
             "get", login, "/api/devices-v2/device", query=None
@@ -1184,7 +1278,42 @@ class AlexaAPI:
 
     @staticmethod
     @_catch_all_exceptions
-    async def get_authentication(login: AlexaLogin) -> Optional[Dict[Text, Any]]:
+    async def get_wake_words(login: AlexaLogin) -> Optional[dict[str, Any]]:
+        """Get the wake words for the devices."""
+        response = await AlexaAPI._static_request(
+            "get", login, "/api/wake-word", query={"cached": "true"}
+        )
+        AlexaAPI.wake_words[login.email] = (
+            (await response.json(content_type=None))["wakeWords"]
+            if response
+            else AlexaAPI.wake_words[login.email]
+        )
+        return AlexaAPI.wake_words[login.email]
+
+    @staticmethod
+    @_catch_all_exceptions
+    async def find_wake_word(login: AlexaLogin, serial: str) -> Optional[str]:
+        """Find the wake word associated to a device."""
+        wake_words = (
+            AlexaAPI.wake_words[login.email]
+            if login.email in AlexaAPI.wake_words
+            else await AlexaAPI.get_wake_words(login)
+        )
+        if wake_words:
+            found = next(
+                filter(
+                    lambda wake_word: serial == wake_word["deviceSerialNumber"],
+                    wake_words,
+                ),
+                None,
+            )
+            if found is not None:
+                return found["wakeWord"].lower()
+        return None
+
+    @staticmethod
+    @_catch_all_exceptions
+    async def get_authentication(login: AlexaLogin) -> Optional[dict[str, Any]]:
         """Get authentication json."""
         response = await AlexaAPI._static_request(
             "get", login, "/api/bootstrap", query=None
@@ -1197,9 +1326,110 @@ class AlexaAPI:
 
     @staticmethod
     @_catch_all_exceptions
+    async def get_customer_history_records(
+        login: AlexaLogin,
+        start_time: Optional[int] = None,
+        end_time: Optional[int] = None,
+        max_record_size: Optional[int] = 1,
+    ) -> Optional[dict[str, Any]]:
+        """Get customer history records."""
+        start_time = (
+            int((time.time() - 24 * 3600) * 1000) if start_time is None else start_time
+        )
+        end_time = (
+            int((time.time() + 24 * 3600) * 1000) if end_time is None else end_time
+        )
+        response = await AlexaAPI._static_request(
+            "get",
+            login,
+            "/alexa-privacy/apd/rvh/customer-history-records",
+            query={
+                "startTime": start_time,
+                "endTime": end_time,
+                "recordType": "VOICE_HISTORY",
+                "maxRecordSize": max_record_size,
+            },
+            sub_domain="www",
+        )
+        result = await response.json(content_type=None) if response else None
+        if result is None:
+            return None
+        ret = []
+        if result["customerHistoryRecords"] is None:
+            return ret
+
+        for record in result["customerHistoryRecords"]:
+            o = {}
+            conv_parts = {}
+            if record["voiceHistoryRecordItems"]:
+                for item in record["voiceHistoryRecordItems"]:
+                    conv_parts[item["recordItemType"]] = (
+                        conv_parts[item["recordItemType"]]
+                        if item["recordItemType"] in conv_parts
+                        else []
+                    )
+                    conv_parts[item["recordItemType"]].append(item)
+
+                o["conversionDetails"] = conv_parts
+
+            record_key = record["recordKey"].split("#")
+            o["deviceType"] = record_key[2] if record_key[2] else None
+            o["creationTimestamp"] = (
+                record["timestamp"] if "timestamp" in record else None
+            )
+            o["deviceSerialNumber"] = record_key[3]
+            o["description"] = {"summary": ""}
+            o["utteranceType"] = record["utteranceType"]
+            wake_word = await AlexaAPI.find_wake_word(login, record_key[3])
+            if (
+                "CUSTOMER_TRANSCRIPT" in conv_parts
+                or "ASR_REPLACEMENT_TEXT" in conv_parts
+            ):
+                if "CUSTOMER_TRANSCRIPT" in conv_parts:
+                    for trans in conv_parts["CUSTOMER_TRANSCRIPT"]:
+                        text = trans["transcriptText"]
+                        if wake_word and text.startswith(wake_word):
+                            text = text[len(wake_word) :].strip()
+                        elif text.startswith("alexa"):
+                            text = text[5:].strip()
+                        o["description"]["summary"] += text + ", "
+
+                if "ASR_REPLACEMENT_TEXT" in conv_parts:
+                    for trans in conv_parts["ASR_REPLACEMENT_TEXT"]:
+                        text = trans["transcriptText"]
+                        if wake_word and text.startswith(wake_word):
+                            text = text[len(wake_word) :].strip()
+                        elif text.startswith("alexa"):
+                            text = text[5:].strip()
+                        o["description"]["summary"] += text + ", "
+                o["description"]["summary"] = o["description"]["summary"][
+                    0 : len(o["description"]["summary"]) - 2
+                ].strip()
+
+                o["alexaResponse"] = ""
+                if (
+                    "ALEXA_RESPONSE" in conv_parts
+                    or "TTS_REPLACEMENT_TEXT" in conv_parts
+                ):
+                    if "ALEXA_RESPONSE" in conv_parts:
+                        for trans in conv_parts["ALEXA_RESPONSE"]:
+                            o["alexaResponse"] += trans["transcriptText"] + ", "
+
+                    if "TTS_REPLACEMENT_TEXT" in conv_parts:
+                        for trans in conv_parts["TTS_REPLACEMENT_TEXT"]:
+                            o["alexaResponse"] += trans["transcriptText"] + ", "
+                    o["alexaResponse"] = o["alexaResponse"][
+                        0 : len(o["alexaResponse"]) - 2
+                    ].strip()
+
+            ret.append(o)
+        return ret
+
+    @staticmethod
+    @_catch_all_exceptions
     async def get_activities(
         login: AlexaLogin, items: int = 10
-    ) -> Optional[Dict[Text, Any]]:
+    ) -> Optional[dict[str, Any]]:
         """Get activities json."""
         response = await AlexaAPI._static_request(
             "get",
@@ -1207,12 +1437,12 @@ class AlexaAPI:
             "/api/activities",
             query={"startTime": "", "size": items, "offset": 1},
         )
-        result = await response.json(content_type=None)
+        result = await response.json(content_type=None) if response else None
         return result["activities"] if result and result.get("activities") else None
 
     @staticmethod
     @_catch_all_exceptions
-    async def get_device_preferences(login: AlexaLogin) -> Optional[Dict[Text, Any]]:
+    async def get_device_preferences(login: AlexaLogin) -> Optional[dict[str, Any]]:
         """Identify all Alexa device preferences."""
         response = await AlexaAPI._static_request(
             "get", login, "/api/device-preferences", query={}
@@ -1223,7 +1453,7 @@ class AlexaAPI:
     @_catch_all_exceptions
     async def get_automations(
         login: AlexaLogin, items: int = 1000
-    ) -> Optional[Dict[Text, Any]]:
+    ) -> Optional[dict[str, Any]]:
         """Identify all Alexa automations."""
         response = await AlexaAPI._static_request(
             "get", login, "/api/behaviors/v2/automations", query={"limit": items}
@@ -1234,44 +1464,46 @@ class AlexaAPI:
     @_catch_all_exceptions
     async def get_last_device_serial(
         login: AlexaLogin, items: int = 10
-    ) -> Optional[Dict[Text, Any]]:
-        """Identify the last device's serial number.
+    ) -> Optional[dict[str, Any]]:
+        """Identify the last device's serial number and last summary.
 
-        This will store the [last items] activity records and find the latest
+        This will search the [last items] activity records and find the latest
         entry where Echo successfully responded.
         """
-        response = await AlexaAPI.get_activities(login, items)
+        response = await AlexaAPI.get_customer_history_records(
+            login, max_record_size=items
+        )
         if response is not None:
             for last_activity in response:
-                # Ignore discarded activity records
-                # Ignore empty summary
-                if last_activity[
-                    "activityStatus"
-                ] != "DISCARDED_NON_DEVICE_DIRECTED_INTENT" and json.loads(
+                summary = ""
+                # Ignore empty description and summary
+                # Ignore utterance type DEVICE_ARBITRATION
+                if (
                     last_activity["description"]
-                ).get(
-                    "summary"
+                    and last_activity["description"]["summary"]
+                    and last_activity["utteranceType"] != "DEVICE_ARBITRATION"
                 ):
+                    try:
+                        summary = last_activity["description"]["summary"]
+                    except (AttributeError, JSONDecodeError):
+                        pass
                     return {
-                        "serialNumber": (
-                            last_activity["sourceDeviceIds"][0]["serialNumber"]
-                        ),
+                        "serialNumber": (last_activity["deviceSerialNumber"]),
                         "timestamp": last_activity["creationTimestamp"],
-                        "summary": json.loads(last_activity["description"]).get(
-                            "summary", ""
-                        ),
+                        "summary": summary,
                     }
+
         return None
 
     @_catch_all_exceptions
     async def set_guard_state(
-        self, entity_id: Text, state: Text, queue_delay: float = 1.5
+        self, entity_id: str, state: str, queue_delay: float = 1.5
     ) -> None:
         """Set Guard state.
 
         Args:
-        entity_id (Text): numeric ending of applianceId of RedRock Panel
-        state (Text): AWAY, HOME
+        entity_id (str): numeric ending of applianceId of RedRock Panel
+        state (str): AWAY, HOME
         queue_delay (float, optional): The number of seconds to wait
                                         for commands to queue together.
                                         Defaults to 1.5.
@@ -1295,38 +1527,70 @@ class AlexaAPI:
     @staticmethod
     @_catch_all_exceptions
     async def get_guard_state(
-        login: AlexaLogin, entity_id: Text
-    ) -> Optional[Dict[Text, Any]]:
+        login: AlexaLogin, entity_id: str
+    ) -> Optional[dict[str, Any]]:
         """Get state of Alexa guard.
 
         Args:
         login (AlexaLogin): Successfully logged in AlexaLogin
-        entity_id (Text): applianceId of RedRock Panel
+        entity_id (str): applianceId of RedRock Panel
 
         Returns json
 
         """
-        data = {"stateRequests": [{"entityId": entity_id, "entityType": "APPLIANCE"}]}
+        return await AlexaAPI.get_entity_state(login, appliance_ids=[entity_id])
+
+    @staticmethod
+    @_catch_all_exceptions
+    async def get_entity_state(
+        login: AlexaLogin,
+        entity_ids: Optional[list[str]] = None,
+        appliance_ids: Optional[list[str]] = None,
+    ) -> Optional[dict[str, Any]]:
+        """Get the current state of multiple appliances.
+
+        Note that this can take both entity_ids and appliance_ids.
+        If you have both pieces of data available, prefer the entity id. A single entity might have multiple
+        appliance ids. Its easier to ensure you don't miss data by just providing entity id instead.
+
+        Args:
+        login (AlexaLogin): Successfully logged in AlexaLogin
+        entity_ids (List[str]): The list of entities you want information about.
+        appliance_ids: (List[str]): The list of appliances you want information about.
+
+        Returns json
+
+        """
+        state_requests = []
+        if entity_ids is not None:
+            for entity_id in entity_ids:
+                state_requests.append({"entityId": entity_id, "entityType": "ENTITY"})
+        if appliance_ids is not None:
+            for appliance_id in appliance_ids:
+                state_requests.append(
+                    {"entityId": appliance_id, "entityType": "APPLIANCE"}
+                )
+        data = {"stateRequests": state_requests}
         response = await AlexaAPI._static_request(
             "post", login, "/api/phoenix/state", data=data
         )
         result = await response.json(content_type=None) if response else None
         _LOGGER.debug(
-            "%s: get_guard_state response: %s", hide_email(login.email), result
+            "%s: get_entity_state response: %s", hide_email(login.email), result
         )
         return result
 
     @staticmethod
     @_catch_all_exceptions
     async def static_set_guard_state(
-        login: AlexaLogin, entity_id: Text, state: Text
-    ) -> Optional[Dict[Text, Any]]:
+        login: AlexaLogin, entity_id: str, state: str
+    ) -> Optional[dict[str, Any]]:
         """Set state of Alexa guard.
 
         Args:
         login (AlexaLogin): Successfully logged in AlexaLogin
-        entity_id (Text): entityId of RedRock Panel
-        state (Text): ARMED_AWAY, ARMED_STAY
+        entity_id (str): entityId of RedRock Panel
+        state (str): ARMED_AWAY, ARMED_STAY
 
         Returns json
 
@@ -1354,7 +1618,84 @@ class AlexaAPI:
 
     @staticmethod
     @_catch_all_exceptions
-    async def get_guard_details(login: AlexaLogin) -> Optional[Dict[Text, Any]]:
+    async def set_light_state(  # pylint: disable=too-many-positional-arguments
+        login: AlexaLogin,
+        entity_id: str,
+        power_on: bool = True,
+        brightness: Optional[int] = None,
+        color_name: Optional[str] = None,
+        color_temperature_name: Optional[str] = None,
+    ) -> Optional[dict[str, Any]]:
+        """Set state of a light.
+
+        Args:
+        login (AlexaLogin): Successfully logged in AlexaLogin
+        entity_id (str): Entity ID of The light. Not the Application ID.
+        power_on (bool): Should the light be on or off.
+        brightness (Optional[int]): 0-100 or None to leave as is
+        color_name (Optional[str]): The name of a color that Alexa supports in snake case.
+        color_temperature_name (Optional[str]): The name of a color temperature name that Alexa supports in snake case.
+
+        Returns json
+
+        """
+        control_requests = [
+            {
+                "entityId": entity_id,
+                "entityType": "ENTITY",
+                "parameters": {"action": "turnOn" if power_on else "turnOff"},
+            }
+        ]
+
+        if brightness is not None and 0 <= brightness <= 100:
+            control_requests.append(
+                {
+                    "entityId": entity_id,
+                    "entityType": "ENTITY",
+                    "parameters": {
+                        "action": "setBrightness",
+                        "brightness": str(brightness),
+                    },
+                }
+            )
+
+        if color_name is not None:
+            control_requests.append(
+                {
+                    "entityId": entity_id,
+                    "entityType": "ENTITY",
+                    "parameters": {"action": "setColor", "colorName": color_name},
+                }
+            )
+
+        if color_temperature_name is not None:
+            control_requests.append(
+                {
+                    "entityId": entity_id,
+                    "entityType": "ENTITY",
+                    "parameters": {
+                        "action": "setColorTemperature",
+                        "colorTemperatureName": color_temperature_name,
+                    },
+                }
+            )
+
+        data = {"controlRequests": control_requests}
+
+        response = await AlexaAPI._static_request(
+            "put", login, "/api/phoenix/state", data=data
+        )
+        _LOGGER.debug(
+            "%s: set_light_state response: %s for data: %s ",
+            hide_email(login.email),
+            await response.json(content_type=None) if response else None,
+            json.dumps(data),
+        )
+        return await response.json(content_type=None) if response else None
+
+    @staticmethod
+    @_catch_all_exceptions
+    async def get_guard_details(login: AlexaLogin) -> Optional[dict[str, Any]]:
         """Get Alexa Guard details.
 
         Args:
@@ -1363,18 +1704,69 @@ class AlexaAPI:
         Returns json
 
         """
-        response = await AlexaAPI._static_request("get", login, "/api/phoenix")
-        # _LOGGER.debug("%s: Response: %s", hide_email(login.email),
-        #               await response.json(content_type=None))
-        return (
-            json.loads((await response.json(content_type=None))["networkDetail"])
-            if response
-            else None
-        )
+        try:
+            response = await AlexaAPI._static_request("get", login, "/api/phoenix")
+            if response:
+                json_response = await response.json(content_type=None)
+                if json_response and "networkDetail" in json_response:
+                    network_detail_str = json_response["networkDetail"]
+                    _LOGGER.debug(
+                        "%s: Successfully fetched guard details. JSON content: %s",
+                        hide_email(login.email),
+                        network_detail_str,
+                    )
+                    return json.loads(network_detail_str)
+                _LOGGER.warning(
+                    "%s: get_guard_details response did not contain 'networkDetail'. Response: %s",
+                    hide_email(login.email),
+                    json_response,
+                )
+                return None
+            _LOGGER.warning(
+                "%s: Failed to get guard details, response was None.",
+                hide_email(login.email),
+            )
+            return None
+        except Exception as e:
+            _LOGGER.error(
+                "%s: Error fetching guard details: %s",
+                hide_email(login.email),
+                e,
+                exc_info=True,
+            )
+            return None
 
     @staticmethod
     @_catch_all_exceptions
-    async def get_notifications(login: AlexaLogin) -> Optional[Dict[Text, Any]]:
+    async def get_network_details(login: AlexaLogin) -> Optional[dict[str, Any]]:
+        """Get the network of devices that Alexa is aware of. This is the same as calling get_guard_details().
+
+        Args:
+        login: (AlexaLogin): Successfully logged in AlexaLogin
+
+        Returns json
+        """
+        _LOGGER.debug(
+            "%s: Calling get_network_details, which in turn calls get_guard_details.",
+            hide_email(login.email),
+        )
+        network_detail = await AlexaAPI.get_guard_details(login)
+        if network_detail is not None:
+            _LOGGER.debug(
+                "%s: get_network_details successfully received network_detail: %s",
+                hide_email(login.email),
+                json.dumps(network_detail, indent=2),  # Pretty print JSON
+            )
+        else:
+            _LOGGER.warning(
+                "%s: get_network_details received None from get_guard_details.",
+                hide_email(login.email),
+            )
+        return network_detail
+
+    @staticmethod
+    @_catch_all_exceptions
+    async def get_notifications(login: AlexaLogin) -> Optional[dict[str, Any]]:
         """Get Alexa notifications.
 
         Args:
@@ -1394,7 +1786,7 @@ class AlexaAPI:
 
     @staticmethod
     @_catch_all_exceptions
-    async def set_notifications(login: AlexaLogin, data) -> Optional[Dict[Text, Any]]:
+    async def set_notifications(login: AlexaLogin, data) -> Optional[dict[str, Any]]:
         """Update Alexa notification.
 
         Args:
@@ -1413,7 +1805,7 @@ class AlexaAPI:
 
     @staticmethod
     @_catch_all_exceptions
-    async def get_dnd_state(login: AlexaLogin) -> Optional[Dict[Text, Any]]:
+    async def get_dnd_state(login: AlexaLogin) -> Optional[dict[str, Any]]:
         """Get Alexa DND states.
 
         Args:
@@ -1423,7 +1815,9 @@ class AlexaAPI:
 
         """
         response = await AlexaAPI._static_request(
-            "get", login, "/api/dnd/device-status-list",
+            "get",
+            login,
+            "/api/dnd/device-status-list",
         )
         return await response.json(content_type=None) if response else None
 
@@ -1438,7 +1832,7 @@ class AlexaAPI:
         import urllib.parse  # pylint: disable=import-outside-toplevel
 
         completed = True
-        result = await response.json(content_type=None)
+        result = await response.json(content_type=None) if response else None
         response_json = (
             result["activities"] if result and result.get("activities") else None
         )
@@ -1454,9 +1848,15 @@ class AlexaAPI:
             response = await AlexaAPI._static_request(
                 "delete",
                 login,
-                "/api/activities/{}".format(urllib.parse.quote_plus(activity["id"])),
+                f"/api/activities/{urllib.parse.quote_plus(activity['id'])}",
             )
-            if response.status == 404:
+            if response is None:
+                _LOGGER.debug(
+                    ("%s:Unable to connect to Alexa to delete %s"),
+                    hide_email(email),
+                    activity["id"],
+                )
+            elif response.status == 404:
                 _LOGGER.warning(
                     (
                         "%s:Unable to delete %s: %s: \n"
@@ -1470,12 +1870,14 @@ class AlexaAPI:
                 completed = False
             elif response.status == 200:
                 _LOGGER.debug(
-                    "%s: Succesfully deleted %s", hide_email(email), activity["id"],
+                    "%s: Successfully deleted %s",
+                    hide_email(email),
+                    activity["id"],
                 )
         return completed
 
     @_catch_all_exceptions
-    async def set_background(self, url: Text) -> bool:
+    async def set_background(self, url: str) -> bool:
         """Set background for Echo Show.
 
         Sets the background to Alexa App Photo with the specific https url.
@@ -1526,7 +1928,7 @@ class AlexaAPI:
 
     @staticmethod
     @_catch_all_exceptions
-    async def ping(login: AlexaLogin) -> Optional[Dict[Text, Any]]:
+    async def ping(login: AlexaLogin) -> Optional[dict[str, Any]]:
         """Ping.
 
         Args:
@@ -1535,5 +1937,9 @@ class AlexaAPI:
         Returns json
 
         """
-        response = await AlexaAPI._static_request("get", login, "/api/ping",)
+        response = await AlexaAPI._static_request(
+            "get",
+            login,
+            "/api/ping",
+        )
         return await response if response else None

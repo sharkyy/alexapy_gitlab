@@ -28,10 +28,12 @@ good-names=id,i,j,k,ex,Run,_,fp
 # too-many-ancestors - it's too strict.
 # wrong-import-order - isort guards this
 # protected-access - Dependent on HA component class for now
+# consider-using-enumerate - unable to disable lines
 disable=
   format,
-  abstract-class-little-used,
+#  abstract-class-little-used,
   abstract-method,
+  consider-using-enumerate,
   cyclic-import,
   duplicate-code,
   global-statement,
@@ -40,7 +42,7 @@ disable=
   locally-disabled,
   not-context-manager,
   protected-access,
-  redefined-variable-type,
+ # redefined-variable-type,
   too-few-public-methods,
   too-many-ancestors,
   too-many-arguments,
@@ -54,7 +56,8 @@ disable=
   too-many-boolean-expressions,
   unnecessary-pass,
   unused-argument,
-  wrong-import-order
+  wrong-import-order,
+  unsubscriptable-object
 enable=
   use-symbolic-message-instead
 
@@ -69,4 +72,5 @@ ignored-classes=_CountingAttr
 expected-line-ending-format=LF
 
 [EXCEPTIONS]
-overgeneral-exceptions=BaseException,Exception
+overgeneral-exceptions=builtins.BaseException,
+                       builtins.Exception

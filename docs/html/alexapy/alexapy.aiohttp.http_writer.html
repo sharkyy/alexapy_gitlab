@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>alexapy.aiohttp.http_writer &mdash; AlexaPy 1.24.0 documentation</title>
+  <title>alexapy.aiohttp.http_writer &mdash; AlexaPy 1.26.9 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
@@ -30,17 +33,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="alexapy.aiohttp.locks" href="alexapy.aiohttp.locks.html" />
-    <link rel="prev" title="alexapy.aiohttp.http_websocket" href="alexapy.aiohttp.http_websocket.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +65,7 @@
             
             
               <div class="version">
-                1.24.0
+                1.26.9
               </div>
             
           
@@ -89,11 +90,11 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaapi.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaapi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.alexahttp2.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexahttp2</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexalogin.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexalogin</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaproxy.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaproxy</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexawebsocket.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexawebsocket</span></code></a></li>
@@ -102,9 +103,27 @@
 <li class="toctree-l3"><a class="reference internal" href="alexapy.helpers.html"><code class="docutils literal notranslate"><span class="pre">alexapy.helpers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_email"><code class="docutils literal notranslate"><span class="pre">hide_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_serial"><code class="docutils literal notranslate"><span class="pre">hide_serial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.obfuscate"><code class="docutils literal notranslate"><span class="pre">obfuscate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaLogin"><code class="docutils literal notranslate"><span class="pre">AlexaLogin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaAPI"><code class="docutils literal notranslate"><span class="pre">AlexaAPI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaProxy"><code class="docutils literal notranslate"><span class="pre">AlexaProxy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.HTTP2EchoClient"><code class="docutils literal notranslate"><span class="pre">HTTP2EchoClient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.WebsocketEchoClient"><code class="docutils literal notranslate"><span class="pre">WebsocketEchoClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyConnectionError"><code class="docutils literal notranslate"><span class="pre">AlexapyConnectionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginCloseRequested"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginCloseRequested</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginError"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyPyotpInvalidKey"><code class="docutils literal notranslate"><span class="pre">AlexapyPyotpInvalidKey</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -155,10 +174,6 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a> &raquo;</li>
-        
-          <li><a href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a> &raquo;</li>
-        
       <li><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.http_writer</span></code></li>
     
     
@@ -178,144 +193,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-alexapy.aiohttp.http_writer">
-<span id="alexapy-aiohttp-http-writer"></span><h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.http_writer</span></code><a class="headerlink" href="#module-alexapy.aiohttp.http_writer" title="Permalink to this headline">¶</a></h1>
-<p>Http related parsers and protocol.</p>
-<div class="contents local topic" id="contents">
+  <section id="alexapy-aiohttp-http-writer">
+<h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.http_writer</span></code><a class="headerlink" href="#alexapy-aiohttp-http-writer" title="Permalink to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
-<li><p><a class="reference internal" href="#variables" id="id2">Variables</a></p></li>
-</ul>
-</div>
-<div class="section" id="classes">
-<h2><a class="toc-backref" href="#id1">Classes</a><a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="#alexapy.aiohttp.http_writer.StreamWriter" title="alexapy.aiohttp.http_writer.StreamWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamWriter</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamWriter</span></code>:
 Abstract stream writer.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.http_writer.HttpVersion" title="alexapy.aiohttp.http_writer.HttpVersion"><code class="xref py py-class docutils literal notranslate"><span class="pre">HttpVersion</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">HttpVersion</span></code>:
 HttpVersion(major, minor)</p></li>
 </ul>
-<dl class="py class">
-<dt id="alexapy.aiohttp.http_writer.StreamWriter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.http_writer.</span></code><code class="sig-name descname"><span class="pre">StreamWriter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">alexapy.aiohttp.base_protocol.BaseProtocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">asyncio.events.AbstractEventLoop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_chunk_sent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.http_writer.StreamWriter" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritancea6bf1ed179 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ABC&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Helper class that provides a standard way to create an ABC using&quot;];
-  &quot;AbstractStreamWriter&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;Abstract stream writer.&quot;];
-  &quot;ABC&quot; -&gt; &quot;AbstractStreamWriter&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;StreamWriter&quot; [URL=&quot;../alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.StreamWriter&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;AbstractStreamWriter&quot; -&gt; &quot;StreamWriter&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.http_writer.StreamWriter.drain">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">drain</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.http_writer.StreamWriter.drain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Flush the write buffer.</p>
-<p>The intended use is to write</p>
-<blockquote>
-<div><p>await w.write(data)
-await w.drain()</p>
-</div></blockquote>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.http_writer.StreamWriter.enable_chunking">
-<code class="sig-name descname"><span class="pre">enable_chunking</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.http_writer.StreamWriter.enable_chunking" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enable HTTP chunked mode</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.http_writer.StreamWriter.enable_compression">
-<code class="sig-name descname"><span class="pre">enable_compression</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'deflate'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.http_writer.StreamWriter.enable_compression" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enable HTTP body compression</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.http_writer.StreamWriter.write">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">write</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chunk</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drain</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LIMIT</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">65536</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.http_writer.StreamWriter.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Writes chunk of data to a stream.</p>
-<p>write_eof() indicates end of stream.
-writer can’t be used after write_eof() method being called.
-write() return drain future.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.http_writer.StreamWriter.write_eof">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">write_eof</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chunk</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">b''</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.http_writer.StreamWriter.write_eof" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write last chunk.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.http_writer.StreamWriter.write_headers">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">write_headers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status_line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">multidict._multidict.CIMultiDict</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.http_writer.StreamWriter.write_headers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write request/response status and headers.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.http_writer.HttpVersion">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.http_writer.</span></code><code class="sig-name descname"><span class="pre">HttpVersion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">major</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.http_writer.HttpVersion" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance39d53ef31a {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;HttpVersion&quot; [URL=&quot;../alexapy/alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.HttpVersion&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;HttpVersion(major, minor)&quot;];
-}
-<dl class="py attribute">
-<dt id="alexapy.aiohttp.http_writer.HttpVersion.major">
-<code class="sig-name descname"><span class="pre">major</span></code><a class="headerlink" href="#alexapy.aiohttp.http_writer.HttpVersion.major" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 0</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="alexapy.aiohttp.http_writer.HttpVersion.minor">
-<code class="sig-name descname"><span class="pre">minor</span></code><a class="headerlink" href="#alexapy.aiohttp.http_writer.HttpVersion.minor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 1</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="variables">
-<h2><a class="toc-backref" href="#id2">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#alexapy.aiohttp.http_writer.HttpVersion10" title="alexapy.aiohttp.http_writer.HttpVersion10"><code class="xref py py-data docutils literal notranslate"><span class="pre">HttpVersion10</span></code></a></p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.http_writer.HttpVersion11" title="alexapy.aiohttp.http_writer.HttpVersion11"><code class="xref py py-data docutils literal notranslate"><span class="pre">HttpVersion11</span></code></a></p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">HttpVersion10</span></code></p></li>
+<li><p><code class="xref py py-data docutils literal notranslate"><span class="pre">HttpVersion11</span></code></p></li>
 </ul>
-<dl class="py data">
-<dt id="alexapy.aiohttp.http_writer.HttpVersion10">
-<code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.http_writer.</span></code><code class="sig-name descname"><span class="pre">HttpVersion10</span></code><a class="headerlink" href="#alexapy.aiohttp.http_writer.HttpVersion10" title="Permalink to this definition">¶</a></dt>
-<dd><p>HttpVersion(major, minor)</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>HttpVersion(major=1, minor=0)
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py data">
-<dt id="alexapy.aiohttp.http_writer.HttpVersion11">
-<code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.http_writer.</span></code><code class="sig-name descname"><span class="pre">HttpVersion11</span></code><a class="headerlink" href="#alexapy.aiohttp.http_writer.HttpVersion11" title="Permalink to this definition">¶</a></dt>
-<dd><p>HttpVersion(major, minor)</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>HttpVersion(major=1, minor=1)
-</pre></div>
-</div>
-</dd></dl>
-
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="alexapy.aiohttp.locks.html" class="btn btn-neutral float-right" title="alexapy.aiohttp.locks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="alexapy.aiohttp.http_websocket.html" class="btn btn-neutral float-left" title="alexapy.aiohttp.http_websocket" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

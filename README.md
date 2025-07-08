@@ -14,13 +14,14 @@ Python Package for controlling Alexa devices (echo dot, etc) programmatically. T
 working at any time without warning.
 
 # Credits
+
 Originally inspired by [this blog](https://blog.loetzimmer.de/2017/10/amazon-alexa-hort-auf-die-shell-echo.html) [(GitHub)](https://github.com/thorsten-gehrig/alexa-remote-control).
 Additional scaffolding from [simplisafe-python](https://github.com/bachya/simplisafe-python)
 
 # Contributing
 
 1.  [Check for open features/bugs](https://gitlab.com/keatontaylor/alexapy/issues)
-  or [initiate a discussion on one](https://gitlab.com/keatontaylor/alexapy/issues/new).
+    or [initiate a discussion on one](https://gitlab.com/keatontaylor/alexapy/issues/new).
 2.  [Fork the repository](https://gitlab.com/keatontaylor/alexapy/forks/new).
 3.  Install the dev environment: `make init`.
 4.  Enter the virtual environment: `pipenv shell`
@@ -34,7 +35,9 @@ Additional scaffolding from [simplisafe-python](https://github.com/bachya/simpli
 12. Submit a pull request!
 
 # License
+
 [Apache-2.0](LICENSE). By providing a contribution, you agree the contribution is licensed under Apache-2.0.
 
 # API Reference
+
 [See the docs 📚](https://alexapy.readthedocs.io/en/latest/index.html).

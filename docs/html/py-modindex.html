@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Python Module Index &mdash; AlexaPy 1.24.0 documentation</title>
+  <title>Python Module Index &mdash; AlexaPy 1.26.9 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
@@ -30,9 +32,9 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -65,7 +67,7 @@
             
             
               <div class="version">
-                1.24.0
+                1.26.9
               </div>
             
           
@@ -93,8 +95,8 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="alexapy/alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexaapi.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaapi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexahttp2.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexahttp2</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexalogin.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexalogin</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexaproxy.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaproxy</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.alexawebsocket.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexawebsocket</span></code></a></li>
@@ -103,9 +105,27 @@
 <li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.helpers.html"><code class="docutils literal notranslate"><span class="pre">alexapy.helpers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.hide_email"><code class="docutils literal notranslate"><span class="pre">hide_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.hide_serial"><code class="docutils literal notranslate"><span class="pre">hide_serial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.obfuscate"><code class="docutils literal notranslate"><span class="pre">obfuscate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexaLogin"><code class="docutils literal notranslate"><span class="pre">AlexaLogin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexaAPI"><code class="docutils literal notranslate"><span class="pre">AlexaAPI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexaProxy"><code class="docutils literal notranslate"><span class="pre">AlexaProxy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.HTTP2EchoClient"><code class="docutils literal notranslate"><span class="pre">HTTP2EchoClient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.WebsocketEchoClient"><code class="docutils literal notranslate"><span class="pre">WebsocketEchoClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy/alexapy.html#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexapyConnectionError"><code class="docutils literal notranslate"><span class="pre">AlexapyConnectionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexapyLoginCloseRequested"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginCloseRequested</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexapyLoginError"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy/alexapy.html#alexapy.AlexapyPyotpInvalidKey"><code class="docutils literal notranslate"><span class="pre">AlexapyPyotpInvalidKey</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -191,237 +211,12 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.html#module-alexapy.aiohttp"><code class="xref">alexapy.aiohttp</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.abc.html#module-alexapy.aiohttp.abc"><code class="xref">alexapy.aiohttp.abc</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.base_protocol.html#module-alexapy.aiohttp.base_protocol"><code class="xref">alexapy.aiohttp.base_protocol</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.client.html#module-alexapy.aiohttp.client"><code class="xref">alexapy.aiohttp.client</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.client_exceptions.html#module-alexapy.aiohttp.client_exceptions"><code class="xref">alexapy.aiohttp.client_exceptions</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.client_proto.html#module-alexapy.aiohttp.client_proto"><code class="xref">alexapy.aiohttp.client_proto</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.client_reqrep.html#module-alexapy.aiohttp.client_reqrep"><code class="xref">alexapy.aiohttp.client_reqrep</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.client_ws.html#module-alexapy.aiohttp.client_ws"><code class="xref">alexapy.aiohttp.client_ws</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.connector.html#module-alexapy.aiohttp.connector"><code class="xref">alexapy.aiohttp.connector</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.cookiejar.html#module-alexapy.aiohttp.cookiejar"><code class="xref">alexapy.aiohttp.cookiejar</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.formdata.html#module-alexapy.aiohttp.formdata"><code class="xref">alexapy.aiohttp.formdata</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.frozenlist.html#module-alexapy.aiohttp.frozenlist"><code class="xref">alexapy.aiohttp.frozenlist</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.hdrs.html#module-alexapy.aiohttp.hdrs"><code class="xref">alexapy.aiohttp.hdrs</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.helpers.html#module-alexapy.aiohttp.helpers"><code class="xref">alexapy.aiohttp.helpers</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.http.html#module-alexapy.aiohttp.http"><code class="xref">alexapy.aiohttp.http</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.http_exceptions.html#module-alexapy.aiohttp.http_exceptions"><code class="xref">alexapy.aiohttp.http_exceptions</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.http_parser.html#module-alexapy.aiohttp.http_parser"><code class="xref">alexapy.aiohttp.http_parser</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.http_websocket.html#module-alexapy.aiohttp.http_websocket"><code class="xref">alexapy.aiohttp.http_websocket</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.http_writer.html#module-alexapy.aiohttp.http_writer"><code class="xref">alexapy.aiohttp.http_writer</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.locks.html#module-alexapy.aiohttp.locks"><code class="xref">alexapy.aiohttp.locks</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.log.html#module-alexapy.aiohttp.log"><code class="xref">alexapy.aiohttp.log</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.multipart.html#module-alexapy.aiohttp.multipart"><code class="xref">alexapy.aiohttp.multipart</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.payload.html#module-alexapy.aiohttp.payload"><code class="xref">alexapy.aiohttp.payload</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.payload_streamer.html#module-alexapy.aiohttp.payload_streamer"><code class="xref">alexapy.aiohttp.payload_streamer</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.pytest_plugin.html#module-alexapy.aiohttp.pytest_plugin"><code class="xref">alexapy.aiohttp.pytest_plugin</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.resolver.html#module-alexapy.aiohttp.resolver"><code class="xref">alexapy.aiohttp.resolver</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.signals.html#module-alexapy.aiohttp.signals"><code class="xref">alexapy.aiohttp.signals</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.streams.html#module-alexapy.aiohttp.streams"><code class="xref">alexapy.aiohttp.streams</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.tcp_helpers.html#module-alexapy.aiohttp.tcp_helpers"><code class="xref">alexapy.aiohttp.tcp_helpers</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.test_utils.html#module-alexapy.aiohttp.test_utils"><code class="xref">alexapy.aiohttp.test_utils</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.tracing.html#module-alexapy.aiohttp.tracing"><code class="xref">alexapy.aiohttp.tracing</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.typedefs.html#module-alexapy.aiohttp.typedefs"><code class="xref">alexapy.aiohttp.typedefs</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web.html#module-alexapy.aiohttp.web"><code class="xref">alexapy.aiohttp.web</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_app.html#module-alexapy.aiohttp.web_app"><code class="xref">alexapy.aiohttp.web_app</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_exceptions.html#module-alexapy.aiohttp.web_exceptions"><code class="xref">alexapy.aiohttp.web_exceptions</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_fileresponse.html#module-alexapy.aiohttp.web_fileresponse"><code class="xref">alexapy.aiohttp.web_fileresponse</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_log.html#module-alexapy.aiohttp.web_log"><code class="xref">alexapy.aiohttp.web_log</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_middlewares.html#module-alexapy.aiohttp.web_middlewares"><code class="xref">alexapy.aiohttp.web_middlewares</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_protocol.html#module-alexapy.aiohttp.web_protocol"><code class="xref">alexapy.aiohttp.web_protocol</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_request.html#module-alexapy.aiohttp.web_request"><code class="xref">alexapy.aiohttp.web_request</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_response.html#module-alexapy.aiohttp.web_response"><code class="xref">alexapy.aiohttp.web_response</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_routedef.html#module-alexapy.aiohttp.web_routedef"><code class="xref">alexapy.aiohttp.web_routedef</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_runner.html#module-alexapy.aiohttp.web_runner"><code class="xref">alexapy.aiohttp.web_runner</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_server.html#module-alexapy.aiohttp.web_server"><code class="xref">alexapy.aiohttp.web_server</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_urldispatcher.html#module-alexapy.aiohttp.web_urldispatcher"><code class="xref">alexapy.aiohttp.web_urldispatcher</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="alexapy/alexapy.aiohttp.web_ws.html#module-alexapy.aiohttp.web_ws"><code class="xref">alexapy.aiohttp.web_ws</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
        <a href="alexapy/alexapy.alexaapi.html#module-alexapy.alexaapi"><code class="xref">alexapy.alexaapi</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="alexapy/alexapy.alexahttp2.html#module-alexapy.alexahttp2"><code class="xref">alexapy.alexahttp2</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>

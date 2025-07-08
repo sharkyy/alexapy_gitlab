@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>alexapy.aiohttp.client_reqrep &mdash; AlexaPy 1.24.0 documentation</title>
+  <title>alexapy.aiohttp.client_reqrep &mdash; AlexaPy 1.26.9 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
@@ -30,17 +33,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="alexapy.aiohttp.client_ws" href="alexapy.aiohttp.client_ws.html" />
-    <link rel="prev" title="alexapy.aiohttp.client_proto" href="alexapy.aiohttp.client_proto.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +65,7 @@
             
             
               <div class="version">
-                1.24.0
+                1.26.9
               </div>
             
           
@@ -89,11 +90,11 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaapi.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaapi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.alexahttp2.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexahttp2</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexalogin.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexalogin</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaproxy.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaproxy</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexawebsocket.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexawebsocket</span></code></a></li>
@@ -102,9 +103,27 @@
 <li class="toctree-l3"><a class="reference internal" href="alexapy.helpers.html"><code class="docutils literal notranslate"><span class="pre">alexapy.helpers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_email"><code class="docutils literal notranslate"><span class="pre">hide_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_serial"><code class="docutils literal notranslate"><span class="pre">hide_serial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.obfuscate"><code class="docutils literal notranslate"><span class="pre">obfuscate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaLogin"><code class="docutils literal notranslate"><span class="pre">AlexaLogin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaAPI"><code class="docutils literal notranslate"><span class="pre">AlexaAPI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaProxy"><code class="docutils literal notranslate"><span class="pre">AlexaProxy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.HTTP2EchoClient"><code class="docutils literal notranslate"><span class="pre">HTTP2EchoClient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.WebsocketEchoClient"><code class="docutils literal notranslate"><span class="pre">WebsocketEchoClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyConnectionError"><code class="docutils literal notranslate"><span class="pre">AlexapyConnectionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginCloseRequested"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginCloseRequested</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginError"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyPyotpInvalidKey"><code class="docutils literal notranslate"><span class="pre">AlexapyPyotpInvalidKey</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -155,10 +174,6 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a> &raquo;</li>
-        
-          <li><a href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a> &raquo;</li>
-        
       <li><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.client_reqrep</span></code></li>
     
     
@@ -178,166 +193,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-alexapy.aiohttp.client_reqrep">
-<span id="alexapy-aiohttp-client-reqrep"></span><h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.client_reqrep</span></code><a class="headerlink" href="#module-alexapy.aiohttp.client_reqrep" title="Permalink to this headline">¶</a></h1>
-<div class="contents local topic" id="contents">
+  <section id="alexapy-aiohttp-client-reqrep">
+<h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.client_reqrep</span></code><a class="headerlink" href="#alexapy-aiohttp-client-reqrep" title="Permalink to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
-</ul>
-</div>
-<div class="section" id="classes">
-<h2><a class="toc-backref" href="#id1">Classes</a><a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_reqrep.ClientRequest" title="alexapy.aiohttp.client_reqrep.ClientRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientRequest</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientRequest</span></code>:
 Undocumented.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_reqrep.ClientResponse" title="alexapy.aiohttp.client_reqrep.ClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientResponse</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientResponse</span></code>:
 Undocumented.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_reqrep.RequestInfo" title="alexapy.aiohttp.client_reqrep.RequestInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">RequestInfo</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RequestInfo</span></code>:
 Undocumented.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_reqrep.Fingerprint" title="alexapy.aiohttp.client_reqrep.Fingerprint"><code class="xref py py-class docutils literal notranslate"><span class="pre">Fingerprint</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Fingerprint</span></code>:
 Undocumented.</p></li>
 </ul>
-<dl class="py class">
-<dt id="alexapy.aiohttp.client_reqrep.ClientRequest">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_reqrep.</span></code><code class="sig-name descname"><span class="pre">ClientRequest</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">yarl.URL</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">multidict._multidict.istr</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">multidict._multidict.CIMultiDict</span><span class="p"><span class="pre">,</span> </span><span class="pre">multidict._multidict.CIMultiDictProxy</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_auto_headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">frozenset({})</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cookies</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">BaseCookie</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">BaseCookie</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">BaseCookie</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auth</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.helpers.html#alexapy.aiohttp.helpers.BasicAuth" title="alexapy.aiohttp.helpers.BasicAuth"><span class="pre">alexapy.aiohttp.helpers.BasicAuth</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.HttpVersion" title="alexapy.aiohttp.http_writer.HttpVersion"><span class="pre">alexapy.aiohttp.http_writer.HttpVersion</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">HttpVersion(major=1,</span> <span class="pre">minor=1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunked</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expect100</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">asyncio.events.AbstractEventLoop</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_class</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#alexapy.aiohttp.client_reqrep.ClientResponse" title="alexapy.aiohttp.client_reqrep.ClientResponse"><span class="pre">ClientResponse</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proxy</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">yarl.URL</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proxy_auth</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.helpers.html#alexapy.aiohttp.helpers.BasicAuth" title="alexapy.aiohttp.helpers.BasicAuth"><span class="pre">alexapy.aiohttp.helpers.BasicAuth</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">alexapy.aiohttp.helpers.BaseTimerContext</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ClientSession</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssl</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">ssl.SSLContext</span><span class="p"><span class="pre">,</span> </span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#alexapy.aiohttp.client_reqrep.Fingerprint" title="alexapy.aiohttp.client_reqrep.Fingerprint"><span class="pre">alexapy.aiohttp.client_reqrep.Fingerprint</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proxy_headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">multidict._multidict.istr</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">multidict._multidict.CIMultiDict</span><span class="p"><span class="pre">,</span> </span><span class="pre">multidict._multidict.CIMultiDictProxy</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traces</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Trace</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientRequest" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance73713d4a5b {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientRequest&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientRequest&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.client_reqrep.ClientRequest.update_auth">
-<code class="sig-name descname"><span class="pre">update_auth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">auth</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.helpers.html#alexapy.aiohttp.helpers.BasicAuth" title="alexapy.aiohttp.helpers.BasicAuth"><span class="pre">alexapy.aiohttp.helpers.BasicAuth</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientRequest.update_auth" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set basic auth.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.client_reqrep.ClientRequest.update_content_encoding">
-<code class="sig-name descname"><span class="pre">update_content_encoding</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientRequest.update_content_encoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set request content encoding.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.client_reqrep.ClientRequest.update_cookies">
-<code class="sig-name descname"><span class="pre">update_cookies</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cookies</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">BaseCookie</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">BaseCookie</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">BaseCookie</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientRequest.update_cookies" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update request cookies header.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.client_reqrep.ClientRequest.update_headers">
-<code class="sig-name descname"><span class="pre">update_headers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">multidict._multidict.istr</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">multidict._multidict.CIMultiDict</span><span class="p"><span class="pre">,</span> </span><span class="pre">multidict._multidict.CIMultiDictProxy</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientRequest.update_headers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update request headers.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.client_reqrep.ClientRequest.update_host">
-<code class="sig-name descname"><span class="pre">update_host</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">yarl.URL</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientRequest.update_host" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update destination host, port and connection type (ssl).</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.client_reqrep.ClientRequest.update_transfer_encoding">
-<code class="sig-name descname"><span class="pre">update_transfer_encoding</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientRequest.update_transfer_encoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>Analyze transfer-encoding header.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.client_reqrep.ClientRequest.update_version">
-<code class="sig-name descname"><span class="pre">update_version</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="alexapy.aiohttp.http_writer.html#alexapy.aiohttp.http_writer.HttpVersion" title="alexapy.aiohttp.http_writer.HttpVersion"><span class="pre">alexapy.aiohttp.http_writer.HttpVersion</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientRequest.update_version" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert request version to two elements tuple.</p>
-<p>parser HTTP version ‘1.1’ =&gt; (1, 1)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.client_reqrep.ClientRequest.write_bytes">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">write_bytes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">alexapy.aiohttp.abc.AbstractStreamWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Connection</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientRequest.write_bytes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Support coroutines that yields bytes objects.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.client_reqrep.ClientResponse">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_reqrep.</span></code><code class="sig-name descname"><span class="pre">ClientResponse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">yarl.URL</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">asyncio.Task</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">continue100</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">asyncio.Future</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">alexapy.aiohttp.helpers.BaseTimerContext</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#alexapy.aiohttp.client_reqrep.RequestInfo" title="alexapy.aiohttp.client_reqrep.RequestInfo"><span class="pre">alexapy.aiohttp.client_reqrep.RequestInfo</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">traces</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Trace</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">asyncio.events.AbstractEventLoop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ClientSession</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientResponse" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance08d92896d7 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientResponse&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.ClientResponse&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-  &quot;HeadersMixin&quot; -&gt; &quot;ClientResponse&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;HeadersMixin&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;];
-}
-<dl class="py attribute">
-<dt id="alexapy.aiohttp.client_reqrep.ClientResponse.history">
-<code class="sig-name descname"><span class="pre">history</span></code><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientResponse.history" title="Permalink to this definition">¶</a></dt>
-<dd><p>A sequence of of responses, if redirects occurred.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.client_reqrep.ClientResponse.json">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">json</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*,</span> <span class="pre">encoding:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">loads:</span> <span class="pre">Callable[[str],</span> <span class="pre">Any]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">loads&gt;,</span> <span class="pre">content_type:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">'application/json'</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientResponse.json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read and decodes JSON response.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.client_reqrep.ClientResponse.read">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bytes</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientResponse.read" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read response payload.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.client_reqrep.ClientResponse.start">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">start</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Connection</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#alexapy.aiohttp.client_reqrep.ClientResponse" title="alexapy.aiohttp.client_reqrep.ClientResponse"><span class="pre">ClientResponse</span></a><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientResponse.start" title="Permalink to this definition">¶</a></dt>
-<dd><p>Start response processing.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.client_reqrep.ClientResponse.text">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">text</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'strict'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.ClientResponse.text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read response payload and decode.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.client_reqrep.RequestInfo">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_reqrep.</span></code><code class="sig-name descname"><span class="pre">RequestInfo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">yarl.URL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">multidict._multidict.CIMultiDictProxy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real_url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">yarl.URL</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">NOTHING</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.RequestInfo" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance693ef04281 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;RequestInfo&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.RequestInfo&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-}
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.client_reqrep.Fingerprint">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_reqrep.</span></code><code class="sig-name descname"><span class="pre">Fingerprint</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fingerprint</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_reqrep.Fingerprint" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Inheritance</p>
-digraph inheritance2bee76f41f {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;Fingerprint&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_reqrep.html#alexapy.aiohttp.client_reqrep.Fingerprint&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;];
-}
-</dd></dl>
-
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="alexapy.aiohttp.client_ws.html" class="btn btn-neutral float-right" title="alexapy.aiohttp.client_ws" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="alexapy.aiohttp.client_proto.html" class="btn btn-neutral float-left" title="alexapy.aiohttp.client_proto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

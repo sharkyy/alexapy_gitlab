@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>alexapy.aiohttp.client_exceptions &mdash; AlexaPy 1.24.0 documentation</title>
+  <title>alexapy.aiohttp.client_exceptions &mdash; AlexaPy 1.26.9 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
@@ -30,17 +33,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="alexapy.aiohttp.client_proto" href="alexapy.aiohttp.client_proto.html" />
-    <link rel="prev" title="alexapy.aiohttp.client" href="alexapy.aiohttp.client.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +65,7 @@
             
             
               <div class="version">
-                1.24.0
+                1.26.9
               </div>
             
           
@@ -89,11 +90,11 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaapi.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaapi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.alexahttp2.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexahttp2</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexalogin.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexalogin</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaproxy.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaproxy</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexawebsocket.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexawebsocket</span></code></a></li>
@@ -102,9 +103,27 @@
 <li class="toctree-l3"><a class="reference internal" href="alexapy.helpers.html"><code class="docutils literal notranslate"><span class="pre">alexapy.helpers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_email"><code class="docutils literal notranslate"><span class="pre">hide_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_serial"><code class="docutils literal notranslate"><span class="pre">hide_serial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.obfuscate"><code class="docutils literal notranslate"><span class="pre">obfuscate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaLogin"><code class="docutils literal notranslate"><span class="pre">AlexaLogin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaAPI"><code class="docutils literal notranslate"><span class="pre">AlexaAPI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaProxy"><code class="docutils literal notranslate"><span class="pre">AlexaProxy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.HTTP2EchoClient"><code class="docutils literal notranslate"><span class="pre">HTTP2EchoClient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.WebsocketEchoClient"><code class="docutils literal notranslate"><span class="pre">WebsocketEchoClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyConnectionError"><code class="docutils literal notranslate"><span class="pre">AlexapyConnectionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginCloseRequested"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginCloseRequested</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginError"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyPyotpInvalidKey"><code class="docutils literal notranslate"><span class="pre">AlexapyPyotpInvalidKey</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -155,10 +174,6 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a> &raquo;</li>
-        
-          <li><a href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a> &raquo;</li>
-        
       <li><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.client_exceptions</span></code></li>
     
     
@@ -178,410 +193,56 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-alexapy.aiohttp.client_exceptions">
-<span id="alexapy-aiohttp-client-exceptions"></span><h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.client_exceptions</span></code><a class="headerlink" href="#module-alexapy.aiohttp.client_exceptions" title="Permalink to this headline">¶</a></h1>
-<p>HTTP related errors.</p>
-<div class="contents local topic" id="contents">
+  <section id="alexapy-aiohttp-client-exceptions">
+<h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.client_exceptions</span></code><a class="headerlink" href="#alexapy-aiohttp-client-exceptions" title="Permalink to this heading">¶</a></h1>
+<section id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#exceptions" id="id1">Exceptions</a></p></li>
-</ul>
-</div>
-<div class="section" id="exceptions">
-<h2><a class="toc-backref" href="#id1">Exceptions</a><a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ClientError" title="alexapy.aiohttp.client_exceptions.ClientError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientError</span></code>:
 Base class for client connection errors.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ClientConnectionError" title="alexapy.aiohttp.client_exceptions.ClientConnectionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientConnectionError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientConnectionError</span></code>:
 Base class for client socket errors.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ClientOSError" title="alexapy.aiohttp.client_exceptions.ClientOSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientOSError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientOSError</span></code>:
 OSError error.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ClientConnectorError" title="alexapy.aiohttp.client_exceptions.ClientConnectorError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientConnectorError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientConnectorError</span></code>:
 Client connector error.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ClientProxyConnectionError" title="alexapy.aiohttp.client_exceptions.ClientProxyConnectionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientProxyConnectionError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientProxyConnectionError</span></code>:
 Proxy connection error.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ClientSSLError" title="alexapy.aiohttp.client_exceptions.ClientSSLError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientSSLError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientSSLError</span></code>:
 Base error for ssl.*Errors.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ClientConnectorSSLError" title="alexapy.aiohttp.client_exceptions.ClientConnectorSSLError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientConnectorSSLError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientConnectorSSLError</span></code>:
 Response ssl error.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ClientConnectorCertificateError" title="alexapy.aiohttp.client_exceptions.ClientConnectorCertificateError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientConnectorCertificateError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientConnectorCertificateError</span></code>:
 Response certificate error.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ServerConnectionError" title="alexapy.aiohttp.client_exceptions.ServerConnectionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServerConnectionError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServerConnectionError</span></code>:
 Server connection errors.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ServerTimeoutError" title="alexapy.aiohttp.client_exceptions.ServerTimeoutError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServerTimeoutError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServerTimeoutError</span></code>:
 Server timeout error.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ServerDisconnectedError" title="alexapy.aiohttp.client_exceptions.ServerDisconnectedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServerDisconnectedError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServerDisconnectedError</span></code>:
 Server disconnected.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ServerFingerprintMismatch" title="alexapy.aiohttp.client_exceptions.ServerFingerprintMismatch"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServerFingerprintMismatch</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ServerFingerprintMismatch</span></code>:
 SSL certificate does not match expected fingerprint.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ClientResponseError" title="alexapy.aiohttp.client_exceptions.ClientResponseError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientResponseError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientResponseError</span></code>:
 Connection error during reading response.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ClientHttpProxyError" title="alexapy.aiohttp.client_exceptions.ClientHttpProxyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientHttpProxyError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientHttpProxyError</span></code>:
 HTTP proxy error.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.WSServerHandshakeError" title="alexapy.aiohttp.client_exceptions.WSServerHandshakeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">WSServerHandshakeError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">WSServerHandshakeError</span></code>:
 websocket server handshake error.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ContentTypeError" title="alexapy.aiohttp.client_exceptions.ContentTypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ContentTypeError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ContentTypeError</span></code>:
 ContentType found is not valid.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.ClientPayloadError" title="alexapy.aiohttp.client_exceptions.ClientPayloadError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientPayloadError</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientPayloadError</span></code>:
 Response payload error.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.client_exceptions.InvalidURL" title="alexapy.aiohttp.client_exceptions.InvalidURL"><code class="xref py py-exc docutils literal notranslate"><span class="pre">InvalidURL</span></code></a>:
+<li><p><code class="xref py py-exc docutils literal notranslate"><span class="pre">InvalidURL</span></code>:
 Invalid URL.</p></li>
 </ul>
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ClientError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ClientError</span></code><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ClientError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Base class for client connection errors.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritancef8c07c099f {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ClientConnectionError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ClientConnectionError</span></code><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ClientConnectionError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Base class for client socket errors.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance7620bcda3d {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client socket errors.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ClientOSError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ClientOSError</span></code><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ClientOSError" title="Permalink to this definition">¶</a></dt>
-<dd><p>OSError error.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritancefe21e1b2c3 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client socket errors.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ClientOSError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientOSError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;OSError error.&quot;];
-  &quot;ClientConnectionError&quot; -&gt; &quot;ClientOSError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ClientConnectorError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ClientConnectorError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection_key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">os_error</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OSError</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ClientConnectorError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Client connector error.</p>
-<dl class="simple">
-<dt>Raised in <code class="xref py py-class docutils literal notranslate"><span class="pre">aiohttp.connector.TCPConnector</span></code> if</dt><dd><p>connection to proxy can not be established.</p>
-</dd>
-</dl>
-<p class="rubric">Inheritance</p>
-digraph inheritancee544a6ce34 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client socket errors.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientConnectorError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectorError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Client connector error.&quot;];
-  &quot;ClientOSError&quot; -&gt; &quot;ClientConnectorError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ClientOSError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientOSError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;OSError error.&quot;];
-  &quot;ClientConnectionError&quot; -&gt; &quot;ClientOSError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ClientProxyConnectionError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ClientProxyConnectionError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection_key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">os_error</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OSError</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ClientProxyConnectionError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Proxy connection error.</p>
-<dl class="simple">
-<dt>Raised in <code class="xref py py-class docutils literal notranslate"><span class="pre">aiohttp.connector.TCPConnector</span></code> if</dt><dd><p>connection to proxy can not be established.</p>
-</dd>
-</dl>
-<p class="rubric">Inheritance</p>
-digraph inheritance78b4aeec3d {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client socket errors.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientConnectorError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectorError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Client connector error.&quot;];
-  &quot;ClientOSError&quot; -&gt; &quot;ClientConnectorError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ClientOSError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientOSError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;OSError error.&quot;];
-  &quot;ClientConnectionError&quot; -&gt; &quot;ClientOSError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientProxyConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientProxyConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Proxy connection error.&quot;];
-  &quot;ClientConnectorError&quot; -&gt; &quot;ClientProxyConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ClientSSLError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ClientSSLError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection_key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">os_error</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OSError</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ClientSSLError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Base error for ssl.*Errors.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritanceeadd137365 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client socket errors.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientConnectorError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectorError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Client connector error.&quot;];
-  &quot;ClientOSError&quot; -&gt; &quot;ClientConnectorError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ClientOSError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientOSError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;OSError error.&quot;];
-  &quot;ClientConnectionError&quot; -&gt; &quot;ClientOSError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientSSLError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientSSLError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base error for ssl.*Errors.&quot;];
-  &quot;ClientConnectorError&quot; -&gt; &quot;ClientSSLError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ClientConnectorSSLError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ClientConnectorSSLError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection_key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">os_error</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OSError</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ClientConnectorSSLError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Response ssl error.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritanced017815e8d {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client socket errors.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientConnectorError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectorError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Client connector error.&quot;];
-  &quot;ClientOSError&quot; -&gt; &quot;ClientConnectorError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientConnectorSSLError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectorSSLError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Response ssl error.&quot;];
-  &quot;ClientSSLError&quot; -&gt; &quot;ClientConnectorSSLError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;SSLError&quot; -&gt; &quot;ClientConnectorSSLError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ClientOSError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientOSError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;OSError error.&quot;];
-  &quot;ClientConnectionError&quot; -&gt; &quot;ClientOSError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientSSLError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientSSLError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base error for ssl.*Errors.&quot;];
-  &quot;ClientConnectorError&quot; -&gt; &quot;ClientSSLError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;SSLError&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;An error occurred in the SSL implementation.&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ClientConnectorCertificateError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ClientConnectorCertificateError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection_key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_error</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ClientConnectorCertificateError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Response certificate error.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance9fe5ec5919 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client socket errors.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientConnectorCertificateError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectorCertificateError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Response certificate error.&quot;];
-  &quot;ClientSSLError&quot; -&gt; &quot;ClientConnectorCertificateError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;SSLCertVerificationError&quot; -&gt; &quot;ClientConnectorCertificateError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientConnectorError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectorError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Client connector error.&quot;];
-  &quot;ClientOSError&quot; -&gt; &quot;ClientConnectorError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ClientOSError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientOSError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;OSError error.&quot;];
-  &quot;ClientConnectionError&quot; -&gt; &quot;ClientOSError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientSSLError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientSSLError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base error for ssl.*Errors.&quot;];
-  &quot;ClientConnectorError&quot; -&gt; &quot;ClientSSLError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;SSLCertVerificationError&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;A certificate could not be verified.&quot;];
-  &quot;SSLError&quot; -&gt; &quot;SSLCertVerificationError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;SSLError&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;An error occurred in the SSL implementation.&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ServerConnectionError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ServerConnectionError</span></code><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ServerConnectionError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Server connection errors.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance0a45645bf3 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client socket errors.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ServerConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ServerConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Server connection errors.&quot;];
-  &quot;ClientConnectionError&quot; -&gt; &quot;ServerConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ServerTimeoutError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ServerTimeoutError</span></code><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ServerTimeoutError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Server timeout error.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance6286753154 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client socket errors.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ServerConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ServerConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Server connection errors.&quot;];
-  &quot;ClientConnectionError&quot; -&gt; &quot;ServerConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ServerTimeoutError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ServerTimeoutError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Server timeout error.&quot;];
-  &quot;ServerConnectionError&quot; -&gt; &quot;ServerTimeoutError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;TimeoutError&quot; -&gt; &quot;ServerTimeoutError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;TimeoutError&quot; [fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,tooltip=&quot;The operation exceeded the given deadline.&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ServerDisconnectedError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ServerDisconnectedError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ServerDisconnectedError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Server disconnected.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritanceebe7944eb0 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client socket errors.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ServerConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ServerConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Server connection errors.&quot;];
-  &quot;ClientConnectionError&quot; -&gt; &quot;ServerConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ServerDisconnectedError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ServerDisconnectedError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Server disconnected.&quot;];
-  &quot;ServerConnectionError&quot; -&gt; &quot;ServerDisconnectedError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ServerFingerprintMismatch">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ServerFingerprintMismatch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expected</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">got</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ServerFingerprintMismatch" title="Permalink to this definition">¶</a></dt>
-<dd><p>SSL certificate does not match expected fingerprint.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritancec148cd79c7 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client socket errors.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ServerConnectionError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ServerConnectionError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Server connection errors.&quot;];
-  &quot;ClientConnectionError&quot; -&gt; &quot;ServerConnectionError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ServerFingerprintMismatch&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ServerFingerprintMismatch&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;SSL certificate does not match expected fingerprint.&quot;];
-  &quot;ServerConnectionError&quot; -&gt; &quot;ServerFingerprintMismatch&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ClientResponseError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ClientResponseError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">multidict._multidict.CIMultiDict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ClientResponseError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Connection error during reading response.</p>
-<p>request_info: instance of RequestInfo</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance871f6360c3 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ClientResponseError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientResponseError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Connection error during reading response.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientResponseError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ClientHttpProxyError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ClientHttpProxyError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">multidict._multidict.CIMultiDict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ClientHttpProxyError" title="Permalink to this definition">¶</a></dt>
-<dd><p>HTTP proxy error.</p>
-<p>Raised in <code class="xref py py-class docutils literal notranslate"><span class="pre">aiohttp.connector.TCPConnector</span></code> if
-proxy responds with status other than <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>
-on <code class="docutils literal notranslate"><span class="pre">CONNECT</span></code> request.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance63af7c917a {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ClientHttpProxyError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientHttpProxyError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;HTTP proxy error.&quot;];
-  &quot;ClientResponseError&quot; -&gt; &quot;ClientHttpProxyError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ClientResponseError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientResponseError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Connection error during reading response.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientResponseError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.WSServerHandshakeError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">WSServerHandshakeError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">multidict._multidict.CIMultiDict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.WSServerHandshakeError" title="Permalink to this definition">¶</a></dt>
-<dd><p>websocket server handshake error.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance235afeb201 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ClientResponseError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientResponseError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Connection error during reading response.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientResponseError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;WSServerHandshakeError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.WSServerHandshakeError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;websocket server handshake error.&quot;];
-  &quot;ClientResponseError&quot; -&gt; &quot;WSServerHandshakeError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ContentTypeError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ContentTypeError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="p"><span class="pre">…</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">multidict._multidict.CIMultiDict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ContentTypeError" title="Permalink to this definition">¶</a></dt>
-<dd><p>ContentType found is not valid.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance090e76ce18 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ClientResponseError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientResponseError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Connection error during reading response.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientResponseError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-  &quot;ContentTypeError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ContentTypeError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;ContentType found is not valid.&quot;];
-  &quot;ClientResponseError&quot; -&gt; &quot;ContentTypeError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.ClientPayloadError">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">ClientPayloadError</span></code><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.ClientPayloadError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Response payload error.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance15eecd8812 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;ClientPayloadError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientPayloadError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Response payload error.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;ClientPayloadError&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-<dl class="py exception">
-<dt id="alexapy.aiohttp.client_exceptions.InvalidURL">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.client_exceptions.</span></code><code class="sig-name descname"><span class="pre">InvalidURL</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.client_exceptions.InvalidURL" title="Permalink to this definition">¶</a></dt>
-<dd><p>Invalid URL.</p>
-<p>URL used for fetching is malformed, e.g. it doesn’t contains host
-part.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritancebfa1190913 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;ClientError&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.ClientError&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base class for client connection errors.&quot;];
-  &quot;InvalidURL&quot; [URL=&quot;../alexapy/alexapy.aiohttp.client_exceptions.html#alexapy.aiohttp.client_exceptions.InvalidURL&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Invalid URL.&quot;];
-  &quot;ClientError&quot; -&gt; &quot;InvalidURL&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-</dd></dl>
-
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="alexapy.aiohttp.client_proto.html" class="btn btn-neutral float-right" title="alexapy.aiohttp.client_proto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="alexapy.aiohttp.client.html" class="btn btn-neutral float-left" title="alexapy.aiohttp.client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

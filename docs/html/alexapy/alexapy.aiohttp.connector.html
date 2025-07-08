@@ -4,15 +4,18 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>alexapy.aiohttp.connector &mdash; AlexaPy 1.24.0 documentation</title>
+  <title>alexapy.aiohttp.connector &mdash; AlexaPy 1.26.9 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
 
   
@@ -30,17 +33,15 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="alexapy.aiohttp.cookiejar" href="alexapy.aiohttp.cookiejar.html" />
-    <link rel="prev" title="alexapy.aiohttp.client_ws" href="alexapy.aiohttp.client_ws.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -64,7 +65,7 @@
             
             
               <div class="version">
-                1.24.0
+                1.26.9
               </div>
             
           
@@ -89,11 +90,11 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaapi.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaapi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.alexahttp2.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexahttp2</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexalogin.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexalogin</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexaproxy.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexaproxy</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="alexapy.alexawebsocket.html"><code class="docutils literal notranslate"><span class="pre">alexapy.alexawebsocket</span></code></a></li>
@@ -102,9 +103,27 @@
 <li class="toctree-l3"><a class="reference internal" href="alexapy.helpers.html"><code class="docutils literal notranslate"><span class="pre">alexapy.helpers</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_email"><code class="docutils literal notranslate"><span class="pre">hide_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.hide_serial"><code class="docutils literal notranslate"><span class="pre">hide_serial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.obfuscate"><code class="docutils literal notranslate"><span class="pre">obfuscate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaLogin"><code class="docutils literal notranslate"><span class="pre">AlexaLogin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaAPI"><code class="docutils literal notranslate"><span class="pre">AlexaAPI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexaProxy"><code class="docutils literal notranslate"><span class="pre">AlexaProxy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.HTTP2EchoClient"><code class="docutils literal notranslate"><span class="pre">HTTP2EchoClient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.WebsocketEchoClient"><code class="docutils literal notranslate"><span class="pre">WebsocketEchoClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="alexapy.html#exceptions">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyConnectionError"><code class="docutils literal notranslate"><span class="pre">AlexapyConnectionError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginCloseRequested"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginCloseRequested</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyLoginError"><code class="docutils literal notranslate"><span class="pre">AlexapyLoginError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="alexapy.html#alexapy.AlexapyPyotpInvalidKey"><code class="docutils literal notranslate"><span class="pre">AlexapyPyotpInvalidKey</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -155,10 +174,6 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="alexapy.html"><code class="docutils literal notranslate"><span class="pre">alexapy</span></code></a> &raquo;</li>
-        
-          <li><a href="alexapy.aiohttp.html"><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp</span></code></a> &raquo;</li>
-        
       <li><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.connector</span></code></li>
     
     
@@ -178,232 +193,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-alexapy.aiohttp.connector">
-<span id="alexapy-aiohttp-connector"></span><h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.connector</span></code><a class="headerlink" href="#module-alexapy.aiohttp.connector" title="Permalink to this headline">¶</a></h1>
-<div class="contents local topic" id="contents">
+  <section id="alexapy-aiohttp-connector">
+<h1><code class="docutils literal notranslate"><span class="pre">alexapy.aiohttp.connector</span></code><a class="headerlink" href="#alexapy-aiohttp-connector" title="Permalink to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
-</ul>
-</div>
-<div class="section" id="classes">
-<h2><a class="toc-backref" href="#id1">Classes</a><a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="#alexapy.aiohttp.connector.BaseConnector" title="alexapy.aiohttp.connector.BaseConnector"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConnector</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConnector</span></code>:
 Base connector class.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.connector.TCPConnector" title="alexapy.aiohttp.connector.TCPConnector"><code class="xref py py-class docutils literal notranslate"><span class="pre">TCPConnector</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">TCPConnector</span></code>:
 TCP connector.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.connector.UnixConnector" title="alexapy.aiohttp.connector.UnixConnector"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnixConnector</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">UnixConnector</span></code>:
 Unix socket connector.</p></li>
-<li><p><a class="reference internal" href="#alexapy.aiohttp.connector.NamedPipeConnector" title="alexapy.aiohttp.connector.NamedPipeConnector"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamedPipeConnector</span></code></a>:
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">NamedPipeConnector</span></code>:
 Named pipe connector.</p></li>
 </ul>
-<dl class="py class">
-<dt id="alexapy.aiohttp.connector.BaseConnector">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.connector.</span></code><code class="sig-name descname"><span class="pre">BaseConnector</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">keepalive_timeout:</span> <span class="pre">Union[object</span></em>, <em class="sig-param"><span class="pre">None</span></em>, <em class="sig-param"><span class="pre">float]</span> <span class="pre">=</span> <span class="pre">&lt;object</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">force_close:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">limit:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">100</span></em>, <em class="sig-param"><span class="pre">limit_per_host:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em>, <em class="sig-param"><span class="pre">enable_cleanup_closed:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">loop:</span> <span class="pre">Optional[asyncio.events.AbstractEventLoop]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.connector.BaseConnector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Base connector class.</p>
-<p>keepalive_timeout - (optional) Keep-alive timeout.
-force_close - Set to True to force close and do reconnect</p>
-<blockquote>
-<div><p>after each request (and between redirects).</p>
-</div></blockquote>
-<p>limit - The total number of simultaneous connections.
-limit_per_host - Number of simultaneous connections to one host.
-enable_cleanup_closed - Enables clean-up closed ssl transports.</p>
-<blockquote>
-<div><p>Disabled by default.</p>
-</div></blockquote>
-<p>loop - Optional event loop.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritanceea93c70624 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;BaseConnector&quot; [URL=&quot;../alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.BaseConnector&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base connector class.&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.connector.BaseConnector.close">
-<code class="sig-name descname"><span class="pre">close</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.connector.BaseConnector.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Close all opened transports.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.connector.BaseConnector.closed">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">closed</span></code><a class="headerlink" href="#alexapy.aiohttp.connector.BaseConnector.closed" title="Permalink to this definition">¶</a></dt>
-<dd><p>Is connector closed.</p>
-<p>A readonly property.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.connector.BaseConnector.connect">
-<em class="property"><span class="pre">async</span> </em><code class="sig-name descname"><span class="pre">connect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ClientRequest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traces</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Trace</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">ClientTimeout</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">alexapy.aiohttp.connector.Connection</span><a class="headerlink" href="#alexapy.aiohttp.connector.BaseConnector.connect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get from pool or create new connection.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.connector.BaseConnector.force_close">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">force_close</span></code><a class="headerlink" href="#alexapy.aiohttp.connector.BaseConnector.force_close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ultimately close connection on releasing if True.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.connector.BaseConnector.limit">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">limit</span></code><a class="headerlink" href="#alexapy.aiohttp.connector.BaseConnector.limit" title="Permalink to this definition">¶</a></dt>
-<dd><p>The total number for simultaneous connections.</p>
-<p>If limit is 0 the connector has no limit.
-The default limit size is 100.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.connector.BaseConnector.limit_per_host">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">limit_per_host</span></code><a class="headerlink" href="#alexapy.aiohttp.connector.BaseConnector.limit_per_host" title="Permalink to this definition">¶</a></dt>
-<dd><p>The limit_per_host for simultaneous connections
-to the same endpoint.</p>
-<p>Endpoints are the same if they are have equal
-(host, port, is_ssl) triple.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.connector.TCPConnector">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.connector.</span></code><code class="sig-name descname"><span class="pre">TCPConnector</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">verify_ssl:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></em>, <em class="sig-param"><span class="pre">fingerprint:</span> <span class="pre">Optional[bytes]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">use_dns_cache:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></em>, <em class="sig-param"><span class="pre">ttl_dns_cache:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">10</span></em>, <em class="sig-param"><span class="pre">family:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em>, <em class="sig-param"><span class="pre">ssl_context:</span> <span class="pre">Optional[ssl.SSLContext]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">ssl:</span> <span class="pre">Union[ssl.SSLContext</span></em>, <em class="sig-param"><span class="pre">bool</span></em>, <em class="sig-param"><span class="pre">None</span></em>, <em class="sig-param"><span class="pre">alexapy.aiohttp.client_reqrep.Fingerprint]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">local_addr:</span> <span class="pre">Optional[Tuple[str</span></em>, <em class="sig-param"><span class="pre">int]]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">resolver:</span> <span class="pre">Optional[alexapy.aiohttp.abc.AbstractResolver]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">keepalive_timeout:</span> <span class="pre">Union[None</span></em>, <em class="sig-param"><span class="pre">float</span></em>, <em class="sig-param"><span class="pre">object]</span> <span class="pre">=</span> <span class="pre">&lt;object</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">force_close:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">limit:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">100</span></em>, <em class="sig-param"><span class="pre">limit_per_host:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em>, <em class="sig-param"><span class="pre">enable_cleanup_closed:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">loop:</span> <span class="pre">Optional[asyncio.events.AbstractEventLoop]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.connector.TCPConnector" title="Permalink to this definition">¶</a></dt>
-<dd><p>TCP connector.</p>
-<p>verify_ssl - Set to True to check ssl certifications.
-fingerprint - Pass the binary sha256</p>
-<blockquote>
-<div><p>digest of the expected certificate in DER format to verify
-that the certificate the server presents matches. See also
-<a class="reference external" href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Certificate_pinning">https://en.wikipedia.org/wiki/Transport_Layer_Security#Certificate_pinning</a></p>
-</div></blockquote>
-<dl class="simple">
-<dt>resolver - Enable DNS lookups and use this</dt><dd><p>resolver</p>
-</dd>
-</dl>
-<p>use_dns_cache - Use memory cache for DNS lookups.
-ttl_dns_cache - Max seconds having cached a DNS entry, None forever.
-family - socket address family
-local_addr - local tuple of (host, port) to bind socket to</p>
-<p>keepalive_timeout - (optional) Keep-alive timeout.
-force_close - Set to True to force close and do reconnect</p>
-<blockquote>
-<div><p>after each request (and between redirects).</p>
-</div></blockquote>
-<p>limit - The total number of simultaneous connections.
-limit_per_host - Number of simultaneous connections to one host.
-enable_cleanup_closed - Enables clean-up closed ssl transports.</p>
-<blockquote>
-<div><p>Disabled by default.</p>
-</div></blockquote>
-<p>loop - Optional event loop.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritanceaac9c702d4 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;BaseConnector&quot; [URL=&quot;../alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.BaseConnector&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base connector class.&quot;];
-  &quot;TCPConnector&quot; [URL=&quot;../alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.TCPConnector&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;TCP connector.&quot;];
-  &quot;BaseConnector&quot; -&gt; &quot;TCPConnector&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.connector.TCPConnector.clear_dns_cache">
-<code class="sig-name descname"><span class="pre">clear_dns_cache</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#alexapy.aiohttp.connector.TCPConnector.clear_dns_cache" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove specified host/port or clear all dns local cache.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.connector.TCPConnector.close">
-<code class="sig-name descname"><span class="pre">close</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#alexapy.aiohttp.connector.TCPConnector.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Close all ongoing DNS calls.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.connector.TCPConnector.family">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">family</span></code><a class="headerlink" href="#alexapy.aiohttp.connector.TCPConnector.family" title="Permalink to this definition">¶</a></dt>
-<dd><p>Socket family like AF_INET.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="alexapy.aiohttp.connector.TCPConnector.use_dns_cache">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">use_dns_cache</span></code><a class="headerlink" href="#alexapy.aiohttp.connector.TCPConnector.use_dns_cache" title="Permalink to this definition">¶</a></dt>
-<dd><p>True if local DNS caching is enabled.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.connector.UnixConnector">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.connector.</span></code><code class="sig-name descname"><span class="pre">UnixConnector</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">path:</span> <span class="pre">str</span></em>, <em class="sig-param"><span class="pre">force_close:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">keepalive_timeout:</span> <span class="pre">Optional[Union[object</span></em>, <em class="sig-param"><span class="pre">float]]</span> <span class="pre">=</span> <span class="pre">&lt;object</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">limit:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">100</span></em>, <em class="sig-param"><span class="pre">limit_per_host:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em>, <em class="sig-param"><span class="pre">loop:</span> <span class="pre">Optional[asyncio.events.AbstractEventLoop]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.connector.UnixConnector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unix socket connector.</p>
-<p>path - Unix socket path.
-keepalive_timeout - (optional) Keep-alive timeout.
-force_close - Set to True to force close and do reconnect</p>
-<blockquote>
-<div><p>after each request (and between redirects).</p>
-</div></blockquote>
-<p>limit - The total number of simultaneous connections.
-limit_per_host - Number of simultaneous connections to one host.
-loop - Optional event loop.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance387f42d378 {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;BaseConnector&quot; [URL=&quot;../alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.BaseConnector&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base connector class.&quot;];
-  &quot;UnixConnector&quot; [URL=&quot;../alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.UnixConnector&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Unix socket connector.&quot;];
-  &quot;BaseConnector&quot; -&gt; &quot;UnixConnector&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.connector.UnixConnector.path">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">path</span></code><a class="headerlink" href="#alexapy.aiohttp.connector.UnixConnector.path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Path to unix socket.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="alexapy.aiohttp.connector.NamedPipeConnector">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">alexapy.aiohttp.connector.</span></code><code class="sig-name descname"><span class="pre">NamedPipeConnector</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">path:</span> <span class="pre">str</span></em>, <em class="sig-param"><span class="pre">force_close:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">keepalive_timeout:</span> <span class="pre">Optional[Union[object</span></em>, <em class="sig-param"><span class="pre">float]]</span> <span class="pre">=</span> <span class="pre">&lt;object</span> <span class="pre">object&gt;</span></em>, <em class="sig-param"><span class="pre">limit:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">100</span></em>, <em class="sig-param"><span class="pre">limit_per_host:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em>, <em class="sig-param"><span class="pre">loop:</span> <span class="pre">Optional[asyncio.events.AbstractEventLoop]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#alexapy.aiohttp.connector.NamedPipeConnector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Named pipe connector.</p>
-<p>Only supported by the proactor event loop.
-See also: <a class="reference external" href="https://docs.python.org/3.7/library/asyncio-eventloop.html">https://docs.python.org/3.7/library/asyncio-eventloop.html</a></p>
-<p>path - Windows named pipe path.
-keepalive_timeout - (optional) Keep-alive timeout.
-force_close - Set to True to force close and do reconnect</p>
-<blockquote>
-<div><p>after each request (and between redirects).</p>
-</div></blockquote>
-<p>limit - The total number of simultaneous connections.
-limit_per_host - Number of simultaneous connections to one host.
-loop - Optional event loop.</p>
-<p class="rubric">Inheritance</p>
-digraph inheritance0f38227dad {
-bgcolor=transparent;
-rankdir=LR;
-size=&quot;8.0, 12.0&quot;;
-  &quot;BaseConnector&quot; [URL=&quot;../alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.BaseConnector&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Base connector class.&quot;];
-  &quot;NamedPipeConnector&quot; [URL=&quot;../alexapy/alexapy.aiohttp.connector.html#alexapy.aiohttp.connector.NamedPipeConnector&quot;,fillcolor=white,fontname=&quot;Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans&quot;,fontsize=10,height=0.25,shape=box,style=&quot;setlinewidth(0.5),filled&quot;,target=&quot;_top&quot;,tooltip=&quot;Named pipe connector.&quot;];
-  &quot;BaseConnector&quot; -&gt; &quot;NamedPipeConnector&quot; [arrowsize=0.5,style=&quot;setlinewidth(0.5)&quot;];
-}
-<dl class="py method">
-<dt id="alexapy.aiohttp.connector.NamedPipeConnector.path">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">path</span></code><a class="headerlink" href="#alexapy.aiohttp.connector.NamedPipeConnector.path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Path to the named pipe.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="alexapy.aiohttp.cookiejar.html" class="btn btn-neutral float-right" title="alexapy.aiohttp.cookiejar" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="alexapy.aiohttp.client_ws.html" class="btn btn-neutral float-left" title="alexapy.aiohttp.client_ws" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 
